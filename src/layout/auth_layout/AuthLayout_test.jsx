@@ -19,6 +19,15 @@ export default AuthLayout;
 
 
 
+// cd d:\food-delivery-webapp\webapp_client
+// git init
+// git remote add origin https://github.com/johaking2009/korzinka-go-yangi.git
+// git add .
+// git commit -m "00:58"
+// git branch -M main
+// git push -u origin main
+
+
 
 
 
