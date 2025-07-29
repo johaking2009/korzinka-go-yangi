@@ -508,7 +508,9 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .row {
   display: flex;
-  gap: 16px;
+  gap: 10px;
+  justify-content: center; /* markazga joylashadi */
+  align-items: center;      /* vertikal markaz */
 }
 
 .row:first-child img {
@@ -539,6 +541,14 @@ input[type="number"]::-webkit-inner-spin-button {
   height: 80px;
   object-fit: cover;
   border-radius: 10px;
+}
+.sabzavot-gallery,
+.shirinlik-gallery,
+.sut-gallery,
+.gosht-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* butun galereya markazda */
 }
 
 
