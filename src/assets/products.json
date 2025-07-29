@@ -632,37 +632,7 @@
 
   {
     "_id": "32",
-    "product_name": "Tovuq go'shti",
-    "subcategory": "Salatlar",
-    "category": "Ovqatlar",
-    "unit": "gr",
-    "unit_description": "175 g",
-    "price": 30000,
-    "expiration": 7,
-    "additionals": ["Kukurka", "Pomidor"],
-    "discount_log": [{
-      "start_date": "2025-07-01",
-      "end_date": "2025-07-31",
-      "percent": 15,
-      "status": "active"
-    }],
-    "stock_log": [{
-      "stock": 100,
-      "mfg_date": "2025-07-01"
-    }],
-    "image_log": [{
-      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
-      "isMain": true
-    }],
-    "product_description": "Mazali salat",
-    "product_ingredients": "Kukurka, pomidor, kurka go'shti",
-    "nutritional_value": {
-      "kkal": 200,
-      "fat": 10,
-      "protein": 15,
-      "uglevod": 20
-    },
-    "strg_conditions": "Sovuq joyda saqlash"
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
   },
   {
     "_id": "33",
@@ -972,7 +942,7 @@
       "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
   },
 
-  
+
   {
     "_id": "63",
       "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"

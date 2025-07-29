@@ -89,24 +89,28 @@ return (
   <div className="universal-gallery">
     <div className="row">
       {productsState
-        .filter(item => ["7", "8"].includes(item._id))
+        .filter(item => ["7", "8", "9"].includes(item._id))
         .map(item => (
-          <img
-            key={item._id}
-            src={item.image_log?.find((img)=> img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-            alt={item.product_name}
-          />
+          <div key={item._id} style={{ textAlign: 'center' }}>
+            <img
+              src={item.image_log?.find((img)=> img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
+              alt={item.product_name}
+            />
+            <div style={{ marginTop: '8px' }}>{item.product_name}</div>
+          </div>
         ))}
     </div>
     <div className="row">
       {productsState
-        .filter(item => ["9", "10", "11" ].includes(item._id))
+        .filter(item => ["10", "11"].includes(item._id))
         .map(item => (
-          <img
-            key={item._id}
-            src={item.image_log?.find((img)=> img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-            alt={item.product_name}
-          />
+          <div key={item._id} style={{ textAlign: 'center' }}>
+            <img
+              src={item.image_log?.find((img)=> img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
+              alt={item.product_name}
+            />
+            <div style={{ marginTop: '8px' }}>{item.product_name}</div>
+          </div>
         ))}
     </div>
   </div>
@@ -115,7 +119,7 @@ return (
   <div className="Tabiy-mahsulotlar section-title">
     <h2>Sabzavot va mevalar</h2>
     {/* Faqat _id 6 va 7 bo'lgan rasmlar */}
-    <div className="sabzavot-gallery" style={{ display: 'flex', gap: '10px', marginTop: '15px' }}>
+    <div className="sabzavot-gallery" style={{ display: 'flex',  gap: '10px', marginTop: '15px' }}>
       {productsState
       .filter(item =>
       (item._id === "12" || item._id === "13") &&
@@ -177,15 +181,16 @@ return (
   <div className='tayyor-mahsulotlar'>
     <h2 className='section-title'>Tayyor ovqat</h2>
     {productsState
-    .filter(product => product._id === "20")
-    .map(product => (
-    <div key={product._id} className="tayyor-mahsulot-card">
-      <img src={product.image_log?.find((img)=> img.isMain)?.image_url || product.image_url || "/default-image.jpg"}
-      alt={product.product_name || "Mahsulot rasmi"}
-      style={{ width: '410px', height: '110px', objectFit: 'cover', borderRadius: '15px' }}
-      />
-    </div>
-    ))}
+      .filter(product => product._id === "20")
+      .map(product => (
+        <div key={product._id} className="tayyor-mahsulot-card" style={{ textAlign: 'center' }}>
+          <img src={product.image_log?.find((img)=> img.isMain)?.image_url || product.image_url || "/default-image.jpg"}
+            alt={product.product_name || "Mahsulot rasmi"}
+            style={{ width: '410px', height: '110px', objectFit: 'cover', borderRadius: '15px' }}
+          />
+          <div style={{ marginTop: '8px' }}>{product.product_name}</div>
+        </div>
+      ))}
   </div>
 
   <div className="sut-mahsulotlari">
@@ -271,21 +276,20 @@ return (
 
 <div className='dengiz-mahsulotlari'>
 <h2 className='section-title'>Dengiz mahsulotlari</h2>
-    <div className="go'sht-gallery"
-      style={{ display: 'flex', flexDirection: 'column', gap: '15px', marginTop: '15px', padding: '10px' }}>
-      <div className="gosht-row" style={{ display: 'flex', gap: '10px' }}>
-        {productsState
+  <div className="gosht-gallery"
+    style={{ display: 'flex', gap: '15px', marginTop: '15px', padding: '10px' }}>
+    <div className="gosht-row" style={{ display: 'flex', gap: '10px' }}>
+      {productsState
         .filter(item => ["34", "35", "36"].includes(item._id))
         .map(item => (
-        <div key={item._id}>
-          <img src={item.image_url || "/default-image.jpg" } alt={item.product_name || "Go'sht mahsuloti" }
-            style={{ width: '130px', height:'130px', borderRadius: '10px', objectFit: 'cover', }} />
-          <div style={{ textAlign: 'center', marginTop: '8px' }}>
+          <div key={item._id} style={{ textAlign: 'center' }}>
+            <img src={item.image_url || "/default-image.jpg" } alt={item.product_name || "Go'sht mahsuloti" }
+              style={{ width: '130px', height:'130px', borderRadius: '10px', objectFit: 'cover', }} />
+            <div style={{ marginTop: '8px' }}>{item.product_name}</div>
           </div>
-        </div>
         ))}
-      </div>
     </div>
+  </div>
 </div>
 
 <div className='ichimliklar'>
