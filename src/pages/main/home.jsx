@@ -44,7 +44,7 @@ return (
     </div>
   </div>
 
-  {/* Product Slider Section */}
+  {/* Chilla */}
   <div className="product-section">
     <h2 className="section-title">Chilla</h2>
     <div className="product-slider">
@@ -83,7 +83,7 @@ return (
     </div>
   </div>
 
-  {/* Qo‘shimcha Qism: Rasmlar Bo‘limi */}
+  {/* Aktual takliflar */}
   <div className="image-gallery-section">
   <h2 className="section-title">Aktual takliflar</h2>
   <div className="universal-gallery">
@@ -251,6 +251,8 @@ return (
     ))}
 </div>
 
+{/* Go'sht va parrandalar */}
+
 <div className='goshtlar'>
 <h2 className='section-title'>Go'sht va parrandalar</h2>
     <div className="gosht-gallery" style={{ display: 'flex', gap: '10px', marginTop: '15px', padding: '10px' }}>
@@ -274,6 +276,8 @@ return (
     </div>
 </div>
 
+{/* Dengiz mahsulotlari */}
+
 <div className='dengiz-mahsulotlari'>
 <h2 className='section-title'>Dengiz mahsulotlari</h2>
   <div className="gosht-gallery"
@@ -291,6 +295,8 @@ return (
     </div>
   </div>
 </div>
+
+{/* Suv va chimliklar */}
 
 <div className='ichimliklar'>
 <h2 className='section-title'>Suv va chimliklar</h2>
@@ -322,6 +328,8 @@ return (
   </div>
 </div>
 
+{/* Shirinlik sevuvchilar */}
+
 <div className='shirinlik-sevuvchilar'></div>
 <h2 className='section-title'>Shirinlik sevuvchilar</h2>
 <div className="sizga-yoqadi-slider">
@@ -346,6 +354,8 @@ return (
       </div>
     ))}
 </div>
+
+{/* Shirinliklar */}
 
 <div className='shirinlikar'>
 <h2 className='section-title'>Shirinliklar</h2>
@@ -378,7 +388,7 @@ return (
     </div>  
 </div>
 
-
+{/* Oziq-ovqat mollari */}
 
 
 <div className='Oziq-ovqat'>
@@ -412,6 +422,256 @@ return (
       <div className="shirinlik-row" style={{ display: 'flex', gap: '10px' }}>
         {productsState
         .filter(item => ["60", "61", "62"].includes(item._id))
+        .map(item => (
+        <div key={item._id}>
+          <img src={item.image_url || "/default-image.jpg" } alt={item.product_name || "Shirinlik mahsuloti" }
+            style={{ width: '130px', height:'130px', borderRadius: '10px', objectFit: 'cover', }} />
+          <div style={{ textAlign: 'center', marginTop: '8px' }}>
+          </div>
+        </div>
+        ))}
+      </div>
+    </div>  
+</div>
+
+{/* Non mahsulotlari */}
+
+<div className='Oziq-ovqat'>
+<h2 className='section-title'>Non mahsulotlari</h2>
+<div className="shirinlik-gallery"
+      style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '15px', padding: '10px' }}>
+      <div className="shirinlik-row" style={{ display: 'flex', gap: '10px' }}>
+        {productsState  
+        .filter(item => ["63", "64", "65"].includes(item._id))
+        .map(item => (
+        <div key={item._id}>
+          <img src={item.image_url || "/default-image.jpg" } alt={item.product_name || "Shirinlik mahsuloti" }
+            style={{ width: '130px', height:'130px', borderRadius: '10px', objectFit: 'cover', }} />
+          <div style={{ textAlign: 'center' }}>
+          </div>
+        </div>
+        ))}
+      </div>
+    </div>  
+</div>
+
+{/* Muzlatilgan mahsulotlar va
+  muzqaymoq */}
+
+<div className='goshtlar'>
+<h2 className='section-title'>Muzlatilgan mahsulotlar va
+  muzqaymoq</h2>
+    <div className="gosht-gallery" style={{ display: 'flex', gap: '10px', marginTop: '15px', padding: '10px' }}>
+      {productsState
+      .filter(item =>
+      (item._id === "66" || item._id === "67") &&
+      item.product_name !== "Чай зеленый"
+      )
+      .map(item => (
+      <div key={item._id}>
+        <img src={ item.image_log?.find((img)=> img.isMain)?.image_url ||
+        item.image_url ||
+        "/default-image.jpg"
+        }
+        alt={item.product_name}
+        style={{ width: '200px', borderRadius: '10px' }}
+        />
+        <div style={{ textAlign: 'center', marginTop: '8px' }}>{item.product_name}</div>
+      </div>
+      ))}
+    </div>
+</div>
+
+{/* Turli xil konservalar */}
+
+<div className='goshtlar'>
+<h2 className='section-title'>Turli xil konservalar</h2>
+    <div className="gosht-gallery" style={{ display: 'flex', gap: '10px', marginTop: '15px', padding: '10px' }}>
+      {productsState
+      .filter(item =>
+      (item._id === "68" || item._id === "69") &&
+      item.product_name !== "Чай зеленый"
+      )
+      .map(item => (
+      <div key={item._id}>
+        <img src={ item.image_log?.find((img)=> img.isMain)?.image_url ||
+        item.image_url ||
+        "/default-image.jpg"
+        }
+        alt={item.product_name}
+        style={{ width: '200px', borderRadius: '10px' }}
+        />
+        <div style={{ textAlign: 'center', marginTop: '8px' }}>{item.product_name}</div>
+      </div>
+      ))}
+    </div>
+</div>
+
+{/* Bolalar uchun */}
+
+<div className='ichimliklar'>
+<h2 className='section-title'>Bolalar uchun</h2>
+<div className="universal-gallery">
+    <div className="image-gallery">
+      <div className="row">
+        {productsState
+          .filter(item => item._id === "70" || item._id === "71")
+          .map(item => (
+            <img
+              key={item._id}
+              src={item.image_url || "/default-image.jpg"}
+              alt={item.product_name || "Mahsulot rasmi"}
+            />
+          ))}
+      </div>
+      <div className="row">
+        {productsState
+          .filter(item => item._id === "72" || item._id === "73" || item._id === "74")
+          .map(item => (
+            <img
+              key={item._id}
+              src={item.image_url || "/default-image.jpg"}
+              alt={item.product_name || "Mahsulot rasmi"}
+            />
+          ))}
+      </div>
+    </div>
+  </div>
+</div>
+
+{/* Uy hayvonlari uchun */}
+
+<div className='goshtlar'>
+<h2 className='section-title'>Uy hayvonlari uchun</h2>
+    <div className="gosht-gallery" style={{ display: 'flex', gap: '10px', marginTop: '15px', padding: '10px' }}>
+      {productsState
+      .filter(item =>
+      (item._id === "75" || item._id === "76") &&
+      item.product_name !== "Чай зеленый"
+      )
+      .map(item => (
+      <div key={item._id}>
+        <img src={ item.image_log?.find((img)=> img.isMain)?.image_url ||
+        item.image_url ||
+        "/default-image.jpg"
+        }
+        alt={item.product_name}
+        style={{ width: '200px', borderRadius: '10px' }}
+        />
+        <div style={{ textAlign: 'center', marginTop: '8px' }}>{item.product_name}</div>
+      </div>
+      ))}
+    </div>
+</div>
+
+{/* Gigiyena va parvarish */}
+
+<div className='ichimliklar'>
+  <h2 className='section-title'>Gigiyena va parvarish</h2>
+  <div className="universal-gigiyena">
+      {/* 1-qator: 2 ta rasm */}
+      <div className="gigiyena" style={{ justifyContent: 'center', gap: '10px' }}>
+        {productsState.filter(item => item._id === "77").map(item => (
+          <div key={item._id} style={{ textAlign: 'center' }}>
+            <img src={item.image_url || "/default-image.jpg"}
+                 alt={item.product_name || "Mahsulot rasmi"}
+                 style={{ width: '200px', height: '130px', borderRadius: '16px', objectFit: 'cover' }} />
+          </div>
+        ))}
+        {productsState.filter(item => item._id === "78").map(item => (
+          <div key={item._id} style={{ textAlign: 'center' }}>
+            <img src={item.image_url || "/default-image.jpg"}
+                 alt={item.product_name || "Mahsulot rasmi"}
+                 style={{ width: '200px', height: '130px', borderRadius: '16px', objectFit: 'cover' }} />
+          </div>
+        ))}
+      </div>
+      {/* 2-qator: 3 ta rasm */}
+      <div className="row" style={{ justifyContent: 'center', gap: '10px' }}>
+        {productsState.filter(item => item._id === "79").map(item => (
+          <div key={item._id} style={{ textAlign: 'center' }}>
+            <img src={item.image_url || "/default-image.jpg"}
+                 alt={item.product_name || "Mahsulot rasmi"}
+                 style={{ width: '130px', height: '130px', borderRadius: '16px', objectFit: 'cover' }} />
+          </div>
+        ))}
+        {productsState.filter(item => item._id === "80").map(item => (
+          <div key={item._id} style={{ textAlign: 'center' }}>
+            <img src={item.image_url || "/default-image.jpg"}
+                 alt={item.product_name || "Mahsulot rasmi"}
+                 style={{ width: '130px', height: '130px', borderRadius: '16px', objectFit: 'cover' }} />
+          </div>
+        ))}
+        {productsState.filter(item => item._id === "81").map(item => (
+          <div key={item._id} style={{ textAlign: 'center' }}>
+            <img src={item.image_url || "/default-image.jpg"}
+                 alt={item.product_name || "Mahsulot rasmi"}
+                 style={{ width: '130px', height: '130px', borderRadius: '16px', objectFit: 'cover' }} />
+          </div>
+        ))}
+      </div>
+      {/* 3-qator: 3 ta rasm, 1-qator o‘lchamida */}
+      <div className="row" style={{ justifyContent: 'center', gap: '10px' }}>
+        {productsState.filter(item => item._id === "82").map(item => (
+          <div key={item._id} style={{ textAlign: 'center' }}>
+            <img src={item.image_url || "/default-image.jpg"}
+                 alt={item.product_name || "Mahsulot rasmi"}
+                 style={{ width: '200px', height: '130px', borderRadius: '16px', objectFit: 'cover' }} />
+          </div>
+        ))}
+        {productsState.filter(item => item._id === "83").map(item => (
+          <div key={item._id} style={{ textAlign: 'center' }}>
+            <img src={item.image_url || "/default-image.jpg"}
+                 alt={item.product_name || "Mahsulot rasmi"}
+                 style={{ width: '200px', height: '130px', borderRadius: '16px', objectFit: 'cover' }} />
+          </div>
+        ))}
+      </div>
+  </div>
+</div>
+
+{/* Chinniyu chiroq */}
+
+<div className='Oziq-ovqat'>
+<h2 className='section-title'>Chinniyu chiroq</h2>
+<div className="shirinlik-gallery"
+      style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+      <div className="shirinlik-row" style={{ display: 'flex', gap: '10px' }}>
+        {productsState  
+        .filter(item => ["84", "85", "86"].includes(item._id))
+        .map(item => (
+        <div key={item._id}>
+          <img src={item.image_url || "/default-image.jpg" } alt={item.product_name || "Shirinlik mahsuloti" }
+            style={{ width: '130px', height:'130px', borderRadius: '10px', objectFit: 'cover', }} />
+          <div style={{ textAlign: 'center' }}>
+          </div>
+        </div>
+        ))}
+      </div>
+    </div>  
+</div>
+
+{/* Ro'zg'or uchun */}
+
+<div className='shirinlikar'>
+<h2 className='section-title'>Ro'zg'or uchun</h2>
+<div className="shirinlik-gallery"
+      style={{ display: 'flex', flexDirection: 'column', gap: '8px',  padding: '10px' }}>
+      <div className="shirinlik-row" style={{ display: 'flex', gap: '10px' }}>
+        {productsState  
+        .filter(item => ["87", "88", "89"].includes(item._id))
+        .map(item => (
+        <div key={item._id}>
+          <img src={item.image_url || "/default-image.jpg" } alt={item.product_name || "Shirinlik mahsuloti" }
+            style={{ width: '130px', height:'130px', borderRadius: '10px', objectFit: 'cover', }} />
+          <div style={{ textAlign: 'center' }}>
+          </div>
+        </div>
+        ))}
+      </div>
+      <div className="shirinlik-row" style={{ display: 'flex', gap: '10px' }}>
+        {productsState
+        .filter(item => ["90", "91", "92"].includes(item._id))
         .map(item => (
         <div key={item._id}>
           <img src={item.image_url || "/default-image.jpg" } alt={item.product_name || "Shirinlik mahsuloti" }

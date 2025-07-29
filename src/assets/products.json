@@ -1,4 +1,5 @@
-[{
+[
+  {
     "_id": "1",
     "product_name": "Салат с курицей",
     "subcategory": "Salatlar",
@@ -188,6 +189,17 @@
     "strg_conditions": "20-25°C da quruq joyda saqlash"
   },
 
+
+
+
+
+
+
+
+
+
+
+
 {
     "_id": "7",
     "image_url": "https://www.toshvilstat.uz/images/yangiliklar2024/sabzavot_16052024.jpg"
@@ -208,6 +220,14 @@
     "_id": "11",
     "image_url": "https://www.toshvilstat.uz/images/yangiliklar2024/sabzavot_16052024.jpg"
   },
+
+
+
+
+
+
+
+
   
 
 
@@ -219,6 +239,13 @@
     "_id": "13",
     "image_url": "https://www.toshvilstat.uz/images/yangiliklar2024/sabzavot_16052024.jpg"
   },
+
+
+
+
+
+
+
 
 
   {
@@ -427,10 +454,26 @@
   },
 
 
+
+
+
+
+
+
+
+
+
+
+
   {
     "_id": "20",
     "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
   },
+
+
+
+
+
   {
     "_id": "21",
     "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
@@ -455,6 +498,13 @@
     "_id": "26",
     "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
   },
+
+
+
+
+
+
+  
   {
     "_id": "27",
     "product_name": "Tovuq go'shti",
@@ -630,6 +680,13 @@
     "strg_conditions": "Sovuq joyda saqlash"
   },
 
+
+
+
+
+
+
+
   {
     "_id": "32",
       "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
@@ -638,6 +695,13 @@
     "_id": "33",
     "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
   },
+
+
+
+
+
+
+
   {
     "_id": "34",
     "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
@@ -651,6 +715,12 @@
     "_id": "36",
     "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
   },
+
+
+
+
+
+
   {
     "_id": "37",
     "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
@@ -659,6 +729,9 @@
     "_id": "38",
     "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
   },
+
+
+
 
 
   {
@@ -675,6 +748,13 @@
     "_id": "41",
       "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
   },
+
+
+
+
+
+
+
   {
     "_id": "42",
     "product_name": "Tovuq go'shti",
@@ -879,6 +959,12 @@
     },
     "strg_conditions": "Sovuq joyda saqlash"
   },
+
+
+
+
+
+
   {
     "_id": "48",
       "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
@@ -891,6 +977,11 @@
     "_id": "50",
       "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
   },
+
+
+
+
+
   {
     "_id": "51",
       "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
@@ -905,6 +996,10 @@
   },
 
 
+
+
+
+
   {
     "_id": "54",
       "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
@@ -917,6 +1012,12 @@
     "_id": "56",
       "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
   },
+
+
+
+
+
+
   {
     "_id": "57",
       "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
@@ -929,6 +1030,11 @@
     "_id": "59",
       "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
   },
+
+
+
+
+
   {
     "_id": "60",
       "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
@@ -943,6 +1049,10 @@
   },
 
 
+
+
+
+
   {
     "_id": "63",
       "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
@@ -954,7 +1064,169 @@
   {
     "_id": "65",
       "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
+  },
+
+
+
+
+
+
+  {
+    "_id": "66",
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
+  },
+  {
+    "_id": "67",
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
+  },
+
+
+
+
+
+
+  
+  {
+    "_id": "68",
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
+  },
+  {
+    "_id": "69",
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
+  },
+
+
+
+
+
+
+  {
+    "_id": "70",
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
+  },
+  {
+    "_id": "71",
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
+  },
+
+
+
+
+
+  
+  {
+    "_id": "72",
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
+  },
+  {
+    "_id": "73",
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
+  },
+  {
+    "_id": "74",
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
+  },
+
+
+
+
+
+
+  {
+    "_id": "75",
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
+  },
+  {
+    "_id": "76",
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
+  },
+
+
+
+
+
+
+
+  {
+    "_id": "77",
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
+  },
+  {
+    "_id": "78",
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
+  },
+  {
+    "_id": "79",
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
+  },
+  {
+    "_id": "80",
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
+  },
+  {
+    "_id": "81",
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
+  },
+  {
+    "_id": "82",
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
+  },
+  {
+    "_id": "83",
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
+  },
+
+
+
+
+
+
+
+  {
+    "_id": "84",
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
+  },
+  {
+    "_id": "85",
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
+  },
+  {
+    "_id": "86",
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
+  },
+
+  
+
+
+
+
+  {
+    "_id": "87",
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
+  },
+  {
+    "_id": "88",
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
+  },
+  {
+    "_id": "89",
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
+  },
+
+
+
+
+
+  {
+    "_id": "90",
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
+  },
+  {
+    "_id": "91",
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
+  },
+  {
+    "_id": "92",
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg"
   }
-
-
 ]

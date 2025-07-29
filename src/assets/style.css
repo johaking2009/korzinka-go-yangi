@@ -499,6 +499,13 @@ input[type="number"]::-webkit-inner-spin-button {
   border-radius: 25px;
 }
 
+.universal-gigiyena{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+
 .image-gallery,
 .universal-gallery {
   display: flex;
@@ -513,6 +520,13 @@ input[type="number"]::-webkit-inner-spin-button {
   align-items: center;      /* vertikal markaz */
 }
 
+.gigiyena{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
 .row:first-child img {
   width: 200px;
   height: 100px;
@@ -525,6 +539,8 @@ input[type="number"]::-webkit-inner-spin-button {
   border-radius: 16px;
   object-fit: cover;
 }
+
+
 
 /* universal-gallery uchun umumiy stillar */
 .universal-gallery {
