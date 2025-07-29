@@ -89,7 +89,7 @@ return (
   <div className="universal-gallery">
     <div className="row">
       {productsState
-        .filter(item => ["7", "8", "9"].includes(item._id))
+        .filter(item => ["7", "8" ].includes(item._id))
         .map(item => (
           <div key={item._id} style={{ textAlign: 'center' }}>
             <img
@@ -102,7 +102,7 @@ return (
     </div>
     <div className="row">
       {productsState
-        .filter(item => ["10", "11"].includes(item._id))
+        .filter(item => ["9", "10", "11"].includes(item._id))
         .map(item => (
           <div key={item._id} style={{ textAlign: 'center' }}>
             <img
