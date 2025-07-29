@@ -24,17 +24,15 @@ textarea {
 }
 .auth-layout {
   width: 100vw;
-  max-width: 430px;
-  height: 100svh;
+  max-width: 100vw;   /* <-- 100vh emas, 100vw bo‘lishi kerak */
+  height: 100vh;
+  max-height: 100vh;
   background: #f4f6f9;
-  /* padding-block: 12px;
-  padding-inline: 12px; */
-  overflow: hidden;
 }
+
 .auth-phone {
   width: 100%;
   height: 100%;
-  overflow-y: auto;
   padding-block: 12px;
   padding-inline: 12px;
 }
@@ -302,6 +300,12 @@ input[type="number"]::-webkit-inner-spin-button {
 
 
 
+.menu_icon{
+  display: flex;
+justify-content: right;
+padding-left: 15px;
+}
+
 
 
 .home {
@@ -310,15 +314,22 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .header {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 33px;
-  padding-top: 15px;
+  position: relative;
+  height: 48px;
+}
+
+.menu_icon {
+  margin-right: 12px;
+  flex-shrink: 0;
+  font-size: 25px;
 }
 
 .location {
-  font-size: 16px;
-  color: #333;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 500;
 }
 
 .search-bar {
@@ -569,6 +580,146 @@ input[type="number"]::-webkit-inner-spin-button {
   display: flex;
   align-items: center; /* butun galereya markazda */
   justify-content: center; /* butun galereya markazda */
+}
+
+/* MODAL OVERLAY */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 100;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+}
+
+/* MODAL CONTENT */
+.product-modal {
+  background: #fff;
+  border-radius: 25px 25px 0 0;
+  height: 95%;
+  width: 100%;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  overflow: hidden;
+  position: relative;
+  animation: modalIn 0.18s;
+}
+@keyframes modalIn {
+  from { transform: translateY(40px); opacity: 0;}
+  to { transform: translateY(0); opacity: 1;}
+}
+
+/* IMAGE WRAP */
+.modal-img-wrap {
+  position: relative;
+  width: 100%;
+  background: #fafafa;
+}
+.modal-product-img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 20px 20px 0 0;
+  display: block;
+}
+
+/* LIKE & CLOSE BUTTONS */
+.modal-like-btn, .modal-close-btn {
+  position: absolute;
+  top: 14px;
+  background: #ffffff7d;
+  border: none;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px #eee;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.modal-like-btn { right: 60px; }
+.modal-close-btn { right: 14px; } 
+.modal-like-btn.liked span { color: #e6002d; }
+.modal-like-btn:hover, .modal-close-btn:hover { background: #f3f3f3; }
+
+/* BODY */
+.modal-product-body {
+  padding: 18px 18px 24px 18px;
+}
+.modal-discount-badge {
+  display: inline-block;
+  background: #ff5a1f;
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 7px;
+  padding: 2px 10px;
+  margin-bottom: 10px;
+}
+.modal-product-title {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.modal-product-name { font-size: 22px; font-weight: 700; }
+.modal-product-weight { font-size: 18px; color: #888; font-weight: 500; }
+.modal-product-desc {
+  color: #444;
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+.modal-product-details {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.modal-product-price {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.modal-product-price-new {
+  font-size: 24px;
+  font-weight: 700;
+  color: #e6002d;
+}
+.modal-product-price-old {
+  font-size: 18px;
+  color: #aaa;
+  text-decoration: line-through;
+  margin-left: 6px;
+}
+.modal-product-info {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 8px;
+}
+.modal-product-info ul {
+  margin: 0 0 0 18px;
+  padding: 0;
+  font-size: 14px;
+}
+.modal-add-to-cart-btn {
+  width: 100%;
+  background: #19b394;
+  color: #fff;
+  font-size: 19px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  padding: 13px 0;
+  margin-top: 18px;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.modal-add-to-cart-btn:hover {
+  background: #138c74;
 }
 
 
