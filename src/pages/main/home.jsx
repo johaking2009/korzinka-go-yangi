@@ -3,6 +3,12 @@ import { Link } from 'react-router-dom';
 import '../../assets/style.css';
 import products from '../../assets/products.json';
 import { CgMenuMotion } from "react-icons/cg";
+import { VscRefresh } from "react-icons/vsc";
+import { FaQrcode } from "react-icons/fa6";
+import { FaPercent } from "react-icons/fa6";
+import { FaRegHeart } from "react-icons/fa6";
+
+
 
 // import gallery from '../../assets/gallery.json';
 
@@ -163,10 +169,10 @@ function Home() {
 
       {/* Category Icons */}
       <div className="category-icons">
-        <button className="icon-btn"><strong>%</strong> <span>Chegirmalar</span></button>
-        <button className="icon-btn"><strong>❤️</strong> <span>Saralangan</span></button>
-        <button className="icon-btn"><strong>↻</strong> <span>Avvalgi xaridlar</span></button>
-        <button className="icon-btn"><strong>QR</strong> <span>QR kod</span></button>
+        <button className="icon-btn"><strong className='percent'><FaPercent /></strong> <span>Chegirmalar</span></button>
+        <button className="icon-btn"><strong className='favorite'><FaRegHeart /></strong> <span>Saralangan</span></button>
+        <button className="icon-btn"><strong className='refresh'><VscRefresh /></strong> <span>Avvalgi xaridlar</span></button>
+        <button className="icon-btn"><strong className='QR'><FaQrcode /></strong> <span>QR kod</span></button>
       </div>
 
       {/* Promotions */}
@@ -337,7 +343,7 @@ function Home() {
         <h2 className="section-title">Sut mahsulotlari</h2>
         <div className="sut-gallery"
           style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', }}>
-          <div className="sut-gallery-row" style={{ display: 'flex', gap: '10px', padding: '10px', borderRadius: '10px' }}>
+          <div className="sut-gallery-row" style={{ display: 'flex', gap: '10px'}}>
             {productsState
             .filter(item => ["21", "22", "23"].includes(item._id))
             .map(item => (
