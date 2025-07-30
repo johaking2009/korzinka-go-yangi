@@ -185,7 +185,7 @@ function Home() {
       {/* Chilla */}
       <div className="product-section">
         <h2 className="section-title">Chilla</h2>
-        <div className="product-slider">
+        <div className="product-slider" >
           {productsState
             .filter(product => product._id >= 1 && product._id <= 6)
             .map((product) => {
@@ -224,7 +224,7 @@ function Home() {
       {/* Aktual takliflar */}
       <div className="image-gallery-section">
         <h2 className="section-title">Aktual takliflar</h2>
-        <div className="universal-gallery">
+        <div className="universal-gallery" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center',}}>
           <div className="row">
             {productsState
               .filter(item => ["7", "8"].includes(item._id))
@@ -261,7 +261,7 @@ function Home() {
       <div className="Tabiy-mahsulotlar section-title">
         <h2>Sabzavot va mevalar</h2>
         {/* Faqat _id 6 va 7 bo'lgan rasmlar */}
-        <div className="sabzavot-gallery" style={{ display: 'flex',  gap: '10px', marginTop: '15px' }}>
+        <div className="sabzavot-gallery" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
           {productsState
             .filter(item =>
               (item._id === "12" || item._id === "13") &&
@@ -285,7 +285,7 @@ function Home() {
       </div>
       <div className='eng-aron-mahsulotlar'>
         <h2 className='section-title'>Haftaning super narxi</h2>
-        <div className="super-price-slider">
+        <div className="super-price-slider" >
           {productsState
             .filter(product => {
               const id = Number(product._id);
@@ -313,8 +313,12 @@ function Home() {
               })}
         </div>
       </div>
-      <div className='tayyor-mahsulotlar'>
+
+
+
+      <div className='tayyor-mahsulotlar' >
         <h2 className='section-title'>Tayyor ovqat</h2>
+      <div className="tayyor-mahsulot-card" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px', padding: '10px' }}>
         {productsState
           .filter(product => product._id === "20")
           .map(product => (
@@ -327,21 +331,23 @@ function Home() {
             </div>
           ))}
       </div>
+      </div>
 
       <div className="sut-mahsulotlari">
         <h2 className="section-title">Sut mahsulotlari</h2>
         <div className="sut-gallery"
-          style={{ display: 'flex', flexDirection: 'column', gap: '15px', marginTop: '15px', padding: '10px' }}>
+          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', }}>
           <div className="sut-gallery-row" style={{ display: 'flex', gap: '10px' }}>
             {productsState
             .filter(item => ["21", "22", "23"].includes(item._id))
             .map(item => (
             <div key={item._id} style={{ cursor: "pointer" }} onClick={() => handleProductClick(item)}>
-              <img src={item.image_url || "/default-image.jpg" } alt={item.product_name || "Sut mahsuloti" }
-                style={{ width: '130px', height:'130px', borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
+              <img
+                src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
+                alt={item.product_name || "Sut mahsuloti"}
+                style={{ width: '130px', height: '130px', borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
               />
-              <div style={{ textAlign: 'center', marginTop: '8px' }}>
-              </div>
+              <div style={{ textAlign: 'center', marginTop: '8px' }}>{item.product_name}</div>
             </div>
             ))}
           </div>
@@ -350,11 +356,12 @@ function Home() {
             .filter(item => ["24", "25", "26"].includes(item._id))
             .map(item => (
             <div key={item._id} style={{ cursor: "pointer" }} onClick={() => handleProductClick(item)}>
-              <img src={item.image_url || "/default-image.jpg" } alt={item.product_name || "Sut mahsuloti" }
-                style={{ width: '130px', height:'130px', borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
+              <img
+                src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
+                alt={item.product_name || "Sut mahsuloti"}
+                style={{ width: '130px', height: '130px', borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
               />
-              <div style={{ textAlign: 'center', marginTop: '8px' }}>
-              </div>
+              <div style={{ textAlign: 'center', marginTop: '8px' }}>{item.product_name}</div>
             </div>
             ))}
           </div>
@@ -365,7 +372,7 @@ function Home() {
         <h2 className='section-title'>Sizga-yoqadi</h2>
       </div>
 
-      <div className="sizga-yoqadi-slider">
+      <div className="sizga-yoqadi-slider" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
         {productsState
           .filter(product => {
             const id = Number(product._id);
@@ -392,7 +399,7 @@ function Home() {
 
       <div className='goshtlar'>
         <h2 className='section-title'>Go'sht va parrandalar</h2>
-          <div className="gosht-gallery" style={{ display: 'flex', gap: '10px', marginTop: '15px', padding: '10px' }}>
+          <div className="gosht-gallery" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
             {productsState
             .filter(item =>
             (item._id === "32" || item._id === "33") &&
@@ -418,7 +425,7 @@ function Home() {
       <div className='dengiz-mahsulotlari'>
         <h2 className='section-title'>Dengiz mahsulotlari</h2>
         <div className="gosht-gallery"
-          style={{ display: 'flex', gap: '15px', marginTop: '15px', padding: '10px' }}>
+          style={{ display: 'flex',  }}>
           <div className="gosht-row" style={{ display: 'flex', gap: '10px' }}>
             {productsState
               .filter(item => ["34", "35", "36"].includes(item._id))
@@ -439,7 +446,7 @@ function Home() {
 
       <div className='ichimliklar'>
         <h2 className='section-title'>Suv va chimliklar</h2>
-        <div className="universal-gallery">
+        <div className="universal-gallery" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center',}}>
             <div className="image-gallery">
               <div className="row">
                 {productsState
@@ -540,8 +547,8 @@ function Home() {
 
       <div className='Oziq-ovqat'>
       <h2 className='section-title'>Oziq-ovqat mollari</h2>
-      <div className="shirinlik-gallery"
-          style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '15px', padding: '10px' }}>
+      <div className="shirinlik-gallery "
+          style={{ display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center', justifyContent: 'center' }}>
           <div className="shirinlik-row" style={{ display: 'flex', gap: '10px' }}>
             {productsState  
             .filter(item => ["54", "55", "56"].includes(item._id))
@@ -592,7 +599,7 @@ function Home() {
       <div className='Oziq-ovqat'>
       <h2 className='section-title'>Non mahsulotlari</h2>
       <div className="shirinlik-gallery"
-          style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '15px', padding: '10px' }}>
+          style={{ display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center', justifyContent: 'center' }}>
           <div className="shirinlik-row" style={{ display: 'flex', gap: '10px' }}>
             {productsState  
             .filter(item => ["63", "64", "65"].includes(item._id))
@@ -616,7 +623,7 @@ function Home() {
       <div className='goshtlar'>
       <h2 className='section-title'>Muzlatilgan mahsulotlar va
         muzqaymoq</h2>
-          <div className="gosht-gallery" style={{ display: 'flex', gap: '10px', marginTop: '15px', padding: '10px' }}>
+          <div className="gosht-gallery" style={{ display: 'flex', gap: '10px', alignItems: 'center', justifyContent: 'center'}}>
             {productsState
             .filter(item =>
             (item._id === "66" || item._id === "67") &&
@@ -642,7 +649,7 @@ function Home() {
 
       <div className='goshtlar'>
       <h2 className='section-title'>Turli xil konservalar</h2>
-          <div className="gosht-gallery" style={{ display: 'flex', gap: '10px', marginTop: '15px', padding: '10px' }}>
+          <div className="gosht-gallery" style={{ display: 'flex', gap: '10px',  alignItems: 'center', justifyContent: 'center'}}>
             {productsState.filter(item =>
             (item._id === "68" || item._id === "69") &&
             item.product_name !== "Чай зеленый"
@@ -667,7 +674,7 @@ function Home() {
 
       <div className='ichimliklar'>
       <h2 className='section-title'>Bolalar uchun</h2>
-      <div className="universal-gallery">
+      <div className="universal-gallery" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center',}}>
           <div className="image-gallery">
             <div className="row">
               {productsState
@@ -703,7 +710,7 @@ function Home() {
 
       <div className='goshtlar'>
       <h2 className='section-title'>Uy hayvonlari uchun</h2>
-          <div className="gosht-gallery" style={{ display: 'flex', gap: '10px', marginTop: '15px', padding: '10px' }}>
+          <div className="gosht-gallery" style={{ display: 'flex', gap: '10px',  alignItems: 'center', justifyContent: 'center'}}>
             {productsState
             .filter(item =>
             (item._id === "75" || item._id === "76") &&
@@ -729,7 +736,7 @@ function Home() {
 
       <div className='ichimliklar'>
         <h2 className='section-title'>Gigiyena va parvarish</h2>
-        <div className="universal-gigiyena">
+        <div className="universal-gigiyena" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
             {/* 1-qator: 2 ta rasm */}
             <div className="gigiyena" style={{ justifyContent: 'center', gap: '10px' }}>
               {productsState.filter(item => item._id === "77").map(item => (
@@ -810,7 +817,7 @@ function Home() {
       <div className='Oziq-ovqat'>
       <h2 className='section-title'>Chinniyu chiroq</h2>
       <div className="shirinlik-gallery"
-          style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+          style={{ display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center', justifyContent: 'center' }}>
           <div className="shirinlik-row" style={{ display: 'flex', gap: '10px' }}>
             {productsState.filter(item => ["84", "85", "86"].includes(item._id))
             .map(item => (
@@ -838,12 +845,12 @@ function Home() {
             .filter(item => ["87", "88", "89"].includes(item._id))
             .map(item => (
             <div key={item._id}>
-              <img src={item.image_url || "/default-image.jpg" } alt={item.product_name || "Shirinlik mahsuloti" }
+              <img src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
+                alt={item.product_name || "Shirinlik mahsuloti"}
                 style={{ width: '130px', height: '130px', borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
                 onClick={() => handleProductClick(item)}
               />
-              <div style={{ textAlign: 'center' }}>
-              </div>
+              <div style={{ textAlign: 'center' }}>{item.product_name}</div>
             </div>
             ))}
           </div>
@@ -852,12 +859,12 @@ function Home() {
             .filter(item => ["90", "91", "92"].includes(item._id))
             .map(item => (
             <div key={item._id}>
-              <img src={item.image_url || "/default-image.jpg" } alt={item.product_name || "Shirinlik mahsuloti" }
+              <img src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
+                alt={item.product_name || "Shirinlik mahsuloti"}
                 style={{ width: '130px', height: '130px', borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
                 onClick={() => handleProductClick(item)}
               />
-              <div style={{ textAlign: 'center', marginTop: '8px' }}>
-              </div>
+              <div style={{ textAlign: 'center', marginTop: '8px' }}>{item.product_name}</div>
             </div>
             ))}
           </div>
