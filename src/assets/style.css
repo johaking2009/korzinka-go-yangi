@@ -296,14 +296,40 @@ input[type="number"]::-webkit-inner-spin-button {
 
 
 
+/* Barcha ekranlarda asosiy konteyner uchun */
+.home {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 430px;
+  box-sizing: border-box;
+}
 
+/* Agar kerak bo‘lsa, kichik ekranlar uchun ham */
+@media (max-width: 430px) {
+  .home {
+    max-width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
 
+/* Katta ekranlarda ham 10px qolsin */
+@media (min-width: 600px) {
+  .home {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
 
-
-
-
-
-
+/* Juda kichik ekranlarda ham 10px qolsin */
+@media (max-width: 599px) {
+  .home {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
 
 .menu_icon{
   display: flex;
@@ -388,11 +414,13 @@ padding-left: 15px;
   width: 97%;
 }
 
+
 .promotions {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  padding: 0px;
 }
 
 .product-section {
@@ -400,6 +428,7 @@ padding-left: 15px;
   border-radius: 35px;
   padding-bottom: 20px;
   z-index: 1;
+  width: 100% auto;
 }
 
 .section-title {
@@ -437,7 +466,7 @@ padding-left: 15px;
 .product-card {
   background: rgb(239, 239, 240);
   border-radius: 10px;
-  padding: 10px;
+  padding: 0px;
   height: 330px;
   width: 130px;
   text-align: center;
@@ -526,7 +555,7 @@ padding-left: 15px;
 .universal-gallery {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  background-color: red;
 }
 
 .row {
@@ -764,6 +793,90 @@ padding-left: 15px;
   margin-top: 6px;
 }
 
+  .sabzavot-gallery img{
+    width: 200px;
+    height: auto;
+  }
+
+.sut-gallery-row img {
+  width: 130px;
+  height: 130px;
+}
+.sut-gallery-item img {
+  width: 130px;
+  height: 130px;
+}
+
+.gosht-gallery img {
+  width: 200px;
+}
+
+.gosht-row img {
+  width: 130px;
+  height: 130px;
+}
+
+.shirinlik-row img{
+  width: 130px;
+  height: 130px;
+}
+
+.gigiyena img {
+  width: 200px;
+  height: 130px;
+}
+.row img {
+  width: 130px;
+  height: 130px;
+}
 
 
+@media  (max-width: 360px) {
+  .row:first-child img {
+    width: 166px;
+    height: 100px;
+  }
+  
+  .row:last-child img {
+    width: 108px;
+    height: 100px;
+  }
+  .sabzavot-gallery img{
+    width: 166px;
+    height: auto;
+  }
+  .sut-gallery-row img {
+    width: 108px;
+    height: 108px;
+  }
+  .sut-gallery-item img {
+    width: 108px;
+    height: 108px;
+  }
+  .product-card {
+    width: 103px;
+    height: 280px;
+  }
+  .gosht-gallery img {
+    width: 165px;
+    
+  }
+  .shirinlik-row img {
+    width: 106.5px;
+    height: 106.5px;
+  }
+  .gosht-row img {
+    width: 106.5px;
+    height: 106.5px;
+  }
+  .gigiyena img {
+    width: 165px;
+    height: 100px;
+  }
 
+  .row img {
+    width: 106.5px;
+    height: 106.5px;
+  }
+
+}

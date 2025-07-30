@@ -224,7 +224,7 @@ function Home() {
       {/* Aktual takliflar */}
       <div className="image-gallery-section">
         <h2 className="section-title">Aktual takliflar</h2>
-        <div className="universal-gallery" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center',}}>
+        <div className="universal-gallery" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', }}>
           <div className="row">
             {productsState
               .filter(item => ["7", "8"].includes(item._id))
@@ -236,7 +236,7 @@ function Home() {
                     onClick={() => handleProductClick(item)}
                     style={{cursor: "pointer"}}
                   />
-                  <div style={{ marginTop: '8px' }}>{item.product_name}</div>
+                  <div style={{ marginTop: '0px' }}>{item.product_name}</div>
                 </div>
               ))}
           </div>
@@ -275,7 +275,7 @@ function Home() {
                     "/default-image.jpg"
                   }
                   alt={item.product_name}
-                  style={{ width: '200px', borderRadius: '10px', cursor: "pointer" }}
+                  style={{borderRadius: '10px', cursor: "pointer" }}
                   onClick={() => handleProductClick(item)}
                 />
                 <div style={{ textAlign: 'center', marginTop: '8px' }}>{item.product_name}</div>
@@ -325,7 +325,7 @@ function Home() {
             <div key={product._id} className="tayyor-mahsulot-card" style={{ textAlign: 'center', cursor: "pointer" }} onClick={() => handleProductClick(product)}>
               <img src={product.image_log?.find((img)=> img.isMain)?.image_url || product.image_url || "/default-image.jpg"}
                 alt={product.product_name || "Mahsulot rasmi"}
-                style={{ width: '410px', height: '110px', objectFit: 'cover', borderRadius: '15px' }}
+                style={{ width: '345px', height: '110px', objectFit: 'cover', borderRadius: '15px' }}
               />
               <div style={{ marginTop: '8px' }}>{product.product_name}</div>
             </div>
@@ -337,7 +337,7 @@ function Home() {
         <h2 className="section-title">Sut mahsulotlari</h2>
         <div className="sut-gallery"
           style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', }}>
-          <div className="sut-gallery-row" style={{ display: 'flex', gap: '10px' }}>
+          <div className="sut-gallery-row" style={{ display: 'flex', gap: '10px', padding: '10px', borderRadius: '10px' }}>
             {productsState
             .filter(item => ["21", "22", "23"].includes(item._id))
             .map(item => (
@@ -345,13 +345,13 @@ function Home() {
               <img
                 src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
                 alt={item.product_name || "Sut mahsuloti"}
-                style={{ width: '130px', height: '130px', borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
+                style={{ borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
               />
               <div style={{ textAlign: 'center', marginTop: '8px' }}>{item.product_name}</div>
             </div>
             ))}
           </div>
-          <div className="sut-gallery-row" style={{ display: 'flex', gap: '10px' }}>
+          <div className="sut-gallery-item" style={{ display: 'flex', gap: '10px' }}>
             {productsState
             .filter(item => ["24", "25", "26"].includes(item._id))
             .map(item => (
@@ -359,7 +359,7 @@ function Home() {
               <img
                 src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
                 alt={item.product_name || "Sut mahsuloti"}
-                style={{ width: '130px', height: '130px', borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
+                style={{ borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
               />
               <div style={{ textAlign: 'center', marginTop: '8px' }}>{item.product_name}</div>
             </div>
@@ -372,7 +372,7 @@ function Home() {
         <h2 className='section-title'>Sizga-yoqadi</h2>
       </div>
 
-      <div className="sizga-yoqadi-slider" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+      <div className="sizga-yoqadi-slider" style={{zIndex: 1}}>
         {productsState
           .filter(product => {
             const id = Number(product._id);
@@ -412,7 +412,7 @@ function Home() {
               "/default-image.jpg"
               }
               alt={item.product_name}
-              style={{ width: '200px', borderRadius: '10px', cursor: "pointer" }}
+              style={{borderRadius: '10px', cursor: "pointer" }}
               />
               <div style={{ textAlign: 'center', marginTop: '8px' }}>{item.product_name}</div>
             </div>
@@ -433,7 +433,7 @@ function Home() {
                 <div key={item._id} style={{ textAlign: 'center', cursor: "pointer" }} onClick={() => handleProductClick(item)}>
                   <img src={item.image_url || "/default-image.jpg" }
                     alt={item.product_name || "Go'sht mahsuloti" }
-                    style={{ width: '130px', height:'130px', borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
+                    style={{borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
                   />
                   <div style={{ marginTop: '8px' }}>{item.product_name}</div>
                 </div>
@@ -517,7 +517,7 @@ function Home() {
             .map(item => (
             <div key={item._id}>
               <img src={item.image_url || "/default-image.jpg" } alt={item.product_name || "Shirinlik mahsuloti" }
-                style={{ width: '130px', height: '130px', borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
+                style={{borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
                 onClick={() => handleProductClick(item)}
               />
               <div style={{ textAlign: 'center' }}>
@@ -531,7 +531,7 @@ function Home() {
             .map(item => (
             <div key={item._id}>
               <img src={item.image_url || "/default-image.jpg" } alt={item.product_name || "Shirinlik mahsuloti" }
-                style={{ width: '130px', height: '130px', borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
+                style={{borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
                 onClick={() => handleProductClick(item)}
               />
               <div style={{ textAlign: 'center', marginTop: '8px' }}>
@@ -555,7 +555,7 @@ function Home() {
             .map(item => (
             <div key={item._id}>
               <img src={item.image_url || "/default-image.jpg" } alt={item.product_name || "Shirinlik mahsuloti" }
-                style={{ width: '130px', height: '130px', borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
+                style={{borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
                 onClick={() => handleProductClick(item)}
               />
               <div style={{ textAlign: 'center' }}>
@@ -569,7 +569,7 @@ function Home() {
             .map(item => (
             <div key={item._id}>
               <img src={item.image_url || "/default-image.jpg" } alt={item.product_name || "Shirinlik mahsuloti" }
-                style={{ width: '130px', height: '130px', borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
+                style={{borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
                 onClick={() => handleProductClick(item)}
               />
               <div style={{ textAlign: 'center',  }}>
@@ -583,7 +583,7 @@ function Home() {
             .map(item => (
             <div key={item._id}>
               <img src={item.image_url || "/default-image.jpg" } alt={item.product_name || "Shirinlik mahsuloti" }
-                style={{ width: '130px', height: '130px', borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
+                style={{borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
                 onClick={() => handleProductClick(item)}
               />
               <div style={{ textAlign: 'center', marginTop: '8px' }}>
@@ -606,7 +606,7 @@ function Home() {
             .map(item => (
             <div key={item._id}>
               <img src={item.image_url || "/default-image.jpg" } alt={item.product_name || "Shirinlik mahsuloti" }
-                style={{ width: '130px', height: '130px', borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
+                style={{borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
                 onClick={() => handleProductClick(item)}
               />
               <div style={{ textAlign: 'center' }}>
@@ -636,7 +636,7 @@ function Home() {
               "/default-image.jpg"
               }
               alt={item.product_name}
-              style={{ width: '200px', borderRadius: '10px', cursor: "pointer" }}
+              style={{borderRadius: '10px', cursor: "pointer" }}
               onClick={() => handleProductClick(item)}
               />
               <div style={{ textAlign: 'center', marginTop: '8px' }}>{item.product_name}</div>
@@ -661,7 +661,7 @@ function Home() {
               "/default-image.jpg"
               }
               alt={item.product_name}
-              style={{ width: '200px', borderRadius: '10px', cursor: "pointer" }}
+              style={{borderRadius: '10px', cursor: "pointer" }}
               onClick={() => handleProductClick(item)}
               />
               <div style={{ textAlign: 'center', marginTop: '8px' }}>{item.product_name}</div>
@@ -723,7 +723,7 @@ function Home() {
               "/default-image.jpg"
               }
               alt={item.product_name}
-              style={{ width: '200px', borderRadius: '10px', cursor: "pointer" }}
+              style={{borderRadius: '10px', cursor: "pointer" }}
               onClick={() => handleProductClick(item)}
               />
               <div style={{ textAlign: 'center', marginTop: '8px' }}>{item.product_name}</div>
@@ -743,7 +743,7 @@ function Home() {
                 <div key={item._id} style={{ textAlign: 'center' }}>
                   <img src={item.image_url || "/default-image.jpg"}
                        alt={item.product_name || "Mahsulot rasmi"}
-                       style={{ width: '200px', height: '130px', borderRadius: '16px', objectFit: 'cover', cursor: "pointer" }}
+                       style={{borderRadius: '16px', objectFit: 'cover', cursor: "pointer" }}
                        onClick={() => handleProductClick(item)}
                   />
                 </div>
@@ -752,7 +752,7 @@ function Home() {
                 <div key={item._id} style={{ textAlign: 'center' }}>
                   <img src={item.image_url || "/default-image.jpg"}
                        alt={item.product_name || "Mahsulot rasmi"}
-                       style={{ width: '200px', height: '130px', borderRadius: '16px', objectFit: 'cover', cursor: "pointer" }}
+                       style={{borderRadius: '16px', objectFit: 'cover', cursor: "pointer" }}
                        onClick={() => handleProductClick(item)}
                   />
                 </div>
@@ -764,7 +764,7 @@ function Home() {
                 <div key={item._id} style={{ textAlign: 'center' }}>
                   <img src={item.image_url || "/default-image.jpg"}
                        alt={item.product_name || "Mahsulot rasmi"}
-                       style={{ width: '130px', height: '130px', borderRadius: '16px', objectFit: 'cover', cursor: "pointer" }}
+                       style={{borderRadius: '16px', objectFit: 'cover', cursor: "pointer" }}
                        onClick={() => handleProductClick(item)}
                   />
                 </div>
@@ -773,7 +773,7 @@ function Home() {
                 <div key={item._id} style={{ textAlign: 'center' }}>
                   <img src={item.image_url || "/default-image.jpg"}
                        alt={item.product_name || "Mahsulot rasmi"}
-                       style={{ width: '130px', height: '130px', borderRadius: '16px', objectFit: 'cover', cursor: "pointer" }}
+                       style={{borderRadius: '16px', objectFit: 'cover', cursor: "pointer" }}
                        onClick={() => handleProductClick(item)}
                   />
                 </div>
@@ -782,19 +782,19 @@ function Home() {
                 <div key={item._id} style={{ textAlign: 'center' }}>
                   <img src={item.image_url || "/default-image.jpg"}
                        alt={item.product_name || "Mahsulot rasmi"}
-                       style={{ width: '130px', height: '130px', borderRadius: '16px', objectFit: 'cover', cursor: "pointer" }}
+                       style={{borderRadius: '16px', objectFit: 'cover', cursor: "pointer" }}
                        onClick={() => handleProductClick(item)}
                   />
                 </div>
               ))}
             </div>
             {/* 3-qator: 3 ta rasm, 1-qator o‘lchamida */}
-            <div className="row" style={{ justifyContent: 'center', gap: '10px' }}>
+            <div className="gigiyena" style={{ justifyContent: 'center', gap: '10px' }}>
               {productsState.filter(item => item._id === "82").map(item => (
                 <div key={item._id} style={{ textAlign: 'center' }}>
                   <img src={item.image_url || "/default-image.jpg"}
                        alt={item.product_name || "Mahsulot rasmi"}
-                       style={{ width: '200px', height: '130px', borderRadius: '16px', objectFit: 'cover', cursor: "pointer" }}
+                       style={{ borderRadius: '16px', objectFit: 'cover', cursor: "pointer" }}
                        onClick={() => handleProductClick(item)}
                   />
                 </div>
@@ -803,7 +803,7 @@ function Home() {
                 <div key={item._id} style={{ textAlign: 'center' }}>
                   <img src={item.image_url || "/default-image.jpg"}
                        alt={item.product_name || "Mahsulot rasmi"}
-                       style={{ width: '200px', height: '130px', borderRadius: '16px', objectFit: 'cover', cursor: "pointer" }}
+                       style={{borderRadius: '16px', objectFit: 'cover', cursor: "pointer" }}
                        onClick={() => handleProductClick(item)}
                   />
                 </div>
@@ -823,7 +823,7 @@ function Home() {
             .map(item => (
             <div key={item._id}>
               <img src={item.image_url || "/default-image.jpg" } alt={item.product_name || "Shirinlik mahsuloti" }
-                style={{ width: '130px', height: '130px', borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
+                style={{borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
                 onClick={() => handleProductClick(item)}
               />
               <div style={{ textAlign: 'center' }}>
@@ -847,7 +847,7 @@ function Home() {
             <div key={item._id}>
               <img src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
                 alt={item.product_name || "Shirinlik mahsuloti"}
-                style={{ width: '130px', height: '130px', borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
+                style={{borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
                 onClick={() => handleProductClick(item)}
               />
               <div style={{ textAlign: 'center' }}>{item.product_name}</div>
@@ -861,7 +861,7 @@ function Home() {
             <div key={item._id}>
               <img src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
                 alt={item.product_name || "Shirinlik mahsuloti"}
-                style={{ width: '130px', height: '130px', borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
+                style={{borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
                 onClick={() => handleProductClick(item)}
               />
               <div style={{ textAlign: 'center', marginTop: '8px' }}>{item.product_name}</div>
