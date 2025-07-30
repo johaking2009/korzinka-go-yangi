@@ -817,7 +817,7 @@ function Home() {
       <div className='Oziq-ovqat'>
       <h2 className='section-title'>Chinniyu chiroq</h2>
       <div className="shirinlik-gallery"
-          style={{ display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center', justifyContent: 'center' }}>
+          style={{ display: 'flex', flexDirection: 'column', gap: '8px'}}>
           <div className="shirinlik-row" style={{ display: 'flex', gap: '10px' }}>
             {productsState.filter(item => ["84", "85", "86"].includes(item._id))
             .map(item => (
