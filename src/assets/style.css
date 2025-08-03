@@ -15,8 +15,10 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
 .discount-header {
   grid-column: 1 / -1;
   position: static;
@@ -46,6 +48,8 @@
   cursor: pointer;
   margin-bottom: 8px;
 }
+
+
 
 .discount-search {
   width: 100%;
@@ -299,6 +303,8 @@ input[type="number"]::-webkit-inner-spin-button {
   height: 60%;
 }
 
+
+
 .int-body span {
   color: var(--text-secondary);
 }
@@ -441,6 +447,8 @@ input[type="number"]::-webkit-inner-spin-button {
   padding: 0;
 }
 
+
+
 @keyframes slideInLeft {
   from { transform: translateX(-100%);}
   to { transform: translateX(0);}
@@ -514,6 +522,9 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 5px 10px;
   border: none;
   border-radius: 10px;
@@ -565,12 +576,13 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 
+
 .promotions {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  padding: 0px;
+  padding: 0px 0px 10px 0px;
 }
 
 .product-section {
@@ -581,11 +593,19 @@ input[type="number"]::-webkit-inner-spin-button {
   width: 100% auto;
 }
 
+
+
 .section-title {
   color: #228b22;
-  margin-bottom: 10px;
-  padding: 10px;
 }
+
+.section-title-chilla{
+  padding: 15px 0px 0 15px;
+    color: #228b22;
+
+}
+
+
 
 .product-slider,
 .super-price-slider,
@@ -594,32 +614,19 @@ input[type="number"]::-webkit-inner-spin-button {
   overflow-x: auto;
   scroll-behavior: smooth;
   gap: 15px;
-  padding: 10px 0;
-  /* faqat tepa va pastga, o‘ng va chapga 0 */
   border-radius: 10px;
   margin: 0 auto;
   max-width: 100%;
   position: relative;
-  z-index: 2;
   background: none;
+  padding: 10px;
 }
 
-.product-slider::-webkit-scrollbar,
-.super-price-slider::-webkit-scrollbar,
-.sizga-yoqadi-slider::-webkit-scrollbar {
-  display: none;
-}
-
-.super-price-slider,
-.sizga-yoqadi-slider {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
 
 .product-card {
   background: rgb(239, 239, 240);
   border-radius: 10px;
-  padding: 0px;
+  margin-top: 10px;
   height: 330px;
   width: 130px;
   text-align: center;
@@ -628,15 +635,16 @@ input[type="number"]::-webkit-inner-spin-button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 0.2s;
+  padding-bottom: 20px;
 }
 
-.product-card:hover {
-  transform: scale(1.05);
+.product-card img {
+   width: 100%;
+  height: 100% auto;
 }
+
 
 .product-image {
-
   width: 102px;
   height: 120px;
   object-fit: cover;
@@ -644,6 +652,8 @@ input[type="number"]::-webkit-inner-spin-button {
   display: block;
   margin: 0 auto;
 }
+
+
 
 .discount-badge {
   position: absolute;
@@ -661,8 +671,9 @@ input[type="number"]::-webkit-inner-spin-button {
 .product-details {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
 }
 
 .price {
@@ -722,17 +733,20 @@ input[type="number"]::-webkit-inner-spin-button {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  align-items: center;
+  justify-content: center;
 }
+
+
 
 .row {
   display: flex;
-  gap: 10px;
-  justify-content: center;
+  /* gap: 10px; */
+  justify-content: space-between;
   /* markazga joylashadi */
   align-items: center;
   /* vertikal markaz */
-  padding: 0;
-  /* o‘ng va chapdan padding yo‘q */
+ 
 }
 
 .gigiyena {
@@ -741,6 +755,7 @@ input[type="number"]::-webkit-inner-spin-button {
   justify-content: center;
 
 }
+
 
 .row:first-child img {
   width: 200px;
@@ -762,7 +777,7 @@ input[type="number"]::-webkit-inner-spin-button {
 .universal-gallery {
   gap: 8px;
   margin-top: 10px;
-  padding: 10px 0;
+  /* padding: 10px 0; */
   /* faqat tepa va pastga */
   display: flex;
   flex-wrap: wrap;
@@ -772,12 +787,7 @@ input[type="number"]::-webkit-inner-spin-button {
   /* vertikal markaz */
 }
 
-.universal-gallery .row {
-  gap: 8px;
-  justify-content: flex-start;
-  padding: 0;
-  /* o‘ng va chapdan padding yo‘q */
-}
+
 
 .universal-gallery img {
   width: 120px;
@@ -786,18 +796,18 @@ input[type="number"]::-webkit-inner-spin-button {
   border-radius: 10px;
 }
 
+/* ////////////////////////////////////////////////////////////////////////////////////////////////// */
+
 .sabzavot-gallery,
 .shirinlik-gallery,
-.sut-gallery,
 .gosht-gallery {
   display: flex;
   align-items: center;
-  /* butun galereya markazda */
-  justify-content: center;
-  /* butun galereya markazda */
-  padding-left: 0;
-  padding-right: 0;
+  justify-content: space-between;
+  justify-content: center; 
 }
+
+
 
 /* MODAL OVERLAY */
 .modal-overlay {
@@ -861,6 +871,7 @@ input[type="number"]::-webkit-inner-spin-button {
   border-radius: 20px 20px 0 0;
   display: block;
 }
+.-card
 
 /* LIKE & CLOSE BUTTONS */
 .modal-like-btn,
@@ -996,7 +1007,6 @@ input[type="number"]::-webkit-inner-spin-button {
   background: #138c74;
 }
 
-/* O'xshash mahsulotlar (modal pastida) */
 .similar-products-list {
   margin-top: 24px;
 }
@@ -1033,9 +1043,19 @@ input[type="number"]::-webkit-inner-spin-button {
   margin-top: 6px;
 }
 
+
+/* 
 .sabzavot-gallery img {
-  width: 200px;
+  width: 166px;
   height: auto;
+} */
+
+
+
+.sut-gallery-row{
+display: flex;
+align-items: center;
+justify-content: center;
 }
 
 .sut-gallery-row img {
@@ -1074,6 +1094,27 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 
+.slider {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 16px 0;
+}
+
+.product-slider
+
+.slider img{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.product-modal {
+  max-height: 100%;
+  overflow-y: auto;
+}
+
 @media (min-width: 360px) and (max-width: 430px) {
   .row:first-child img {
     width: 166px;
@@ -1100,17 +1141,9 @@ input[type="number"]::-webkit-inner-spin-button {
     height: 108px;
   }
 
-  .product-card {
-    width: 103px;
-    height: 280px;
-  }
 
   .gosht-gallery img {
     width: 165px;
-  }
-
-  .shirinlik-row {
-    width: 339px;
   }
 
   .sut-gallery-row, .sut-gallery-item {
@@ -1138,19 +1171,28 @@ input[type="number"]::-webkit-inner-spin-button {
   }
 
 }
-
-.slider {
-  display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  padding: 16px 0;
+@media (min-width: 360px) and (max-width: 430px) {
+  .shirinlik-row img {
+    width: calc(106.5px + ((100vw - 360px) * 0.33571));
+    height: calc(106.5px + ((100vw - 360px) * 0.33571));
+    border-radius: 16px;
+    object-fit: cover;
+    cursor: pointer;
+  }
 }
 
-.product-slider
-
-.slider img{
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 10px;
+  
+@media (min-width: 360px) and (max-width: 430px) {
+  .gosht-gallery img {
+    width: calc(165px + ((100vw - 360px) * 0.5));
+    height: calc(100px + ((100vw - 360px) * 0.42857));
+    object-fit: cover;
+  }
+}
+@media (min-width: 360px) and (max-width: 430px) {
+  .gigiyena img {
+    width: calc(165px + ((100vw - 360px) * 0.5));
+    height: calc(100px + ((100vw - 360px) * 0.42857));
+    object-fit: cover;
+  }
 }

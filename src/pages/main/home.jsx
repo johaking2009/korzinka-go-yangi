@@ -3,8 +3,11 @@ import { Link } from 'react-router-dom';
 import products from '../../assets/products.json';
 import { CgMenuMotion } from "react-icons/cg";
 import { VscRefresh } from "react-icons/vsc";
+import { GrFormNext } from "react-icons/gr";
+import { HiOutlineX } from "react-icons/hi";
 import { FaQrcode, FaPercent, FaRegHeart } from "react-icons/fa6";
 
+// Asosiy Home komponenti
 function Home() {
   const [productsState, setProductsState] = useState(products);
   const [modalOpen, setModalOpen] = useState(false);
@@ -16,15 +19,18 @@ function Home() {
   const [discountSearch, setDiscountSearch] = useState('');
   const modalRef = useRef(null);
 
+  // Faqat chegirmali mahsulotlar va 11000 so'mdan arzon mahsulotlarni filtr qilish
   const filteredDiscountedProducts = productsState.filter(product =>
-    product.product_name?.toLowerCase().includes(discountSearch.toLowerCase()) &&
-    (product.discount_log?.find(d => d.status === "active") || product.price <= 10000)
+    (product.discount_log?.some(d => d.status === "active") || (product.price && product.price < 11000)) &&
+    product.product_name?.toLowerCase().includes(discountSearch.toLowerCase())
   );
 
+  // Mahsulotlar holatini konsolga chiqarish
   useEffect(() => {
     console.log('Mahsulotlar:', productsState);
   }, [productsState]);
 
+  // Modal ochilganda scrollni boshqarish
   useEffect(() => {
     if (selectedProduct && modalRef.current) {
       document.body.style.overflow = "hidden";
@@ -38,6 +44,7 @@ function Home() {
     };
   }, [selectedProduct]);
 
+  // Manzil qidirish funksiyasi
   const handleSearch = async (e) => {
     const value = e.target.value;
     setSearch(value);
@@ -55,6 +62,7 @@ function Home() {
     }
   };
 
+  // Mahsulot qidirish funksiyasi
   const handleProductSearch = (e) => {
     const value = e.target.value;
     setSearch(value);
@@ -68,7 +76,7 @@ function Home() {
     }
   };
 
-
+  // Mahsulotni bosganda ishlaydigan funksiya
   const handleProductClick = (product) => {
     if (product._id === "7") {
       setShowDiscountModal(true);
@@ -77,26 +85,46 @@ function Home() {
     }
   };
 
-  // Discount modal ichidagi mahsulot uchun alohida handler
+  // Chegirmali mahsulotni bosganda
   const handleDiscountProductClick = (product) => {
     setShowDiscountModal(false);
-    setTimeout(() => setSelectedProduct(product), 300); // animatsiya uchun delay
+    setTimeout(() => setSelectedProduct(product), 300);
   };
 
+  // Mahsulot modalini yopish
   const handleCloseProductModal = () => {
     setSelectedProduct(null);
   };
 
+  // Chegirma modalini yopish
   const handleCloseDiscountModal = () => {
     setShowDiscountModal(false);
   };
 
+  // Mahsulotlar massivi bo'sh yoki array emas bo'lsa
   if (!Array.isArray(productsState) || productsState.length === 0) {
     return <div>Hech qanday mahsulot topilmadi</div>;
   }
 
+  // Chilla modal state
+  const [showChillaModal, setShowChillaModal] = useState(false);
+  // Chilla products for modal
+  const chillaProducts = productsState.filter(product => product._id >= "1" && product._id <= "6");
+  // Chilla slider scroll state
+  const chillaSliderRef = useRef(null);
+  const [chillaScrolledToEnd, setChillaScrolledToEnd] = useState(false);
+
+  // Scroll handler for Chilla slider
+  const handleChillaScroll = () => {
+    const el = chillaSliderRef.current;
+    if (!el) return;
+    // Check if scrolled to end (allowing 2px tolerance)
+    setChillaScrolledToEnd(el.scrollLeft + el.offsetWidth >= el.scrollWidth - 2);
+  };
+
   return (
     <div className="home">
+      {/* Sarlavha va menyular */}
       <div className="header">
         <div className="menu_icon" onClick={() => setMenuOpen(true)}>
           <CgMenuMotion />
@@ -106,8 +134,9 @@ function Home() {
         </span>
       </div>
 
+      {/* Qidiruv paneli */}
       <input
-        type="text"
+        type="search"
         placeholder="Do'kondan topish"
         className="search-bar"
         value={search}
@@ -115,24 +144,25 @@ function Home() {
         autoComplete="off"
       />
 
+      {/* Qidiruv takliflari */}
       {search.length > 0 && (
         <div className="search-suggestions">
           {suggestions.length === 0 ? (
             <div style={{ padding: 12, color: "#888" }}>Hech narsa topilmadi</div>
           ) : (
             suggestions.map(product => (
-              <div 
-                key={product._id || product.place_id} 
-                style={{ 
-                  display: "flex", 
-                  alignItems: "center", 
-                  gap: 10, 
-                  padding: 10, 
-                  borderBottom: "1px solid #f0f0f0" 
+              <div
+                key={product._id || product.place_id}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 10,
+                  padding: 10,
+                  borderBottom: "1px solid #f0f0f0"
                 }}
                 onClick={() => product.product_name && handleProductClick(product)}
               >
-                <img 
+                <img
                   src={product.image_log?.find(img => img.isMain)?.image_url || product.image_url || "/default-image.jpg"}
                   alt={product.product_name || product.display_name}
                   style={{ width: 40, height: 40, borderRadius: 8, objectFit: "cover" }}
@@ -144,6 +174,7 @@ function Home() {
         </div>
       )}
 
+      {/* Menyu ochiladigan oynasi */}
       {menuOpen && (
         <div className="menu-drawer-overlay" onClick={() => setMenuOpen(false)}>
           <div className="menu-drawer" onClick={e => e.stopPropagation()}>
@@ -153,7 +184,11 @@ function Home() {
             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
               <li style={{ padding: '16px', borderBottom: '1px solid #eee' }}>To‘lov usullari</li>
               <li style={{ padding: '16px', borderBottom: '1px solid #eee', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Korzinka_logo.png" alt="Korzinka Plus" style={{ width: 24, height: 24 }} />
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Korzinka_logo.png"
+                  alt="Korzinka Plus"
+                  style={{ width: 24, height: 24 }}
+                />
                 <span style={{ color: '#e6002d', fontWeight: 600 }}>Korzinka Plus</span>
               </li>
               <li style={{ padding: '16px', borderBottom: '1px solid #eee' }}>
@@ -166,6 +201,7 @@ function Home() {
         </div>
       )}
 
+      {/* Manzil modal oynasi */}
       {modalOpen && (
         <div className="modal-overlay" onClick={() => setModalOpen(false)}>
           <div className="modal-content" onClick={e => e.stopPropagation()}>
@@ -197,10 +233,11 @@ function Home() {
         </div>
       )}
 
+      {/* Kategoriya ikonkalari */}
       <div className="category-icons">
         <button className="icon-btn" onClick={() => setShowDiscountModal(true)}>
           <strong className="percent"><FaPercent /></strong>
-          <span>Chegirmalar</span>
+          <span>Chegirma</span>
         </button>
         <button className="icon-btn">
           <strong className="favorite"><FaRegHeart /></strong>
@@ -208,7 +245,7 @@ function Home() {
         </button>
         <button className="icon-btn">
           <strong className="refresh"><VscRefresh /></strong>
-          <span>Avvalgi xaridlar</span>
+          <span>Avvalgi xarid</span>
         </button>
         <button className="icon-btn">
           <strong className="QR"><FaQrcode /></strong>
@@ -216,6 +253,7 @@ function Home() {
         </button>
       </div>
 
+      {/* Reklama bannerlari */}
       <div className="promotions">
         <div className="promotion">
           <span>Birinchi uchtaga 90 000 so'm chegirma</span>
@@ -228,101 +266,205 @@ function Home() {
         </div>
       </div>
 
+      {/* Chilla bo'limi */}
       <div className="product-section">
-        <h2 className="section-title">Chilla</h2>
-        <div className="product-slider">
-          {productsState
-            .filter(product => product._id >= "1" && product._id <= "6")
-            .map(product => {
-              const discount = product.discount_log?.find(d => d.status === "active");
-              const originalPrice = product.price || 0;
-              const discountedPrice = discount
-                ? (originalPrice - (originalPrice * discount.percent / 100)).toFixed(2)
-                : null;
-
-              return (
-                <div key={product._id} className="product-card" onClick={() => handleProductClick(product)} style={{ cursor: "pointer" }}>
-                  <img 
-                    src={product.image_log?.find(img => img.isMain)?.image_url || product.image_url || "/default-image.jpg"}
-                    alt={product.product_name || "Mahsulot rasmi"}
-                    className="product-image"
-                    onClick={() => handleProductClick(product)}
-                  />
-                  {discount && <span className="discount-badge">{discount.percent}%</span>}
-                  <div className="product-details">
-                    {discountedPrice ? (
-                      <>
-                        <span className="price discounted-price">{discountedPrice} so'm</span>
-                        <span className="price original-price">{originalPrice} so'm</span>
-                      </>
-                    ) : (
-                      <span className="price">{originalPrice} so'm</span>
-                    )}
-                    <h3 className="product-name">{product.product_name || "Noma'lum mahsulot"}</h3>
-                    <p className="weight">Og'irligi: {product.unit_description || "Noma'lum"}</p>
-                    <button className="add-to-cart">Savata</button>
-                  </div>
-                </div>
-              );
-            })}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <h2 className="section-title-chilla" style={{ margin: 0 }}>Chilla</h2>
+          {!chillaScrolledToEnd && (
+            <button
+              className="slider-header-all-btn"
+              style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, border: 'none', borderRadius: '16px', color: '#19b394', backgroundColor: 'rgba(21, 167, 13, 0.25)', cursor: 'pointer', fontSize: 13, margin: '20px 20px 0px 0px', padding: '6px' }}
+              onClick={() => setShowChillaModal(true)}
+            >
+              Hammasi <GrFormNext />
+            </button>
+          )}
         </div>
-      </div>
-
-      <div className="image-gallery-section">
-        <h2 className="section-title">Aktual takliflar</h2>
-        <div className="universal-gallery" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <div className="row">
-            {productsState
-              .filter(item => ["7", "8"].includes(item._id))
-              .map(item => (
-                <div key={item._id} style={{ textAlign: 'center' }}>
-                  <img
-                    src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-                    alt={item.product_name}
-                    onClick={() => handleProductClick(item)}
-                    style={{ cursor: "pointer" }}
-                  />
-                  <div style={{ marginTop: '0px' }}>{item.product_name}</div>
-                </div>
-              ))}
-          </div>
-          <div className="row">
-            {productsState
-              .filter(item => ["9", "10", "11"].includes(item._id))
-              .map(item => (
-                <div key={item._id} style={{ textAlign: 'center' }}>
-                  <img
-                    src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-                    alt={item.product_name}
-                    onClick={() => handleProductClick(item)}
-                    style={{ cursor: "pointer" }}
-                  />
-                  <div style={{ marginTop: '8px' }}>{item.product_name}</div>
-                </div>
-              ))}
-          </div>
-        </div>
-      </div>
-
-      <div className="Tabiy-mahsulotlar section-title">
-        <h2>Sabzavot va mevalar</h2>
-        <div className="sabzavot-gallery" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
-          {productsState
-            .filter(item => (item._id === "12" || item._id === "13") && item.product_name !== "Чай зеленый")
-            .map(item => (
-              <div key={item._id}>
+        <div
+          className="product-slider"
+          ref={chillaSliderRef}
+          style={{ display: 'flex', gap: '12px', overflowX: 'auto', paddingBottom: 8, scrollSnapType: 'x mandatory' }}
+          onScroll={handleChillaScroll}
+        >
+          {chillaProducts.slice(0, 6).map((product) => {
+            const discount = product.discount_log?.find(d => d.status === "active");
+            const originalPrice = product.price || 0;
+            const discountedPrice = discount
+              ? (originalPrice - (originalPrice * discount.percent / 100)).toFixed(2)
+              : null;
+            return (
+              <div
+                key={product._id}
+                className="product-card"
+                onClick={() => handleProductClick(product)}
+                style={{ cursor: "pointer", minWidth: 130, maxWidth: 130, scrollSnapAlign: 'start' }}
+              >
                 <img
-                  src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-                  alt={item.product_name}
-                  style={{ borderRadius: '10px', cursor: "pointer" }}
-                  onClick={() => handleProductClick(item)}
+                  src={product.image_log?.find(img => img.isMain)?.image_url || product.image_url || "/default-image.jpg"}
+                  alt={product.product_name || "Mahsulot rasmi"}
+                  className="product-image"
                 />
-                <div style={{ textAlign: 'center', marginTop: '8px' }}>{item.product_name}</div>
+                {discount && <span className="discount-badge">{discount.percent}%</span>}
+                <div className="product-details">
+                  {discountedPrice ? (
+                    <>
+                      <span className="price discounted-price">{discountedPrice} so'm</span>
+                      <span className="price original-price">{originalPrice} so'm</span>
+                    </>
+                  ) : (
+                    <span className="price">{originalPrice} so'm</span>
+                  )}
+                  <h3 className="product-name">{product.product_name || "Noma'lum mahsulot"}</h3>
+                  <p className="weight">Og'irligi: {product.unit_description || "Noma'lum"}</p>
+                  <button className="add-to-cart">Savata</button>
+                </div>
               </div>
-            ))}
+            );
+          })}
         </div>
+        {chillaScrolledToEnd && (
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: 12 }}>
+            <button
+              className="slider-header-all-btn"
+              style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, border: 'none', borderRadius: '16px', color: '#19b394', backgroundColor: 'rgba(21, 167, 13, 0.25)', cursor: 'pointer', fontSize: 13, padding: '6px' }}
+              onClick={() => setShowChillaModal(true)}
+            >
+              Hammasi <GrFormNext />
+            </button>
+          </div>
+        )}
       </div>
 
+      {/* Chilla modal */}
+      {showChillaModal && (
+        <div className="modal-overlay" onClick={() => setShowChillaModal(false)}>
+          <div className="modal-content product-modal" ref={modalRef} onClick={e => e.stopPropagation()}>
+            <button className="modal-close-btn" onClick={() => setShowChillaModal(false)}>
+              <span style={{ fontSize: 22, fontWeight: 600, display: 'flex', alignItems: 'center', justifyContent: 'center' }}><HiOutlineX /></span>
+            </button>
+            <h2 style={{ marginBottom: 16, textAlign: 'center' }}>Chilla mahsulotlari</h2>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              gap: 16,
+              padding: 8,
+              maxHeight: 400,
+              marginTop: 8
+            }}>
+              {chillaProducts.map(product => {
+                const discount = product.discount_log?.find(d => d.status === "active");
+                const originalPrice = product.price || 0;
+                const discountedPrice = discount
+                  ? (originalPrice - (originalPrice * discount.percent / 100)).toFixed(2)
+                  : null;
+                return (
+                  <div
+                    key={product._id}
+                    className="product-card"
+                    onClick={() => handleProductClick(product)}
+                    style={{ cursor: "pointer", minWidth: 120, maxWidth: 160 }}
+                  >
+                    <img
+                      src={product.image_log?.find(img => img.isMain)?.image_url || product.image_url || "/default-image.jpg"}
+                      alt={product.product_name || "Mahsulot rasmi"}
+                      className="product-image"
+                    />
+                    {discount && <span className="discount-badge">{discount.percent}%</span>}
+                    <div className="product-details">
+                      {discountedPrice ? (
+                        <>
+                          <span className="price discounted-price">{discountedPrice} so'm</span>
+                          <span className="price original-price">{originalPrice} so'm</span>
+                        </>
+                      ) : (
+                        <span className="price">{originalPrice} so'm</span>
+                      )}
+                      <h3 className="product-name">{product.product_name || "Noma'lum mahsulot"}</h3>
+                      <p className="weight">Og'irligi: {product.unit_description || "Noma'lum"}</p>
+                      <button className="add-to-cart">Savata</button>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      )}
+
+{/* Aktual takliflar bo'limi */}
+<div className="image-gallery-section">
+  <h2 className="section-title">Aktual takliflar</h2>
+  <div className="universal-gallery" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div className="row" style={{ width: '100%', display: 'flex', gap: '10px' }}>
+      {productsState
+        .filter(item => ["7", "8"].includes(item._id))
+        .map(item => (
+          <div key={item._id} style={{ textAlign: 'center' }}>
+            <img
+              src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
+              alt={item.product_name}
+              onClick={() => handleProductClick(item)}
+              style={{
+                width: 'calc(165px + ((100vw - 360px) * 0.5))',
+                height: 'calc(100px + ((100vw - 360px) * 0.42857))',
+                borderRadius: '10px', // Radius qo'shildi, agar kerak bo'lsa
+                objectFit: 'cover',
+                cursor: "pointer",
+              }}
+            />
+          </div>
+        ))}
+    </div>
+    <div className="row" style={{ width: '100%', display: 'flex', gap: '10px' }}>
+      {productsState
+        .filter(item => ["9", "10", "11"].includes(item._id))
+        .map(item => (
+          <div key={item._id} style={{ textAlign: 'center' }}>
+            <img
+              src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
+              alt={item.product_name}
+              onClick={() => handleProductClick(item)}
+              style={{
+                width: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
+                height: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
+                borderRadius: '10px', // Radius qo'shildi, agar kerak bo'lsa
+                objectFit: 'cover',
+                cursor: "pointer",
+              }}
+            />
+          </div>
+        ))}
+    </div>
+  </div>
+</div>
+
+      {/* Sabzavot va mevalar bo'limi */}
+      <div className="Tabiy-mahsulotlar section-title">
+  <h2 className="section-title">Sabzavot va mevalar</h2>
+  <div className="sabzavot-gallery" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px' }}>
+    {productsState
+      .filter(item => (item._id === "12" || item._id === "13") && item.product_name !== "Чай зеленый")
+      .map(item => (
+        <div key={item._id}>
+          <img
+            src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
+            alt={item.product_name}
+            style={{
+              width: 'calc(165px + ((100vw - 360px) * 0.5))',
+              height: 'calc(100px + ((100vw - 360px) * 0.42857))',
+              borderRadius: '10px',
+              cursor: "pointer",
+              objectFit: 'cover',
+              display: 'block',
+            }}
+            onClick={() => handleProductClick(item)}
+          />
+        </div>
+      ))}
+  </div>
+</div>
+
+      {/* Haftaning super narxi bo'limi */}
       <div className="eng-aron-mahsulotlar">
         <h2 className="section-title">Haftaning super narxi</h2>
         <div className="super-price-slider">
@@ -336,12 +478,16 @@ function Home() {
                 : null;
 
               return (
-                <div key={product._id} className="product-card" onClick={() => handleProductClick(product)} style={{ cursor: "pointer" }}>
-                  <img 
+                <div
+                  key={product._id}
+                  className="product-card"
+                  onClick={() => handleProductClick(product)}
+                  style={{ cursor: "pointer" }}
+                >
+                  <img
                     src={product.image_log?.find(img => img.isMain)?.image_url || product.image_url || "/default-image.jpg"}
                     alt={product.product_name || "Mahsulot rasmi"}
                     className="product-image"
-                    onClick={() => handleProductClick(product)}
                   />
                   <div className="product-details">
                     <span className="price">{discountedPrice || originalPrice} so'm</span>
@@ -355,73 +501,111 @@ function Home() {
         </div>
       </div>
 
+      {/* Tayyor ovqat bo'limi */}
       <div className="tayyor-mahsulotlar">
         <h2 className="section-title">Tayyor ovqat</h2>
-        <div className="tayyor-mahsulot-card" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px', padding: '10px' }}>
+        <div
+          className="tayyor-mahsulot-card"
+          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px', padding: '10px', width: '100%' }}
+        >
           {productsState
             .filter(product => product._id === "20")
             .map(product => (
-              <div key={product._id} className="tayyor-mahsulot-card" style={{ textAlign: 'center', cursor: "pointer" }} onClick={() => handleProductClick(product)}>
-                <img 
+              <div
+                key={product._id}
+                className="tayyor-mahsulot-card"
+                style={{ textAlign: 'center', cursor: "pointer" }}
+                onClick={() => handleProductClick(product)}
+              >
+                <img
                   src={product.image_log?.find(img => img.isMain)?.image_url || product.image_url || "/default-image.jpg"}
                   alt={product.product_name || "Mahsulot rasmi"}
-                  style={{ width: '345px', height: '110px', objectFit: 'cover', borderRadius: '15px' }}
-                  onClick={() => handleProductClick(product)}
+                  style={{ width: '100%', objectFit: 'cover', borderRadius: '15px' }}
                 />
-                <div style={{ marginTop: '8px' }}>{product.product_name}</div>
               </div>
             ))}
         </div>
       </div>
 
-      <div className="sut-mahsulotlari">
-        <h2 className="section-title">Sut mahsulotlari</h2>
-        <div className="sut-gallery" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <div className="sut-gallery-row" style={{ display: 'flex', gap: '10px' }}>
-            {productsState
-              .filter(item => ["21", "22", "23"].includes(item._id))
-              .map(item => (
-                <div key={item._id} style={{ cursor: "pointer" }} onClick={() => handleProductClick(item)}>
-                  <img
-                    src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-                    alt={item.product_name || "Sut mahsuloti"}
-                    style={{ borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
-                    onClick={() => handleProductClick(item)}
-                  />
-                  <div style={{ textAlign: 'center', marginTop: '8px' }}>{item.product_name}</div>
-                </div>
-              ))}
+      {/* Sut mahsulotlari bo'limi */}
+<div className="sut-mahsulotlari">
+  <h2 className="section-title">Sut mahsulotlari</h2>
+  <div
+    className="sut-gallery"
+    style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '10px' }}
+  >
+    <div
+      className="sut-gallery-row"
+      style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px', width: '100%' }}
+    >
+      {productsState
+        .filter(item => ["21", "22", "23"].includes(item._id))
+        .map(item => (
+          <div
+            key={item._id}
+            style={{ cursor: "pointer" }}
+            onClick={() => handleProductClick(item)}
+          >
+            <img
+              src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
+              alt={item.product_name || "Sut mahsuloti"}
+              style={{
+                width: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
+                height: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
+                borderRadius: '10px',
+                objectFit: 'cover',
+                cursor: "pointer",
+              }}
+            />
           </div>
-          <div className="sut-gallery-item" style={{ display: 'flex', gap: '10px' }}>
-            {productsState
-              .filter(item => ["24", "25", "26"].includes(item._id))
-              .map(item => (
-                <div key={item._id} style={{ cursor: "pointer" }} onClick={() => handleProductClick(item)}>
-                  <img
-                    src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-                    alt={item.product_name || "Sut mahsuloti"}
-                    style={{ borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
-                    onClick={() => handleProductClick(item)}
-                  />
-                  <div style={{ textAlign: 'center', marginTop: '8px' }}>{item.product_name}</div>
-                </div>
-              ))}
+        ))}
+    </div>
+    <div
+      className="sut-gallery-item"
+      style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px', width: '100%' }}
+    >
+      {productsState
+        .filter(item => ["24", "25", "26"].includes(item._id))
+        .map(item => (
+          <div
+            key={item._id}
+            style={{ cursor: "pointer" }}
+            onClick={() => handleProductClick(item)}
+          >
+            <img
+              src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
+              alt={item.product_name || "Sut mahsuloti"}
+              style={{
+                width: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
+                height: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
+                borderRadius: '10px',
+                objectFit: 'cover',
+                cursor: "pointer",
+              }}
+            />
           </div>
-        </div>
-      </div>
+        ))}
+    </div>
+  </div>
+</div>
 
+      {/* Sizga yoqadi bo'limi */}
       <div className="Sizga-yoqadi">
         <h2 className="section-title">Sizga yoqadi</h2>
         <div className="sizga-yoqadi-slider" style={{ zIndex: 1 }}>
           {productsState
             .filter(product => Number(product._id) >= 27 && Number(product._id) <= 31)
             .map(product => (
-              <div key={product._id} className="product-card" onClick={() => handleProductClick(product)} style={{ cursor: "pointer" }}>
+              <div
+                key={product._id}
+                className="product-card"
+                onClick={() => handleProductClick(product)}
+                style={{ cursor: "pointer" }}
+              >
                 <img
                   src={product.image_log?.find(img => img.isMain)?.image_url || product.image_url || "/default-image.jpg"}
                   alt={product.product_name || "Mahsulot rasmi"}
                   className="product-image"
-                  onClick={() => handleProductClick(product)}
                 />
                 <div className="product-details">
                   <span className="price">{product.price} so'm</span>
@@ -434,9 +618,13 @@ function Home() {
         </div>
       </div>
 
+      {/* Go'sht va parrandalar bo'limi */}
       <div className="goshtlar">
         <h2 className="section-title">Go'sht va parrandalar</h2>
-        <div className="gosht-gallery" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
+        <div
+          className="gosht-gallery"
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px' }}
+        >
           {productsState
             .filter(item => (item._id === "32" || item._id === "33") && item.product_name !== "Чай зеленый")
             .map(item => (
@@ -453,73 +641,130 @@ function Home() {
         </div>
       </div>
 
+      {/* Dengiz mahsulotlari bo'limi */}
       <div className="dengiz-mahsulotlari">
-        <h2 className="section-title">Dengiz mahsulotlari</h2>
-        <div className="gosht-gallery" style={{ display: 'flex' }}>
-          <div className="gosht-row" style={{ display: 'flex', gap: '10px' }}>
-            {productsState
-              .filter(item => ["34", "35", "36"].includes(item._id))
-              .map(item => (
-                <div key={item._id} style={{ textAlign: 'center', cursor: "pointer" }} onClick={() => handleProductClick(item)}>
-                  <img
-                    src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-                    alt={item.product_name || "Go'sht mahsuloti"}
-                    style={{ borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
-                    onClick={() => handleProductClick(item)}
-                  />
-                  <div style={{ marginTop: '8px' }}>{item.product_name}</div>
-                </div>
-              ))}
+  <h2 className="section-title">Dengiz mahsulotlari</h2>
+  <div className="gosht-gallery" style={{ display: 'flex' }}>
+    <div
+      className="gosht-row"
+      style={{ display: 'flex', gap: '10px', width: '100%', justifyContent: 'space-between' }}
+    >
+      {productsState
+        .filter(item => ["34", "35", "36"].includes(item._id))
+        .map(item => (
+          <div
+            key={item._id}
+            style={{ textAlign: 'center', cursor: "pointer" }}
+            onClick={() => handleProductClick(item)}
+          >
+            <img
+              src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
+              alt={item.product_name || "Go'sht mahsuloti"}
+              style={{
+                width: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
+                height: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
+                borderRadius: '10px',
+                objectFit: 'cover',
+                cursor: "pointer",
+              }}
+            />
+            <div style={{ marginTop: '8px' }}>{item.product_name}</div>
           </div>
-        </div>
-      </div>
+        ))}
+    </div>
+  </div>
+</div>
 
-      <div className="ichimliklar">
-        <h2 className="section-title">Suv va ichimliklar</h2>
-        <div className="universal-gallery" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <div className="image-gallery">
-            <div className="row">
-              {productsState
-                .filter(item => item._id === "37" || item._id === "38")
-                .map(item => (
-                  <img
-                    key={item._id}
-                    src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-                    alt={item.product_name || "Mahsulot rasmi"}
-                    style={{ cursor: "pointer" }}
-                    onClick={() => handleProductClick(item)}
-                  />
-                ))}
+{/* Suv va ichimliklar bo'limi */}
+<div className="ichimliklar">
+  <h2 className="section-title">Suv va ichimliklar</h2>
+  <div
+    className="universal-gallery"
+    style={{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: '100%',
+    }}
+  >
+    <div className="image-gallery" style={{ width: '100%' }}>
+      <div
+        className="row"
+        style={{
+          display: 'flex',
+          width: '100%',
+          justifyContent: 'space-between',
+          gap: '10px', // Rasmlar orasidagi 10px bo'shliq
+        }}
+      >
+        {productsState
+          .filter(item => item._id === "37" || item._id === "38")
+          .map(item => (
+            <div key={item._id} style={{ flex: '0 1 auto' }}>
+              <img
+                src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
+                alt={item.product_name || "Mahsulot rasmi"}
+                style={{
+                  width: 'calc(165px + ((100vw - 360px) * 0.5))',
+                  height: 'calc(100px + ((100vw - 360px) * 0.42857))',
+                  borderRadius: '10px', // Radius qo'shildi, agar kerak bo'lsa
+                  objectFit: 'cover',
+                  cursor: 'pointer',
+                }}
+                onClick={() => handleProductClick(item)}
+              />
             </div>
-            <div className="row">
-              {productsState
-                .filter(item => ["39", "40", "41"].includes(item._id))
-                .map(item => (
-                  <img
-                    key={item._id}
-                    src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-                    alt={item.product_name || "Mahsulot rasmi"}
-                    style={{ cursor: "pointer" }}
-                    onClick={() => handleProductClick(item)}
-                  />
-                ))}
-            </div>
-          </div>
-        </div>
+          ))}
       </div>
+      <div
+        className="row"
+        style={{
+          display: 'flex',
+          width: '100%',
+          justifyContent: 'space-between',
+          gap: '10px', // Rasmlar orasidagi 10px bo'shliq
+        }}
+      >
+        {productsState
+          .filter(item => ["39", "40", "41"].includes(item._id))
+          .map(item => (
+            <div key={item._id} style={{ flex: '0 1 auto' }}>
+              <img
+                src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
+                alt={item.product_name || "Mahsulot rasmi"}
+                style={{
+                  width: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
+                  height: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
+                  borderRadius: '10px', // Radius qo'shildi, agar kerak bo'lsa
+                  objectFit: 'cover',
+                  cursor: 'pointer',
+                }}
+                onClick={() => handleProductClick(item)}
+              />
+            </div>
+          ))}
+      </div>
+    </div>
+  </div>
+</div>
 
+      {/* Shirinlik sevuvchilar bo'limi */}
       <div className="shirinlik-sevuvchilar">
         <h2 className="section-title">Shirinlik sevuvchilar</h2>
         <div className="sizga-yoqadi-slider">
           {productsState
             .filter(product => Number(product._id) >= 42 && Number(product._id) <= 47)
             .map(product => (
-              <div key={product._id} className="product-card" onClick={() => handleProductClick(product)} style={{ cursor: "pointer" }}>
+              <div
+                key={product._id}
+                className="product-card"
+                onClick={() => handleProductClick(product)}
+                style={{ cursor: "pointer" }}
+              >
                 <img
                   src={product.image_log?.find(img => img.isMain)?.image_url || product.image_url || "/default-image.jpg"}
                   alt={product.product_name || "Mahsulot rasmi"}
                   className="product-image"
-                  onClick={() => handleProductClick(product)}
                 />
                 <div className="product-details">
                   <span className="price">{product.price} so'm</span>
@@ -532,46 +777,92 @@ function Home() {
         </div>
       </div>
 
+      {/* Shirinliklar bo'limi */}
       <div className="shirinliklar">
         <h2 className="section-title">Shirinliklar</h2>
-        <div className="shirinlik-gallery" style={{ display: 'flex', flexDirection: 'column', gap: '8px', padding: '10px' }}>
-          <div className="shirinlik-row" style={{ display: 'flex', gap: '10px' }}>
+        <div
+          className="shirinlik-gallery"
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '10px',
+            width: '100%',
+          }}
+        >
+          <div
+            className="shirinlik-row"
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              gap: '10px',
+              width: '100%',
+            }}
+          >
             {productsState
               .filter(item => ["48", "49", "50"].includes(item._id))
               .map(item => (
-                <div key={item._id}>
+                <div key={item._id} style={{ flex: '0 1 auto' }}>
                   <img
                     src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
                     alt={item.product_name || "Shirinlik mahsuloti"}
-                    style={{ borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
+                    style={{ borderRadius: '10px', objectFit: 'cover', cursor: 'pointer' }}
                     onClick={() => handleProductClick(item)}
                   />
-                  <div style={{ textAlign: 'center', marginTop: '8px' }}>{item.product_name}</div>
                 </div>
               ))}
           </div>
-          <div className="shirinlik-row" style={{ display: 'flex', gap: '10px' }}>
+          <div
+            className="shirinlik-row"
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              gap: '10px',
+              width: '100%',
+            }}
+          >
             {productsState
               .filter(item => ["51", "52", "53"].includes(item._id))
               .map(item => (
-                <div key={item._id}>
+                <div key={item._id} style={{ flex: '0 1 auto' }}>
                   <img
                     src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
                     alt={item.product_name || "Shirinlik mahsuloti"}
-                    style={{ borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
+                    style={{ borderRadius: '10px', objectFit: 'cover', cursor: 'pointer' }}
                     onClick={() => handleProductClick(item)}
                   />
-                  <div style={{ textAlign: 'center', marginTop: '8px' }}>{item.product_name}</div>
                 </div>
               ))}
           </div>
         </div>
       </div>
 
+      {/* Oziq-ovqat mollari bo'limi */}
       <div className="Oziq-ovqat">
         <h2 className="section-title">Oziq-ovqat mollari</h2>
-        <div className="shirinlik-gallery" style={{ display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center', justifyContent: 'center' }}>
-          <div className="shirinlik-row" style={{ display: 'flex', gap: '10px' }}>
+        <div
+          className="shirinlik-gallery"
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '100%',
+            gap: '10px',
+          }}
+        >
+          <div
+            className="shirinlik-row"
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              gap: '10px',
+              width: '100%',
+            }}
+          >
             {productsState
               .filter(item => ["54", "55", "56"].includes(item._id))
               .map(item => (
@@ -579,14 +870,21 @@ function Home() {
                   <img
                     src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
                     alt={item.product_name || "Shirinlik mahsuloti"}
-                    style={{ borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
+                    style={{ borderRadius: '10px', objectFit: 'cover', cursor: 'pointer' }}
                     onClick={() => handleProductClick(item)}
                   />
-                  <div style={{ textAlign: 'center', marginTop: '8px' }}>{item.product_name}</div>
                 </div>
               ))}
           </div>
-          <div className="shirinlik-row" style={{ display: 'flex', gap: '10px' }}>
+          <div
+            className="shirinlik-row"
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              gap: '10px',
+              width: '100%',
+            }}
+          >
             {productsState
               .filter(item => ["57", "58", "59"].includes(item._id))
               .map(item => (
@@ -594,14 +892,21 @@ function Home() {
                   <img
                     src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
                     alt={item.product_name || "Shirinlik mahsuloti"}
-                    style={{ borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
+                    style={{ borderRadius: '10px', objectFit: 'cover', cursor: 'pointer' }}
                     onClick={() => handleProductClick(item)}
                   />
-                  <div style={{ textAlign: 'center', marginTop: '8px' }}>{item.product_name}</div>
                 </div>
               ))}
           </div>
-          <div className="shirinlik-row" style={{ display: 'flex', gap: '10px' }}>
+          <div
+            className="shirinlik-row"
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              gap: '10px',
+              width: '100%',
+            }}
+          >
             {productsState
               .filter(item => ["60", "61", "62"].includes(item._id))
               .map(item => (
@@ -609,270 +914,429 @@ function Home() {
                   <img
                     src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
                     alt={item.product_name || "Shirinlik mahsuloti"}
-                    style={{ borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
+                    style={{ borderRadius: '10px', objectFit: 'cover', cursor: 'pointer' }}
                     onClick={() => handleProductClick(item)}
                   />
-                  <div style={{ textAlign: 'center', marginTop: '8px' }}>{item.product_name}</div>
                 </div>
               ))}
           </div>
         </div>
       </div>
 
+      {/* Non mahsulotlari bo'limi */}
       <div className="Oziq-ovqat">
         <h2 className="section-title">Non mahsulotlari</h2>
-        <div className="shirinlik-gallery" style={{ display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center', justifyContent: 'center' }}>
-          <div className="shirinlik-row" style={{ display: 'flex', gap: '10px' }}>
+        <div
+          className="shirinlik-gallery"
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '8px',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '100%',
+          }}
+        >
+          <div
+            className="shirinlik-row"
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              gap: '10px',
+              width: '100%',
+            }}
+          >
             {productsState
               .filter(item => ["63", "64", "65"].includes(item._id))
               .map(item => (
-                <div key={item._id}>
+                <div key={item._id} style={{ flex: '0 1 auto' }}>
                   <img
                     src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
                     alt={item.product_name || "Shirinlik mahsuloti"}
-                    style={{ borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
+                    style={{ borderRadius: '10px', objectFit: 'cover', cursor: 'pointer' }}
                     onClick={() => handleProductClick(item)}
                   />
-                  <div style={{ textAlign: 'center', marginTop: '8px' }}>{item.product_name}</div>
                 </div>
               ))}
           </div>
         </div>
       </div>
 
+      {/* Muzlatilgan mahsulotlar va muzqaymoq bo'limi */}
       <div className="goshtlar">
         <h2 className="section-title">Muzlatilgan mahsulotlar va muzqaymoq</h2>
-        <div className="gosht-gallery" style={{ display: 'flex', gap: '10px', alignItems: 'center', justifyContent: 'center' }}>
+        <div
+          className="gosht-gallery"
+          style={{
+            display: 'flex',
+            gap: '10px',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            width: '100%',
+            margin: '0 auto',
+          }}
+        >
           {productsState
             .filter(item => (item._id === "66" || item._id === "67") && item.product_name !== "Чай зеленый")
             .map(item => (
-              <div key={item._id}>
+              <div key={item._id} style={{ flex: '0 1 auto' }}>
                 <img
                   src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-                  alt={item.product_name}
-                  style={{ borderRadius: '10px', cursor: "pointer" }}
+                  alt={item.product_name || "Muzlatilgan mahsulot"}
+                  style={{ borderRadius: '10px', objectFit: 'cover', cursor: 'pointer' }}
                   onClick={() => handleProductClick(item)}
                 />
-                <div style={{ textAlign: 'center', marginTop: '8px' }}>{item.product_name}</div>
               </div>
             ))}
         </div>
       </div>
 
+      {/* Turli xil konservalar bo'limi */}
       <div className="goshtlar">
         <h2 className="section-title">Turli xil konservalar</h2>
-        <div className="gosht-gallery" style={{ display: 'flex', gap: '10px', alignItems: 'center', justifyContent: 'center' }}>
+        <div
+          className="gosht-gallery"
+          style={{
+            display: 'flex',
+            gap: '10px',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            width: '100%',
+            margin: '0 auto',
+          }}
+        >
           {productsState
             .filter(item => (item._id === "68" || item._id === "69") && item.product_name !== "Чай зеленый")
             .map(item => (
-              <div key={item._id}>
+              <div key={item._id} style={{ flex: '0 1 auto' }}>
                 <img
                   src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-                  alt={item.product_name}
-                  style={{ borderRadius: '10px', cursor: "pointer" }}
+                  alt={item.product_name || "Konserva mahsuloti"}
+                  style={{ borderRadius: '10px', objectFit: 'cover', cursor: 'pointer' }}
                   onClick={() => handleProductClick(item)}
                 />
-                <div style={{ textAlign: 'center', marginTop: '8px' }}>{item.product_name}</div>
               </div>
             ))}
         </div>
       </div>
 
-      <div className="ichimliklar">
-        <h2 className="section-title">Bolalar uchun</h2>
-        <div className="universal-gallery" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <div className="image-gallery">
-            <div className="row">
-              {productsState
-                .filter(item => item._id === "70" || item._id === "71")
-                .map(item => (
-                  <img
-                    key={item._id}
-                    src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-                    alt={item.product_name || "Mahsulot rasmi"}
-                    style={{ cursor: "pointer" }}
-                    onClick={() => handleProductClick(item)}
-                  />
-                ))}
+      {/* Bolalar uchun bo'limi */}
+ <div className="ichimliklar">
+  <h2 className="section-title">Bolalar uchun</h2>
+  <div
+    className="universal-gallery"
+    style={{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: '100%',
+      margin: '0 auto',
+    }}
+  >
+    <div
+      className="image-gallery"
+      style={{
+        width: '100%',
+      }}
+    >
+      <div
+        className="row"
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          gap: '10px',
+          width: '100%',
+        }}
+      >
+        {productsState
+          .filter(item => item._id === "70" || item._id === "71")
+          .map(item => (
+            <div key={item._id} style={{ flex: '0 1 auto' }}>
+              <img
+                src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
+                alt={item.product_name || "Mahsulot rasmi"}
+                style={{
+                  width: 'calc(165px + ((100vw - 360px) * 0.5))',
+                  height: 'calc(100px + ((100vw - 360px) * 0.42857))',
+                  borderRadius: '10px',
+                  objectFit: 'cover',
+                  cursor: 'pointer',
+                }}
+                onClick={() => handleProductClick(item)}
+              />
             </div>
-            <div className="row">
-              {productsState
-                .filter(item => ["72", "73", "74"].includes(item._id))
-                .map(item => (
-                  <img
-                    key={item._id}
-                    src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-                    alt={item.product_name || "Mahsulot rasmi"}
-                    style={{ cursor: "pointer" }}
-                    onClick={() => handleProductClick(item)}
-                  />
-                ))}
-            </div>
-          </div>
-        </div>
+          ))}
       </div>
+      <div
+        className="row"
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          gap: '10px',
+          width: '100%',
+        }}
+      >
+        {productsState
+          .filter(item => ["72", "73", "74"].includes(item._id))
+          .map(item => (
+            <div key={item._id} style={{ flex: '0 1 auto' }}>
+              <img
+                src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
+                alt={item.product_name || "Mahsulot rasmi"}
+                style={{
+                  width: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
+                  height: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
+                  borderRadius: '10px',
+                  objectFit: 'cover',
+                  cursor: 'pointer',
+                }}
+                onClick={() => handleProductClick(item)}
+              />
+            </div>
+          ))}
+      </div>
+    </div>
+  </div>
+</div>
 
+      {/* Uy hayvonlari uchun bo'limi */}
       <div className="goshtlar">
         <h2 className="section-title">Uy hayvonlari uchun</h2>
-        <div className="gosht-gallery" style={{ display: 'flex', gap: '10px', alignItems: 'center', justifyContent: 'center' }}>
+        <div
+          className="gosht-gallery"
+          style={{
+            display: 'flex',
+            gap: '10px',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            width: '100%',
+            margin: '0 auto',
+          }}
+        >
           {productsState
             .filter(item => (item._id === "75" || item._id === "76") && item.product_name !== "Чай зеленый")
             .map(item => (
-              <div key={item._id}>
+              <div key={item._id} style={{ flex: '0 1 auto' }}>
                 <img
                   src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-                  alt={item.product_name}
-                  style={{ borderRadius: '10px', cursor: "pointer" }}
+                  alt={item.product_name || "Uy hayvonlari mahsuloti"}
+                  style={{ borderRadius: '10px', objectFit: 'cover', cursor: 'pointer' }}
                   onClick={() => handleProductClick(item)}
                 />
-                <div style={{ textAlign: 'center', marginTop: '8px' }}>{item.product_name}</div>
               </div>
             ))}
         </div>
       </div>
 
-      <div className="ichimliklar">
-        <h2 className="section-title">Gigiyena va parvarish</h2>
-        <div className="universal-gigiyena" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <div className="gigiyena" style={{ justifyContent: 'center', gap: '10px' }}>
-            {productsState.filter(item => item._id === "77").map(item => (
-              <div key={item._id} style={{ textAlign: 'center' }}>
-                <img
-                  src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-                  alt={item.product_name || "Mahsulot rasmi"}
-                  style={{ borderRadius: '16px', objectFit: 'cover', cursor: "pointer" }}
-                  onClick={() => handleProductClick(item)}
-                />
-              </div>
-            ))}
-            {productsState.filter(item => item._id === "78").map(item => (
-              <div key={item._id} style={{ textAlign: 'center' }}>
-                <img
-                  src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-                  alt={item.product_name || "Mahsulot rasmi"}
-                  style={{ borderRadius: '16px', objectFit: 'cover', cursor: "pointer" }}
-                  onClick={() => handleProductClick(item)}
-                />
-              </div>
-            ))}
+      {/* Gigiyena va parvarish bo'limi */}
+<div className="ichimliklar">
+  <h2 className="section-title">Gigiyena va parvarish</h2>
+  <div
+    className="universal-gigiyena"
+    style={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: '100%',
+      margin: '0 auto',
+      gap: '10px',
+    }}
+  >
+    <div
+      className="gigiyena"
+      style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        gap: '10px',
+        width: '100%',
+      }}
+    >
+      {productsState
+        .filter(item => ["77", "78"].includes(item._id))
+        .map(item => (
+          <div key={item._id} style={{ flex: '0 1 auto' }}>
+            <img
+              src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
+              alt={item.product_name || "Gigiyena mahsuloti"}
+              style={{ borderRadius: '16px', objectFit: 'cover', cursor: 'pointer' }}
+              onClick={() => handleProductClick(item)}
+            />
           </div>
-          <div className="row" style={{ justifyContent: 'center', gap: '10px' }}>
-            {productsState.filter(item => item._id === "79").map(item => (
-              <div key={item._id} style={{ textAlign: 'center' }}>
-                <img
-                  src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-                  alt={item.product_name || "Mahsulot rasmi"}
-                  style={{ borderRadius: '16px', objectFit: 'cover', cursor: "pointer" }}
-                  onClick={() => handleProductClick(item)}
-                />
-              </div>
-            ))}
-            {productsState.filter(item => item._id === "80").map(item => (
-              <div key={item._id} style={{ textAlign: 'center' }}>
-                <img
-                  src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-                  alt={item.product_name || "Mahsulot rasmi"}
-                  style={{ borderRadius: '16px', objectFit: 'cover', cursor: "pointer" }}
-                  onClick={() => handleProductClick(item)}
-                />
-              </div>
-            ))}
-            {productsState.filter(item => item._id === "81").map(item => (
-              <div key={item._id} style={{ textAlign: 'center' }}>
-                <img
-                  src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-                  alt={item.product_name || "Mahsulot rasmi"}
-                  style={{ borderRadius: '16px', objectFit: 'cover', cursor: "pointer" }}
-                  onClick={() => handleProductClick(item)}
-                />
-              </div>
-            ))}
+        ))}
+    </div>
+    <div
+      className="row"
+      style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        gap: '10px',
+        width: '100%',
+      }}
+    >
+      {productsState
+        .filter(item => ["79", "80", "81"].includes(item._id))
+        .map(item => (
+          <div key={item._id} style={{ flex: '0 1 auto' }}>
+            <img
+              src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
+              alt={item.product_name || "Gigiyena mahsuloti"}
+              style={{
+                width: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
+                height: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
+                borderRadius: '16px',
+                objectFit: 'cover',
+                cursor: 'pointer',
+              }}
+              onClick={() => handleProductClick(item)}
+            />
           </div>
-          <div className="gigiyena" style={{ justifyContent: 'center', gap: '10px' }}>
-            {productsState.filter(item => item._id === "82").map(item => (
-              <div key={item._id} style={{ textAlign: 'center' }}>
-                <img
-                  src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-                  alt={item.product_name || "Mahsulot rasmi"}
-                  style={{ borderRadius: '16px', objectFit: 'cover', cursor: "pointer" }}
-                  onClick={() => handleProductClick(item)}
-                />
-              </div>
-            ))}
-            {productsState.filter(item => item._id === "83").map(item => (
-              <div key={item._id} style={{ textAlign: 'center' }}>
-                <img
-                  src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-                  alt={item.product_name || "Mahsulot rasmi"}
-                  style={{ borderRadius: '16px', objectFit: 'cover', cursor: "pointer" }}
-                  onClick={() => handleProductClick(item)}
-                />
-              </div>
-            ))}
+        ))}
+    </div>
+    <div
+      className="gigiyena"
+      style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        gap: '10px',
+        width: '100%',
+      }}
+    >
+      {productsState
+        .filter(item => ["82", "83"].includes(item._id))
+        .map(item => (
+          <div key={item._id} style={{ flex: '0 1 auto' }}>
+            <img
+              src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
+              alt={item.product_name || "Gigiyena mahsuloti"}
+              style={{ borderRadius: '16px', objectFit: 'cover', cursor: 'pointer' }}
+              onClick={() => handleProductClick(item)}
+            />
           </div>
-        </div>
-      </div>
+        ))}
+    </div>
+  </div>
+</div>
 
+      {/* Chinniyu chiroq bo'limi */}
       <div className="Oziq-ovqat">
         <h2 className="section-title">Chinniyu chiroq</h2>
-        <div className="shirinlik-gallery" style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-          <div className="shirinlik-row" style={{ display: 'flex', gap: '10px' }}>
+        <div
+          className="shirinlik-gallery"
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '8px',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '100%',
+            margin: '0 auto',
+          }}
+        >
+          <div
+            className="shirinlik-row"
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              gap: '10px',
+              width: '100%',
+            }}
+          >
             {productsState
               .filter(item => ["84", "85", "86"].includes(item._id))
               .map(item => (
-                <div key={item._id}>
+                <div key={item._id} style={{ flex: '0 1 auto' }}>
                   <img
                     src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-                    alt={item.product_name || "Shirinlik mahsuloti"}
-                    style={{ borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
+                    alt={item.product_name || "Chinniyu chiroq mahsuloti"}
+                    style={{ borderRadius: '10px', objectFit: 'cover', cursor: 'pointer' }}
                     onClick={() => handleProductClick(item)}
                   />
-                  <div style={{ textAlign: 'center', marginTop: '8px' }}>{item.product_name}</div>
                 </div>
               ))}
           </div>
         </div>
       </div>
 
+      {/* Ro'zg'or uchun bo'limi */}
       <div className="shirinlikar">
         <h2 className="section-title">Ro'zg'or uchun</h2>
-        <div className="shirinlik-gallery" style={{ display: 'flex', flexDirection: 'column' }}>
-          <div className="shirinlik-row" style={{ display: 'flex', gap: '10px' }}>
+        <div
+          className="shirinlik-gallery"
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '8px',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '100%',
+            margin: '0 auto',
+          }}
+        >
+          <div
+            className="shirinlik-row"
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              gap: '10px',
+              width: '100%',
+              borderRadius: '10px',
+            }}
+          >
             {productsState
               .filter(item => ["87", "88", "89"].includes(item._id))
               .map(item => (
-                <div key={item._id}>
+                <div key={item._id} style={{ flex: '0 1 auto' }}>
                   <img
                     src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-                    alt={item.product_name || "Shirinlik mahsuloti"}
-                    style={{ borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
+                    alt={item.product_name || "Ro'zg'or mahsuloti"}
+                    style={{ borderRadius: '10px', objectFit: 'cover', cursor: 'pointer' }}
                     onClick={() => handleProductClick(item)}
                   />
-                  <div style={{ textAlign: 'center', marginTop: '8px' }}>{item.product_name}</div>
                 </div>
               ))}
           </div>
-          <div className="shirinlik-row" style={{ display: 'flex', gap: '10px' }}>
+          <div
+            className="shirinlik-row"
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              gap: '10px',
+              width: '100%',
+            }}
+          >
             {productsState
               .filter(item => ["90", "91", "92"].includes(item._id))
               .map(item => (
-                <div key={item._id}>
+                <div key={item._id} style={{ flex: '0 1 auto' }}>
                   <img
                     src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-                    alt={item.product_name || "Shirinlik mahsuloti"}
-                    style={{ borderRadius: '10px', objectFit: 'cover', cursor: "pointer" }}
+                    alt={item.product_name || "Ro'zg'or mahsuloti"}
+                    style={{ borderRadius: '10px', objectFit: 'cover', cursor: 'pointer' }}
                     onClick={() => handleProductClick(item)}
                   />
-                  <div style={{ textAlign: 'center', marginTop: '8px' }}>{item.product_name}</div>
                 </div>
               ))}
           </div>
         </div>
       </div>
 
+
+
+      {/* Mahsulot modal oynasi oxshash mahsulotlar ///////////////////////////////////////////////////////////////////////////////*/}
       {selectedProduct && (
         <div className="modal-overlay" onClick={handleCloseProductModal}>
           <div className="modal-content product-modal" ref={modalRef} onClick={e => e.stopPropagation()}>
+            {/* Tanlangan mahsulot */}
             <div className="modal-img-wrap">
               <img
                 src={selectedProduct.image_log?.find(img => img.isMain)?.image_url || selectedProduct.image_url || "/default-image.jpg"}
@@ -885,13 +1349,10 @@ function Home() {
                   setSelectedProduct({ ...selectedProduct, isFavorite: !selectedProduct.isFavorite });
                 }}
               >
-                <span role="img" aria-label="like" style={{ fontSize: 26 }}>❤️</span>
+                <span role="img" aria-label="like" style={{ fontSize: 26, margin: '16px'}}><FaRegHeart /></span>
               </button>
-              <button
-                className="modal-close-btn"
-                onClick={handleCloseProductModal}
-              >
-                <span style={{ fontSize: 28, fontWeight: 600 }}>×</span>
+              <button className="modal-close-btn" onClick={handleCloseProductModal}>
+                <span style={{ fontSize: 28, fontWeight: 600 }}><HiOutlineX /></span>
               </button>
             </div>
             <div className="modal-product-body">
@@ -943,11 +1404,19 @@ function Home() {
                 </div>
               )}
               <button className="modal-add-to-cart-btn">Savatchaga qo'shish</button>
+              {/* ====== O'xshash mahsulotlar bo'limi (similar-products) START ====== */}
               <div className="similar-products">
                 <h3 style={{ fontSize: 18, marginBottom: 8 }}>O‘xshash mahsulotlar</h3>
-                <div style={{ display: "flex", gap: 12, overflowX: "auto", paddingBottom: 12 }}>
+                <div
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(3, 1fr)',
+                    gap: 16,
+                    placeItems: 'center',
+                  }}
+                >
                   {productsState
-                    .filter(p => 
+                    .filter(p =>
                       p._id !== selectedProduct._id &&
                       p.product_name &&
                       selectedProduct.product_name &&
@@ -966,62 +1435,73 @@ function Home() {
                       return (
                         <div
                           key={p._id}
-                          className="similar-product-card"
+                          className="product-card"
                           onClick={() => handleProductClick(p)}
+                          style={{ cursor: "pointer", display: "inline-block", width: "130px", minWidth: "130px" }}
                         >
                           <img
                             src={p.image_log?.find(img => img.isMain)?.image_url || p.image_url || "/default-image.jpg"}
                             alt={p.product_name}
-                            className="similar-product-img"
+                            className="product-image"
                           />
                           {discount && (
-                            <span className="similar-product-discount">
-                              {discount.percent}%
-                            </span>
+                            <span className="discount-badge">{discount.percent}%</span>
                           )}
-                          <div className="similar-product-name">{p.product_name}</div>
-                          <div className="similar-product-weight">
-                            Og'irligi: {p.unit_description || "Noma'lum"}
-                          </div>
-                          <div className="similar-product-price">
+                          <div className="product-details">
                             {discountedPrice ? (
                               <>
-                                <span className="discounted">{discountedPrice} so'm</span>
-                                <span className="original">{originalPrice} so'm</span>
+                                <span className="price discounted-price">{discountedPrice} so'm</span>
+                                <span className="price original-price">{originalPrice} so'm</span>
                               </>
                             ) : (
-                              <span>{originalPrice} so'm</span>
+                              <span className="price">{originalPrice} so'm</span>
                             )}
+                            <h3 className="product-name">{p.product_name || "Noma'lum mahsulot"}</h3>
+                            <p className="weight">Og'irligi: {p.unit_description || "Noma'lum"}</p>
+                            <button className="add-to-cart">Savata</button>
                           </div>
-                          <button className="similar-product-add-to-cart">Savatchaga</button>
                         </div>
                       );
                     })}
                 </div>
               </div>
+              {/* ====== O'xshash mahsulotlar bo'limi (similar-products) END ====== */}
             </div>
           </div>
         </div>
       )}
 
+
+      {/* Chegirma modal oynasi */}
       {showDiscountModal && (
-        <div className="modal-overlay discount-modal-overlay"  onClick={handleCloseDiscountModal} style={{height: '100%'}}>
+        <div className="modal-overlay discount-modal-overlay" onClick={handleCloseDiscountModal} style={{ height: '100%' }}>
           <div
             className="modal-content discount-modal"
             onClick={e => e.stopPropagation()}
             style={{ maxHeight: '100%', overflowY: 'auto', scrollBehavior: 'smooth' }}
-            ref={el => {
-              
-            }}
           >
-            <button
-              className="modal-close-btn"
-              onClick={handleCloseDiscountModal}
-            >
+            <button className="modal-close-btn" onClick={handleCloseDiscountModal}>
               <span>×</span>
             </button>
-            <div className="discount-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, padding: 16 }}>
-              <div className="discount-header" style={{ gridColumn: '1 / -1', position: 'static', top: 'unset', background: 'unset', zIndex: 'unset', paddingBottom: 8, marginBottom: 8 }}>
+            <div
+              className="discount-grid"
+              style={{ display: 'grid',
+                    gridTemplateColumns: 'repeat(3, 1fr)',
+                    gap: 16,
+                    placeItems: 'center'}}
+            >
+              <div
+                className="discount-header"
+                style={{
+                  gridColumn: '1 / -1',
+                  position: 'static',
+                  top: 'unset',
+                  background: 'unset',
+                  zIndex: 'unset',
+                  paddingBottom: 8,
+                  marginBottom: 8,
+                }}
+              >
                 <div className="discount-buttons">
                   {[
                     "Haftaning super narxi",
@@ -1031,6 +1511,7 @@ function Home() {
                     "Kichkintoylar uchun eng yaxshisi",
                     "Yana 2 ta ▼"
                   ].map((text, index) => (
+
                     <button key={index} className="discount-button">{text}</button>
                   ))}
                 </div>
@@ -1050,7 +1531,12 @@ function Home() {
                   ? (originalPrice - (originalPrice * discount.percent / 100)).toFixed(0)
                   : null;
                 return (
-                  <div key={product._id} className="product-card" style={{ marginBottom: 16 }} onClick={() => handleDiscountProductClick(product)}>
+                  <div
+                    key={product._id}
+                    className="product-card"
+                    style={{ marginBottom: 16 }}
+                    onClick={() => handleDiscountProductClick(product)}
+                  >
                     <img
                       src={product.image_log?.find(img => img.isMain)?.image_url || product.image_url || "/default-image.jpg"}
                       alt={product.product_name}
@@ -1059,11 +1545,11 @@ function Home() {
                     <div className="product-details">
                       {discountedPrice ? (
                         <>
-                          <span className="price discounted-price">{discountedPrice} so'm</span>
-                          <span className="price original-price">{originalPrice} so'm</span>
+                          <span className="price discounted-price" style={{ fontSize: '14px' }}>{discountedPrice} so'm</span>
+                          <span className="price original-price" style={{ fontSize: '12px' }}>{originalPrice} so'm</span>
                         </>
                       ) : (
-                        <span className="price">{originalPrice} so'm</span>
+                        <span className="price" style={{ fontSize: '14px' }}>{originalPrice} so'm</span>
                       )}
                       <h3 className="product-name">{product.product_name}</h3>
                       <p className="weight">Og'irligi: {product.unit_description || "Noma'lum"}</p>
