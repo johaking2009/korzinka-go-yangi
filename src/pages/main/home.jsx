@@ -11,6 +11,7 @@ import { FaQrcode, FaPercent, FaRegHeart } from "react-icons/fa6";
 function Home() {
   const [productsState, setProductsState] = useState(products);
   const [modalOpen, setModalOpen] = useState(false);
+  const [showDetails, setShowDetails] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [search, setSearch] = useState('');
   const [suggestions, setSuggestions] = useState([]);
@@ -506,7 +507,7 @@ function Home() {
         <h2 className="section-title">Tayyor ovqat</h2>
         <div
           className="tayyor-mahsulot-card"
-          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px', padding: '10px', width: '100%' }}
+          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}
         >
           {productsState
             .filter(product => product._id === "20")
@@ -1344,12 +1345,13 @@ function Home() {
                 className="modal-product-img"
               />
               <button
-                className={`modal-like-btn${selectedProduct.isFavorite ? " liked" : ""}`}
+                className={`modal-like-btn ${selectedProduct.isFavorite ? " liked" : "" }`}
+                style={{ background: 'none', border: 'none', cursor: 'pointer', marginTop: '16px'  }}
                 onClick={() => {
                   setSelectedProduct({ ...selectedProduct, isFavorite: !selectedProduct.isFavorite });
                 }}
               >
-                <span role="img" aria-label="like" style={{ fontSize: 26, margin: '16px'}}><FaRegHeart /></span>
+                <span role="img" aria-label="like" style={{ fontSize: 26, marginLeft: '19px', marginTop:'16px', background: 'none' }}><FaRegHeart /></span>
               </button>
               <button className="modal-close-btn" onClick={handleCloseProductModal}>
                 <span style={{ fontSize: 28, fontWeight: 600 }}><HiOutlineX /></span>
@@ -1367,7 +1369,59 @@ function Home() {
                   <span className="modal-product-weight">{selectedProduct.unit_description}</span>
                 )}
               </div>
-              <div className="modal-product_desc">{selectedProduct.product_description}</div>
+            <div className="modal-product_desc">{selectedProduct.product_description}</div>
+            {/* Batafsil (details) collapsible section */}
+            <div style={{ margin: '12px 0' }}>
+              <button
+                onClick={() => setShowDetails(prev => !prev)}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  color: '#228b22',
+                  fontSize: 16,
+                  display: 'flex',
+                  alignItems: 'center',
+                  cursor: 'pointer',
+                  gap: 6,
+                  fontWeight: 600
+                }}
+              >
+                Batafsil
+                <span style={{
+                  display: 'inline-block',
+                  transform: showDetails ? 'rotate(180deg)' : 'rotate(0deg)',
+                  transition: 'transform 0.2s',
+                  fontSize: 18
+                }}>
+                  ▼
+                </span>
+              </button>
+              {showDetails && (
+                <div style={{ marginTop: 8 }}>
+                  {selectedProduct.product_ingredients && (
+                    <div className="modal-product-info">
+                      <strong>Tarkibi:</strong> {selectedProduct.product_ingredients}
+                    </div>
+                  )}
+                  {selectedProduct.nutritional_value && (
+                    <div className="modal-product-info"style={{ display: 'flex', flexDirection: 'column', gap: '14px'}}>
+                      <strong>Energiya:</strong>
+                      <ul className="nutritional-value-list" style={{ display: 'flex', flexDirection: 'column', gap: '6px'}}>
+                        <li>Kkal: {selectedProduct.nutritional_value.kkal}</li>
+                        <li>Yog': {selectedProduct.nutritional_value.fat}g</li>
+                        <li>Oqsil: {selectedProduct.nutritional_value.protein}g</li>
+                        <li>Uglevod: {selectedProduct.nutritional_value.uglevod}g</li>
+                      </ul>
+                    </div>
+                  )}
+                  {selectedProduct.strg_conditions && (
+                    <div className="modal-product-info">
+                      <strong>Saqlash:</strong> {selectedProduct.strg_conditions}
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
               <div className="modal-product-details">
                 <div className="modal-product-price">
                   {selectedProduct.discount_log?.find(d => d.status === "active") ? (
@@ -1382,89 +1436,91 @@ function Home() {
                   )}
                 </div>
               </div>
-              {selectedProduct.product_ingredients && (
-                <div className="modal-product-info">
-                  <strong>Tarkibi:</strong> {selectedProduct.product_ingredients}
-                </div>
-              )}
-              {selectedProduct.nutritional_value && (
-                <div className="modal-product-info">
-                  <strong>Energiya:</strong>
-                  <ul>
-                    <li>Kkal: {selectedProduct.nutritional_value.kkal}</li>
-                    <li>Yog': {selectedProduct.nutritional_value.fat}g</li>
-                    <li>Oqsil: {selectedProduct.nutritional_value.protein}g</li>
-                    <li>Uglevod: {selectedProduct.nutritional_value.uglevod}g</li>
-                  </ul>
-                </div>
-              )}
-              {selectedProduct.strg_conditions && (
-                <div className="modal-product-info">
-                  <strong>Saqlash:</strong> {selectedProduct.strg_conditions}
-                </div>
-              )}
+              {/* Batafsil bo'limi end */}
               <button className="modal-add-to-cart-btn">Savatchaga qo'shish</button>
               {/* ====== O'xshash mahsulotlar bo'limi (similar-products) START ====== */}
-              <div className="similar-products">
-                <h3 style={{ fontSize: 18, marginBottom: 8 }}>O‘xshash mahsulotlar</h3>
-                <div
-                  style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(3, 1fr)',
-                    gap: 16,
-                    placeItems: 'center',
-                  }}
-                >
-                  {productsState
-                    .filter(p =>
-                      p._id !== selectedProduct._id &&
-                      p.product_name &&
-                      selectedProduct.product_name &&
-                      p.product_name.toLowerCase().includes(
-                        selectedProduct.product_name.split(" ")[0].toLowerCase()
-                      )
-                    )
-                    .slice(0, 8)
-                    .map(p => {
-                      const discount = p.discount_log?.find(d => d.status === "active");
-                      const originalPrice = p.price || 0;
-                      const discountedPrice = discount
-                        ? (originalPrice - (originalPrice * discount.percent / 100)).toFixed(2)
-                        : null;
+<div className="similar-products">
+  <h3 style={{ fontSize: 18, marginTop: 18, }}>O‘xshash mahsulotlar</h3>
+  <div
+    style={{
+      display: 'grid',
+      gridTemplateColumns: 'repeat(3, 1fr)', // 3 ta ustun majburiy
+      gap: 8, // Gap saqlanadi
+      placeItems: 'center',
+      maxWidth: '100%', // Konteynerni cheklash
+      width: '100%', // To‘liq kenglik
+      boxSizing: 'border-box', // Padding/Chegaralarni hisobga olish
+      padding: 0, // Qo‘shimcha padding olib tashlandi
+      margin: 0, // Ortichalik margin olib tashlandi
+      overflow: 'hidden', // Chiqib ketishni oldini olish
+    }}
+  >
+    {productsState
+      .filter(p =>
+        p._id !== selectedProduct._id &&
+        p.product_name &&
+        selectedProduct.product_name &&
+        p.product_name.toLowerCase().includes(
+          selectedProduct.product_name.split(" ")[0].toLowerCase()
+        )
+      )
+      .slice(0, 8)
+      .map(p => {
+        const discount = p.discount_log?.find(d => d.status === "active");
+        const originalPrice = p.price || 0;
+        const discountedPrice = discount
+          ? (originalPrice - (originalPrice * discount.percent / 100)).toFixed(2)
+          : null;
 
-                      return (
-                        <div
-                          key={p._id}
-                          className="product-card"
-                          onClick={() => handleProductClick(p)}
-                          style={{ cursor: "pointer", display: "inline-block", width: "130px", minWidth: "130px" }}
-                        >
-                          <img
-                            src={p.image_log?.find(img => img.isMain)?.image_url || p.image_url || "/default-image.jpg"}
-                            alt={p.product_name}
-                            className="product-image"
-                          />
-                          {discount && (
-                            <span className="discount-badge">{discount.percent}%</span>
-                          )}
-                          <div className="product-details">
-                            {discountedPrice ? (
-                              <>
-                                <span className="price discounted-price">{discountedPrice} so'm</span>
-                                <span className="price original-price">{originalPrice} so'm</span>
-                              </>
-                            ) : (
-                              <span className="price">{originalPrice} so'm</span>
-                            )}
-                            <h3 className="product-name">{p.product_name || "Noma'lum mahsulot"}</h3>
-                            <p className="weight">Og'irligi: {p.unit_description || "Noma'lum"}</p>
-                            <button className="add-to-cart">Savata</button>
-                          </div>
-                        </div>
-                      );
-                    })}
-                </div>
-              </div>
+        return (
+          <div
+            key={p._id}
+            className="product-card"
+            onClick={() => handleProductClick(p)}
+            style={{
+              cursor: "pointer",
+              display: "inline-block",
+              width: 'calc(100px + ((100vw - 360px) * 0.37))', // Kenglikni biroz oshirildi
+              minWidth: 'calc(100px + ((100vw - 360px) * 0.37))',
+              height: 'auto', // Avtomatik balandlik
+              maxHeight: '300px', // Maksimal balandlik chegarasi
+              boxSizing: 'border-box', // Ichki chegaralarni hisobga olish
+              overflow: 'hidden', // Kontentdan chiqib ketishni oldini olish
+            }}
+          >
+            <img
+              src={p.image_log?.find(img => img.isMain)?.image_url || p.image_url || "/default-image.jpg"}
+              alt={p.product_name}
+              className="product-image"
+              style={{
+                width: '100%', // Konteyner kengligiga moslash
+                height: 'calc(130px + ((100vw - 360px) * 0.35))', // Rasm balandligi
+                borderRadius: '10px 10px 0 0', // Yuqori burchaklarni yumshatish
+                objectFit: 'cover',
+                display: 'block',
+              }}
+            />
+            {discount && (
+              <span className="discount-badge">{discount.percent}%</span>
+            )}
+            <div className="product-details">
+              {discountedPrice ? (
+                <>
+                  <span className="price discounted-price">{discountedPrice} so'm</span>
+                  <span className="price original-price">{originalPrice} so'm</span>
+                </>
+              ) : (
+                <span className="price">{originalPrice} so'm</span>
+              )}
+              <h3 className="product-name">{p.product_name || "Noma'lum mahsulot"}</h3>
+              <p className="weight">Og'irligi: {p.unit_description || "Noma'lum"}</p>
+              <button className="add-to-cart">Savata</button>
+            </div>
+          </div>
+        );
+      })}
+  </div>
+</div>
               {/* ====== O'xshash mahsulotlar bo'limi (similar-products) END ====== */}
             </div>
           </div>
@@ -1568,3 +1624,4 @@ function Home() {
 
 export default Home;
 
+  

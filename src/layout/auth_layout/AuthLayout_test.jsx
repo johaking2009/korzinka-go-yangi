@@ -27,7 +27,9 @@ export default AuthLayout;
 // git branch -M main
 // git push -u origin main
 
-
+// git add .
+// git commit -m "Responsive CSS: .shirinlik-row img formula-based sizing and code cleanup"
+// git push origin main
 
 
 
