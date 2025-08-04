@@ -1336,7 +1336,27 @@ function Home() {
       {/* Mahsulot modal oynasi oxshash mahsulotlar ///////////////////////////////////////////////////////////////////////////////*/}
       {selectedProduct && (
         <div className="modal-overlay" onClick={handleCloseProductModal}>
-          <div className="modal-content product-modal" ref={modalRef} onClick={e => e.stopPropagation()}>
+          <div
+            className="modal-content product-modal"
+            ref={modalRef}
+            onClick={e => e.stopPropagation()}
+            style={
+              selectedProduct._id === "7"
+                ? {
+                    maxWidth: '100vw',
+                    width: '100vw',
+                    minWidth: 0,
+                    left: 0,
+                    right: 0,
+                    margin: 0,
+                    borderRadius: 0,
+                    padding: '8px',
+                    boxSizing: 'border-box',
+                    ...(window.innerWidth <= 360 ? { minHeight: '100vh', height: '100vh' } : {})
+                  }
+                : {}
+            }
+          >
             {/* Tanlangan mahsulot */}
             <div className="modal-img-wrap">
               <img
@@ -1624,4 +1644,3 @@ function Home() {
 
 export default Home;
 
-  

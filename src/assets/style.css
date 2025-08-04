@@ -631,6 +631,7 @@ input[type="number"]::-webkit-inner-spin-button {
   height: 330px ;
   width: 130px;
   text-align: center;
+  flex: 0 0 auto;
   position: relative;
   display: flex;
   flex-direction: column;
