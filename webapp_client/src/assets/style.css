@@ -1202,3 +1202,23 @@ justify-content: center;
 
 
 
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px; /* Elementlar orasidagi masofani kamaytirish */
+  width: 100%;
+}
+
+.price {
+  margin: 0;
+}
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0; /* Elementlar orasidagi masofani olib tashlash */
+  width: 100%;
+
+  
+}
