@@ -21,13 +21,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/main/home';
+import Admin from './pages/main/admin';
+
 
 const App = () => {
   return (
     <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/admin-panel" element={<Admin />} />
+      </Routes>
     </Router>
   );
 };

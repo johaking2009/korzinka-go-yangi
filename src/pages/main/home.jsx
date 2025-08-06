@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import products from '../../assets/products.json';
 import { CgMenuMotion } from "react-icons/cg";
 import { VscRefresh } from "react-icons/vsc";
@@ -18,7 +18,12 @@ function Home() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [showDiscountModal, setShowDiscountModal] = useState(false);
   const [discountSearch, setDiscountSearch] = useState('');
+  const [loginModalOpen, setLoginModalOpen] = useState(false);
+  const [loginEmail, setLoginEmail] = useState('');
+  const [loginPassword, setLoginPassword] = useState('');
+  const [loginError, setLoginError] = useState('');
   const modalRef = useRef(null);
+  const navigate = useNavigate();
 
   // Faqat chegirmali mahsulotlar va 11000 so'mdan arzon mahsulotlarni filtr qilish
   const filteredDiscountedProducts = productsState.filter(product =>
@@ -102,6 +107,25 @@ function Home() {
     setShowDiscountModal(false);
   };
 
+  // Login modalini ochish
+  const handleLoginClick = () => {
+    setMenuOpen(false);
+    setLoginModalOpen(true);
+    setLoginEmail('');
+    setLoginPassword('');
+    setLoginError('');
+  };
+
+  // Loginni tekshirish
+  const handleLoginSubmit = (e) => {
+    e.preventDefault();
+    if (loginEmail === 'jbekmurodov377@gmail.com' && loginPassword === 'maktab009') {
+      navigate('/admin-panel');
+    } else {
+      setLoginError('Noto‘g‘ri email yoki parol');
+    }
+  };
+
   // Mahsulotlar massivi bo'sh yoki array emas bo'lsa
   if (!Array.isArray(productsState) || productsState.length === 0) {
     return <div>Hech qanday mahsulot topilmadi</div>;
@@ -179,7 +203,8 @@ function Home() {
       {menuOpen && (
         <div className="menu-drawer-overlay" onClick={() => setMenuOpen(false)}>
           <div className="menu-drawer" onClick={e => e.stopPropagation()}>
-            <div style={{ background: '#19b394', color: '#fff', padding: '18px 16px', fontWeight: 600, fontSize: '18px' }}>
+            <div style={{ background: '#19b394', color: '#fff', padding: '18px 16px', fontWeight: 600, fontSize: '18px' }}
+                 onClick={handleLoginClick}>
               Avtorizatsiya
             </div>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
@@ -198,6 +223,57 @@ function Home() {
               <li style={{ padding: '16px', borderBottom: '1px solid #eee' }}>OQ Aloqa</li>
               <li style={{ padding: '16px' }}>Axborot</li>
             </ul>
+          </div>
+        </div>
+      )}
+
+      {/* Login modal oynasi */}
+      {loginModalOpen && (
+        <div className="modal-overlay" onClick={() => setLoginModalOpen(false)}>
+          <div className="modal-content" onClick={e => e.stopPropagation()} style={{ maxWidth: '400px', padding: '20px' }}>
+            <button
+              className="modal-close-btn"
+              onClick={() => setLoginModalOpen(false)}
+              style={{ position: 'absolute', top: '10px', right: '10px', background: 'none', border: 'none', cursor: 'pointer' }}
+            >
+              <span style={{ fontSize: 22, fontWeight: 600 }}><HiOutlineX /></span>
+            </button>
+            <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>Avtorizatsiya</h2>
+            <form onSubmit={handleLoginSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+              <input
+                type="email"
+                placeholder="Email"
+                value={loginEmail}
+                onChange={(e) => setLoginEmail(e.target.value)}
+                style={{ padding: '10px', fontSize: '16px', borderRadius: '8px', border: '1px solid #ccc' }}
+                required
+              />
+              <input
+                type="password"
+                placeholder="Parol"
+                value={loginPassword}
+                onChange={(e) => setLoginPassword(e.target.value)}
+                style={{ padding: '10px', fontSize: '16px', borderRadius: '8px', border: '1px solid #ccc' }}
+                required
+              />
+              {loginError && (
+                <span style={{ color: 'red', textAlign: 'center', fontSize: '14px' }}>{loginError}</span>
+              )}
+              <button
+                type="submit"
+                style={{
+                  padding: '10px',
+                  background: '#19b394',
+                  color: '#fff',
+                  border: 'none',
+                  borderRadius: '8px',
+                  fontSize: '16px',
+                  cursor: 'pointer'
+                }}
+              >
+                Kirish
+              </button>
+            </form>
           </div>
         </div>
       )}
@@ -392,78 +468,78 @@ function Home() {
         </div>
       )}
 
-{/* Aktual takliflar bo'limi */}
-<div className="image-gallery-section">
-  <h2 className="section-title">Aktual takliflar</h2>
-  <div className="universal-gallery" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-    <div className="row" style={{ width: '100%', display: 'flex', gap: '10px' }}>
-      {productsState
-        .filter(item => ["7", "8"].includes(item._id))
-        .map(item => (
-          <div key={item._id} style={{ textAlign: 'center' }}>
-            <img
-              src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-              alt={item.product_name}
-              onClick={() => handleProductClick(item)}
-              style={{
-                width: 'calc(165px + ((100vw - 360px) * 0.5))',
-                height: 'calc(100px + ((100vw - 360px) * 0.42857))',
-                borderRadius: '10px', // Radius qo'shildi, agar kerak bo'lsa
-                objectFit: 'cover',
-                cursor: "pointer",
-              }}
-            />
+      {/* Aktual takliflar bo'limi */}
+      <div className="image-gallery-section">
+        <h2 className="section-title">Aktual takliflar</h2>
+        <div className="universal-gallery" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div className="row" style={{ width: '100%', display: 'flex', gap: '10px' }}>
+            {productsState
+              .filter(item => ["7", "8"].includes(item._id))
+              .map(item => (
+                <div key={item._id} style={{ textAlign: 'center' }}>
+                  <img
+                    src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
+                    alt={item.product_name}
+                    onClick={() => handleProductClick(item)}
+                    style={{
+                      width: 'calc(165px + ((100vw - 360px) * 0.5))',
+                      height: 'calc(100px + ((100vw - 360px) * 0.42857))',
+                      borderRadius: '10px',
+                      objectFit: 'cover',
+                      cursor: "pointer",
+                    }}
+                  />
+                </div>
+              ))}
           </div>
-        ))}
-    </div>
-    <div className="row" style={{ width: '100%', display: 'flex', gap: '10px' }}>
-      {productsState
-        .filter(item => ["9", "10", "11"].includes(item._id))
-        .map(item => (
-          <div key={item._id} style={{ textAlign: 'center' }}>
-            <img
-              src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-              alt={item.product_name}
-              onClick={() => handleProductClick(item)}
-              style={{
-                width: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
-                height: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
-                borderRadius: '10px', // Radius qo'shildi, agar kerak bo'lsa
-                objectFit: 'cover',
-                cursor: "pointer",
-              }}
-            />
+          <div className="row" style={{ width: '100%', display: 'flex', gap: '10px' }}>
+            {productsState
+              .filter(item => ["9", "10", "11"].includes(item._id))
+              .map(item => (
+                <div key={item._id} style={{ textAlign: 'center' }}>
+                  <img
+                    src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
+                    alt={item.product_name}
+                    onClick={() => handleProductClick(item)}
+                    style={{
+                      width: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
+                      height: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
+                      borderRadius: '10px',
+                      objectFit: 'cover',
+                      cursor: "pointer",
+                    }}
+                  />
+                </div>
+              ))}
           </div>
-        ))}
-    </div>
-  </div>
-</div>
+        </div>
+      </div>
 
       {/* Sabzavot va mevalar bo'limi */}
       <div className="Tabiy-mahsulotlar section-title">
-  <h2 className="section-title">Sabzavot va mevalar</h2>
-  <div className="sabzavot-gallery" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px' }}>
-    {productsState
-      .filter(item => (item._id === "12" || item._id === "13") && item.product_name !== "Чай зеленый")
-      .map(item => (
-        <div key={item._id}>
-          <img
-            src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-            alt={item.product_name}
-            style={{
-              width: 'calc(165px + ((100vw - 360px) * 0.5))',
-              height: 'calc(100px + ((100vw - 360px) * 0.42857))',
-              borderRadius: '10px',
-              cursor: "pointer",
-              objectFit: 'cover',
-              display: 'block',
-            }}
-            onClick={() => handleProductClick(item)}
-          />
+        <h2 className="section-title">Sabzavot va mevalar</h2>
+        <div className="sabzavot-gallery" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px' }}>
+          {productsState
+            .filter(item => (item._id === "12" || item._id === "13") && item.product_name !== "Чай зеленый")
+            .map(item => (
+              <div key={item._id}>
+                <img
+                  src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
+                  alt={item.product_name}
+                  style={{
+                    width: 'calc(165px + ((100vw - 360px) * 0.5))',
+                    height: 'calc(100px + ((100vw - 360px) * 0.42857))',
+                    borderRadius: '10px',
+                    cursor: "pointer",
+                    objectFit: 'cover',
+                    display: 'block',
+                  }}
+                  onClick={() => handleProductClick(item)}
+                />
+              </div>
+            ))}
         </div>
-      ))}
-  </div>
-</div>
+      </div>
 
       {/* Haftaning super narxi bo'limi */}
       <div className="eng-aron-mahsulotlar">
@@ -529,66 +605,66 @@ function Home() {
       </div>
 
       {/* Sut mahsulotlari bo'limi */}
-<div className="sut-mahsulotlari">
-  <h2 className="section-title">Sut mahsulotlari</h2>
-  <div
-    className="sut-gallery"
-    style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '10px' }}
-  >
-    <div
-      className="sut-gallery-row"
-      style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px', width: '100%' }}
-    >
-      {productsState
-        .filter(item => ["21", "22", "23"].includes(item._id))
-        .map(item => (
+      <div className="sut-mahsulotlari">
+        <h2 className="section-title">Sut mahsulotlari</h2>
+        <div
+          className="sut-gallery"
+          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '10px' }}
+        >
           <div
-            key={item._id}
-            style={{ cursor: "pointer" }}
-            onClick={() => handleProductClick(item)}
+            className="sut-gallery-row"
+            style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px', width: '100%' }}
           >
-            <img
-              src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-              alt={item.product_name || "Sut mahsuloti"}
-              style={{
-                width: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
-                height: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
-                borderRadius: '10px',
-                objectFit: 'cover',
-                cursor: "pointer",
-              }}
-            />
+            {productsState
+              .filter(item => ["21", "22", "23"].includes(item._id))
+              .map(item => (
+                <div
+                  key={item._id}
+                  style={{ cursor: "pointer" }}
+                  onClick={() => handleProductClick(item)}
+                >
+                  <img
+                    src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
+                    alt={item.product_name || "Sut mahsuloti"}
+                    style={{
+                      width: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
+                      height: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
+                      borderRadius: '10px',
+                      objectFit: 'cover',
+                      cursor: "pointer",
+                    }}
+                  />
+                </div>
+              ))}
           </div>
-        ))}
-    </div>
-    <div
-      className="sut-gallery-item"
-      style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px', width: '100%' }}
-    >
-      {productsState
-        .filter(item => ["24", "25", "26"].includes(item._id))
-        .map(item => (
           <div
-            key={item._id}
-            style={{ cursor: "pointer" }}
-            onClick={() => handleProductClick(item)}
+            className="sut-gallery-item"
+            style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px', width: '100%' }}
           >
-            <img
-              src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-              alt={item.product_name || "Sut mahsuloti"}
-              style={{
-                width: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
-                height: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
-                borderRadius: '10px',
-                objectFit: 'cover',
-                cursor: "pointer",
-              }}
-            />
+            {productsState
+              .filter(item => ["24", "25", "26"].includes(item._id))
+              .map(item => (
+                <div
+                  key={item._id}
+                  style={{ cursor: "pointer" }}
+                  onClick={() => handleProductClick(item)}
+                >
+                  <img
+                    src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
+                    alt={item.product_name || "Sut mahsuloti"}
+                    style={{
+                      width: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
+                      height: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
+                      borderRadius: '10px',
+                      objectFit: 'cover',
+                      cursor: "pointer",
+                    }}
+                  />
+                </div>
+              ))}
           </div>
-        ))}
-    </div>
-  </div>
-</div>
+        </div>
+      </div>
 
       {/* Sizga yoqadi bo'limi */}
       <div className="Sizga-yoqadi">
@@ -644,110 +720,110 @@ function Home() {
 
       {/* Dengiz mahsulotlari bo'limi */}
       <div className="dengiz-mahsulotlari">
-  <h2 className="section-title">Dengiz mahsulotlari</h2>
-  <div className="gosht-gallery" style={{ display: 'flex' }}>
-    <div
-      className="gosht-row"
-      style={{ display: 'flex', gap: '10px', width: '100%', justifyContent: 'space-between' }}
-    >
-      {productsState
-        .filter(item => ["34", "35", "36"].includes(item._id))
-        .map(item => (
+        <h2 className="section-title">Dengiz mahsulotlari</h2>
+        <div className="gosht-gallery" style={{ display: 'flex' }}>
           <div
-            key={item._id}
-            style={{ textAlign: 'center', cursor: "pointer" }}
-            onClick={() => handleProductClick(item)}
+            className="gosht-row"
+            style={{ display: 'flex', gap: '10px', width: '100%', justifyContent: 'space-between' }}
           >
-            <img
-              src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-              alt={item.product_name || "Go'sht mahsuloti"}
-              style={{
-                width: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
-                height: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
-                borderRadius: '10px',
-                objectFit: 'cover',
-                cursor: "pointer",
-              }}
-            />
-            <div style={{ marginTop: '8px' }}>{item.product_name}</div>
+            {productsState
+              .filter(item => ["34", "35", "36"].includes(item._id))
+              .map(item => (
+                <div
+                  key={item._id}
+                  style={{ textAlign: 'center', cursor: "pointer" }}
+                  onClick={() => handleProductClick(item)}
+                >
+                  <img
+                    src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
+                    alt={item.product_name || "Go'sht mahsuloti"}
+                    style={{
+                      width: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
+                      height: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
+                      borderRadius: '10px',
+                      objectFit: 'cover',
+                      cursor: "pointer",
+                    }}
+                  />
+                  <div style={{ marginTop: '8px' }}>{item.product_name}</div>
+                </div>
+              ))}
           </div>
-        ))}
-    </div>
-  </div>
-</div>
+        </div>
+      </div>
 
-{/* Suv va ichimliklar bo'limi */}
-<div className="ichimliklar">
-  <h2 className="section-title">Suv va ichimliklar</h2>
-  <div
-    className="universal-gallery"
-    style={{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      width: '100%',
-    }}
-  >
-    <div className="image-gallery" style={{ width: '100%' }}>
-      <div
-        className="row"
-        style={{
-          display: 'flex',
-          width: '100%',
-          justifyContent: 'space-between',
-          gap: '10px', // Rasmlar orasidagi 10px bo'shliq
-        }}
-      >
-        {productsState
-          .filter(item => item._id === "37" || item._id === "38")
-          .map(item => (
-            <div key={item._id} style={{ flex: '0 1 auto' }}>
-              <img
-                src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-                alt={item.product_name || "Mahsulot rasmi"}
-                style={{
-                  width: 'calc(165px + ((100vw - 360px) * 0.5))',
-                  height: 'calc(100px + ((100vw - 360px) * 0.42857))',
-                  borderRadius: '10px', // Radius qo'shildi, agar kerak bo'lsa
-                  objectFit: 'cover',
-                  cursor: 'pointer',
-                }}
-                onClick={() => handleProductClick(item)}
-              />
+      {/* Suv va ichimliklar bo'limi */}
+      <div className="ichimliklar">
+        <h2 className="section-title">Suv va ichimliklar</h2>
+        <div
+          className="universal-gallery"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '100%',
+          }}
+        >
+          <div className="image-gallery" style={{ width: '100%' }}>
+            <div
+              className="row"
+              style={{
+                display: 'flex',
+                width: '100%',
+                justifyContent: 'space-between',
+                gap: '10px',
+              }}
+            >
+              {productsState
+                .filter(item => item._id === "37" || item._id === "38")
+                .map(item => (
+                  <div key={item._id} style={{ flex: '0 1 auto' }}>
+                    <img
+                      src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
+                      alt={item.product_name || "Mahsulot rasmi"}
+                      style={{
+                        width: 'calc(165px + ((100vw - 360px) * 0.5))',
+                        height: 'calc(100px + ((100vw - 360px) * 0.42857))',
+                        borderRadius: '10px',
+                        objectFit: 'cover',
+                        cursor: 'pointer',
+                      }}
+                      onClick={() => handleProductClick(item)}
+                    />
+                  </div>
+                ))}
             </div>
-          ))}
-      </div>
-      <div
-        className="row"
-        style={{
-          display: 'flex',
-          width: '100%',
-          justifyContent: 'space-between',
-          gap: '10px', // Rasmlar orasidagi 10px bo'shliq
-        }}
-      >
-        {productsState
-          .filter(item => ["39", "40", "41"].includes(item._id))
-          .map(item => (
-            <div key={item._id} style={{ flex: '0 1 auto' }}>
-              <img
-                src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-                alt={item.product_name || "Mahsulot rasmi"}
-                style={{
-                  width: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
-                  height: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
-                  borderRadius: '10px', // Radius qo'shildi, agar kerak bo'lsa
-                  objectFit: 'cover',
-                  cursor: 'pointer',
-                }}
-                onClick={() => handleProductClick(item)}
-              />
+            <div
+              className="row"
+              style={{
+                display: 'flex',
+                width: '100%',
+                justifyContent: 'space-between',
+                gap: '10px',
+              }}
+            >
+              {productsState
+                .filter(item => ["39", "40", "41"].includes(item._id))
+                .map(item => (
+                  <div key={item._id} style={{ flex: '0 1 auto' }}>
+                    <img
+                      src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
+                      alt={item.product_name || "Mahsulot rasmi"}
+                      style={{
+                        width: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
+                        height: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
+                        borderRadius: '10px',
+                        objectFit: 'cover',
+                        cursor: 'pointer',
+                      }}
+                      onClick={() => handleProductClick(item)}
+                    />
+                  </div>
+                ))}
             </div>
-          ))}
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
 
       {/* Shirinlik sevuvchilar bo'limi */}
       <div className="shirinlik-sevuvchilar">
@@ -1023,85 +1099,85 @@ function Home() {
       </div>
 
       {/* Bolalar uchun bo'limi */}
- <div className="ichimliklar">
-  <h2 className="section-title">Bolalar uchun</h2>
-  <div
-    className="universal-gallery"
-    style={{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      width: '100%',
-      margin: '0 auto',
-    }}
-  >
-    <div
-      className="image-gallery"
-      style={{
-        width: '100%',
-      }}
-    >
-      <div
-        className="row"
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          gap: '10px',
-          width: '100%',
-        }}
-      >
-        {productsState
-          .filter(item => item._id === "70" || item._id === "71")
-          .map(item => (
-            <div key={item._id} style={{ flex: '0 1 auto' }}>
-              <img
-                src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-                alt={item.product_name || "Mahsulot rasmi"}
-                style={{
-                  width: 'calc(165px + ((100vw - 360px) * 0.5))',
-                  height: 'calc(100px + ((100vw - 360px) * 0.42857))',
-                  borderRadius: '10px',
-                  objectFit: 'cover',
-                  cursor: 'pointer',
-                }}
-                onClick={() => handleProductClick(item)}
-              />
+      <div className="ichimliklar">
+        <h2 className="section-title">Bolalar uchun</h2>
+        <div
+          className="universal-gallery"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '100%',
+            margin: '0 auto',
+          }}
+        >
+          <div
+            className="image-gallery"
+            style={{
+              width: '100%',
+            }}
+          >
+            <div
+              className="row"
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                gap: '10px',
+                width: '100%',
+              }}
+            >
+              {productsState
+                .filter(item => item._id === "70" || item._id === "71")
+                .map(item => (
+                  <div key={item._id} style={{ flex: '0 1 auto' }}>
+                    <img
+                      src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
+                      alt={item.product_name || "Mahsulot rasmi"}
+                      style={{
+                        width: 'calc(165px + ((100vw - 360px) * 0.5))',
+                        height: 'calc(100px + ((100vw - 360px) * 0.42857))',
+                        borderRadius: '10px',
+                        objectFit: 'cover',
+                        cursor: 'pointer',
+                      }}
+                      onClick={() => handleProductClick(item)}
+                    />
+                  </div>
+                ))}
             </div>
-          ))}
-      </div>
-      <div
-        className="row"
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          gap: '10px',
-          width: '100%',
-        }}
-      >
-        {productsState
-          .filter(item => ["72", "73", "74"].includes(item._id))
-          .map(item => (
-            <div key={item._id} style={{ flex: '0 1 auto' }}>
-              <img
-                src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-                alt={item.product_name || "Mahsulot rasmi"}
-                style={{
-                  width: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
-                  height: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
-                  borderRadius: '10px',
-                  objectFit: 'cover',
-                  cursor: 'pointer',
-                }}
-                onClick={() => handleProductClick(item)}
-              />
+            <div
+              className="row"
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                gap: '10px',
+                width: '100%',
+              }}
+            >
+              {productsState
+                .filter(item => ["72", "73", "74"].includes(item._id))
+                .map(item => (
+                  <div key={item._id} style={{ flex: '0 1 auto' }}>
+                    <img
+                      src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
+                      alt={item.product_name || "Mahsulot rasmi"}
+                      style={{
+                        width: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
+                        height: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
+                        borderRadius: '10px',
+                        objectFit: 'cover',
+                        cursor: 'pointer',
+                      }}
+                      onClick={() => handleProductClick(item)}
+                    />
+                  </div>
+                ))}
             </div>
-          ))}
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
 
       {/* Uy hayvonlari uchun bo'limi */}
       <div className="goshtlar">
@@ -1133,97 +1209,96 @@ function Home() {
       </div>
 
       {/* Gigiyena va parvarish bo'limi */}
-<div className="ichimliklar">
-  <h2 className="section-title">Gigiyena va parvarish</h2>
-  <div
-    className="universal-gigiyena"
-    style={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      width: '100%',
-      margin: '0 auto',
-      gap: '10px',
-    }}
-  >
-    <div
-      className="gigiyena"
-      style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        gap: '10px',
-        width: '100%',
-      }}
-    >
-      {productsState
-        .filter(item => ["77", "78"].includes(item._id))
-        .map(item => (
-          <div key={item._id} style={{ flex: '0 1 auto' }}>
-            <img
-              src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-              alt={item.product_name || "Gigiyena mahsuloti"}
-              style={{ borderRadius: '16px', objectFit: 'cover', cursor: 'pointer' }}
-              onClick={() => handleProductClick(item)}
-            />
+      <div className="ichimliklar">
+        <h2 className="section-title">Gigiyena va parvarish</h2>
+        <div
+          className="universal-gigiyena"
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '100%',
+            margin: '0 auto',
+            gap: '10px',
+          }}
+        >
+          <div
+            className="gigiyena"
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              gap: '10px',
+              width: '100%',
+            }}
+          >
+            {productsState
+              .filter(item => ["77", "78"].includes(item._id))
+              .map(item => (
+                <div key={item._id} style={{ flex: '0 1 auto' }}>
+                  <img
+                    src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
+                    alt={item.product_name || "Gigiyena mahsuloti"}
+                    style={{ borderRadius: '16px', objectFit: 'cover', cursor: 'pointer' }}
+                    onClick={() => handleProductClick(item)}
+                  />
+                </div>
+              ))}
           </div>
-        ))}
-    </div>
-    <div
-      className="row"
-      style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        gap: '10px',
-        width: '100%',
-      }}
-    >
-      {productsState
-        .filter(item => ["79", "80", "81"].includes(item._id))
-        .map(item => (
-          <div key={item._id} style={{ flex: '0 1 auto' }}>
-            <img
-              src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-              alt={item.product_name || "Gigiyena mahsuloti"}
-              style={{
-                width: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
-                height: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
-                borderRadius: '16px',
-                objectFit: 'cover',
-                cursor: 'pointer',
-              }}
-              onClick={() => handleProductClick(item)}
-            />
+          <div
+            className="row"
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              gap: '10px',
+              width: '100%',
+            }}
+          >
+            {productsState
+              .filter(item => ["79", "80", "81"].includes(item._id))
+              .map(item => (
+                <div key={item._id} style={{ flex: '0 1 auto' }}>
+                  <img
+                    src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
+                    alt={item.product_name || "Gigiyena mahsuloti"}
+                    style={{
+                      width: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
+                      height: 'calc(106.5px + ((100vw - 360px) * 0.33571))',
+                      borderRadius: '16px',
+                      objectFit: 'cover',
+                      cursor: 'pointer',
+                    }}
+                  />
+                </div>
+              ))}
           </div>
-        ))}
-    </div>
-    <div
-      className="gigiyena"
-      style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        gap: '10px',
-        width: '100%',
-      }}
-    >
-      {productsState
-        .filter(item => ["82", "83"].includes(item._id))
-        .map(item => (
-          <div key={item._id} style={{ flex: '0 1 auto' }}>
-            <img
-              src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
-              alt={item.product_name || "Gigiyena mahsuloti"}
-              style={{ borderRadius: '16px', objectFit: 'cover', cursor: 'pointer' }}
-              onClick={() => handleProductClick(item)}
-            />
+          <div
+            className="gigiyena"
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              gap: '10px',
+              width: '100%',
+            }}
+          >
+            {productsState
+              .filter(item => ["82", "83"].includes(item._id))
+              .map(item => (
+                <div key={item._id} style={{ flex: '0 1 auto' }}>
+                  <img
+                    src={item.image_log?.find(img => img.isMain)?.image_url || item.image_url || "/default-image.jpg"}
+                    alt={item.product_name || "Gigiyena mahsuloti"}
+                    style={{ borderRadius: '16px', objectFit: 'cover', cursor: 'pointer' }}
+                    onClick={() => handleProductClick(item)}
+                  />
+                </div>
+              ))}
           </div>
-        ))}
-    </div>
-  </div>
-</div>
+        </div>
+      </div>
 
       {/* Chinniyu chiroq bo'limi */}
       <div className="Oziq-ovqat">
@@ -1331,9 +1406,7 @@ function Home() {
         </div>
       </div>
 
-
-
-      {/* Mahsulot modal oynasi oxshash mahsulotlar ///////////////////////////////////////////////////////////////////////////////*/}
+      {/* Mahsulot modal oynasi */}
       {selectedProduct && (
         <div className="modal-overlay" onClick={handleCloseProductModal}>
           <div
@@ -1389,59 +1462,59 @@ function Home() {
                   <span className="modal-product-weight">{selectedProduct.unit_description}</span>
                 )}
               </div>
-            <div className="modal-product_desc">{selectedProduct.product_description}</div>
-            {/* Batafsil (details) collapsible section */}
-            <div style={{ margin: '12px 0' }}>
-              <button
-                onClick={() => setShowDetails(prev => !prev)}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  color: '#228b22',
-                  fontSize: 16,
-                  display: 'flex',
-                  alignItems: 'center',
-                  cursor: 'pointer',
-                  gap: 6,
-                  fontWeight: 600
-                }}
-              >
-                Batafsil
-                <span style={{
-                  display: 'inline-block',
-                  transform: showDetails ? 'rotate(180deg)' : 'rotate(0deg)',
-                  transition: 'transform 0.2s',
-                  fontSize: 18
-                }}>
-                  ▼
-                </span>
-              </button>
-              {showDetails && (
-                <div style={{ marginTop: 8 }}>
-                  {selectedProduct.product_ingredients && (
-                    <div className="modal-product-info">
-                      <strong>Tarkibi:</strong> {selectedProduct.product_ingredients}
-                    </div>
-                  )}
-                  {selectedProduct.nutritional_value && (
-                    <div className="modal-product-info"style={{ display: 'flex', flexDirection: 'column', gap: '14px'}}>
-                      <strong>Energiya:</strong>
-                      <ul className="nutritional-value-list" style={{ display: 'flex', flexDirection: 'column', gap: '6px'}}>
-                        <li>Kkal: {selectedProduct.nutritional_value.kkal}</li>
-                        <li>Yog': {selectedProduct.nutritional_value.fat}g</li>
-                        <li>Oqsil: {selectedProduct.nutritional_value.protein}g</li>
-                        <li>Uglevod: {selectedProduct.nutritional_value.uglevod}g</li>
-                      </ul>
-                    </div>
-                  )}
-                  {selectedProduct.strg_conditions && (
-                    <div className="modal-product-info">
-                      <strong>Saqlash:</strong> {selectedProduct.strg_conditions}
-                    </div>
-                  )}
-                </div>
-              )}
-            </div>
+              <div className="modal-product_desc">{selectedProduct.product_description}</div>
+              {/* Batafsil (details) collapsible section */}
+              <div style={{ margin: '12px 0' }}>
+                <button
+                  onClick={() => setShowDetails(prev => !prev)}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    color: '#228b22',
+                    fontSize: 16,
+                    display: 'flex',
+                    alignItems: 'center',
+                    cursor: 'pointer',
+                    gap: 6,
+                    fontWeight: 600
+                  }}
+                >
+                  Batafsil
+                  <span style={{
+                    display: 'inline-block',
+                    transform: showDetails ? 'rotate(180deg)' : 'rotate(0deg)',
+                    transition: 'transform 0.2s',
+                    fontSize: 18
+                  }}>
+                    ▼
+                  </span>
+                </button>
+                {showDetails && (
+                  <div style={{ marginTop: 8 }}>
+                    {selectedProduct.product_ingredients && (
+                      <div className="modal-product-info">
+                        <strong>Tarkibi:</strong> {selectedProduct.product_ingredients}
+                      </div>
+                    )}
+                    {selectedProduct.nutritional_value && (
+                      <div className="modal-product-info" style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                        <strong>Energiya:</strong>
+                        <ul className="nutritional-value-list" style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                          <li>Kkal: {selectedProduct.nutritional_value.kkal}</li>
+                          <li>Yog': {selectedProduct.nutritional_value.fat}g</li>
+                          <li>Oqsil: {selectedProduct.nutritional_value.protein}g</li>
+                          <li>Uglevod: {selectedProduct.nutritional_value.uglevod}g</li>
+                        </ul>
+                      </div>
+                    )}
+                    {selectedProduct.strg_conditions && (
+                      <div className="modal-product-info">
+                        <strong>Saqlash:</strong> {selectedProduct.strg_conditions}
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
               <div className="modal-product-details">
                 <div className="modal-product-price">
                   {selectedProduct.discount_log?.find(d => d.status === "active") ? (
@@ -1456,97 +1529,94 @@ function Home() {
                   )}
                 </div>
               </div>
-              {/* Batafsil bo'limi end */}
               <button className="modal-add-to-cart-btn">Savatchaga qo'shish</button>
-              {/* ====== O'xshash mahsulotlar bo'limi (similar-products) START ====== */}
-<div className="similar-products">
-  <h3 style={{ fontSize: 18, marginTop: 18, }}>O‘xshash mahsulotlar</h3>
-  <div
-    style={{
-      display: 'grid',
-      gridTemplateColumns: 'repeat(3, 1fr)', // 3 ta ustun majburiy
-      gap: 8, // Gap saqlanadi
-      placeItems: 'center',
-      maxWidth: '100%', // Konteynerni cheklash
-      width: '100%', // To‘liq kenglik
-      boxSizing: 'border-box', // Padding/Chegaralarni hisobga olish
-      padding: 0, // Qo‘shimcha padding olib tashlandi
-      margin: 0, // Ortichalik margin olib tashlandi
-      overflow: 'hidden', // Chiqib ketishni oldini olish
-    }}
-  >
-    {productsState
-      .filter(p =>
-        p._id !== selectedProduct._id &&
-        p.product_name &&
-        selectedProduct.product_name &&
-        p.product_name.toLowerCase().includes(
-          selectedProduct.product_name.split(" ")[0].toLowerCase()
-        )
-      )
-      .slice(0, 8)
-      .map(p => {
-        const discount = p.discount_log?.find(d => d.status === "active");
-        const originalPrice = p.price || 0;
-        const discountedPrice = discount
-          ? (originalPrice - (originalPrice * discount.percent / 100)).toFixed(2)
-          : null;
+              {/* O'xshash mahsulotlar bo'limi */}
+              <div className="similar-products">
+                <h3 style={{ fontSize: 18, marginTop: 18 }}>O‘xshash mahsulotlar</h3>
+                <div
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(3, 1fr)',
+                    gap: 8,
+                    placeItems: 'center',
+                    maxWidth: '100%',
+                    width: '100%',
+                    boxSizing: 'border-box',
+                    padding: 0,
+                    margin: 0,
+                    overflow: 'hidden',
+                  }}
+                >
+                  {productsState
+                    .filter(p =>
+                      p._id !== selectedProduct._id &&
+                      p.product_name &&
+                      selectedProduct.product_name &&
+                      p.product_name.toLowerCase().includes(
+                        selectedProduct.product_name.split(" ")[0].toLowerCase()
+                      )
+                    )
+                    .slice(0, 8)
+                    .map(p => {
+                      const discount = p.discount_log?.find(d => d.status === "active");
+                      const originalPrice = p.price || 0;
+                      const discountedPrice = discount
+                        ? (originalPrice - (originalPrice * discount.percent / 100)).toFixed(2)
+                        : null;
 
-        return (
-          <div
-            key={p._id}
-            className="product-card"
-            onClick={() => handleProductClick(p)}
-            style={{
-              cursor: "pointer",
-              display: "inline-block",
-              width: 'calc(100px + ((100vw - 360px) * 0.37))', // Kenglikni biroz oshirildi
-              minWidth: 'calc(100px + ((100vw - 360px) * 0.37))',
-              height: 'auto', // Avtomatik balandlik
-              maxHeight: '300px', // Maksimal balandlik chegarasi
-              boxSizing: 'border-box', // Ichki chegaralarni hisobga olish
-              overflow: 'hidden', // Kontentdan chiqib ketishni oldini olish
-            }}
-          >
-            <img
-              src={p.image_log?.find(img => img.isMain)?.image_url || p.image_url || "/default-image.jpg"}
-              alt={p.product_name}
-              className="product-image"
-              style={{
-                width: '100%', // Konteyner kengligiga moslash
-                height: 'calc(130px + ((100vw - 360px) * 0.35))', // Rasm balandligi
-                borderRadius: '10px 10px 0 0', // Yuqori burchaklarni yumshatish
-                objectFit: 'cover',
-                display: 'block',
-              }}
-            />
-            {discount && (
-              <span className="discount-badge">{discount.percent}%</span>
-            )}
-            <div className="product-details">
-              {discountedPrice ? (
-                <>
-                  <span className="price discounted-price">{discountedPrice} so'm</span>
-                  <span className="price original-price">{originalPrice} so'm</span>
-                </>
-              ) : (
-                <span className="price">{originalPrice} so'm</span>
-              )}
-              <h3 className="product-name">{p.product_name || "Noma'lum mahsulot"}</h3>
-              <p className="weight">Og'irligi: {p.unit_description || "Noma'lum"}</p>
-              <button className="add-to-cart">Savata</button>
-            </div>
-          </div>
-        );
-      })}
-  </div>
-</div>
-              {/* ====== O'xshash mahsulotlar bo'limi (similar-products) END ====== */}
+                      return (
+                        <div
+                          key={p._id}
+                          className="product-card"
+                          onClick={() => handleProductClick(p)}
+                          style={{
+                            cursor: "pointer",
+                            display: "inline-block",
+                            width: 'calc(100px + ((100vw - 360px) * 0.37))',
+                            minWidth: 'calc(100px + ((100vw - 360px) * 0.37))',
+                            height: 'auto',
+                            maxHeight: '300px',
+                            boxSizing: 'border-box',
+                            overflow: 'hidden',
+                          }}
+                        >
+                          <img
+                            src={p.image_log?.find(img => img.isMain)?.image_url || p.image_url || "/default-image.jpg"}
+                            alt={p.product_name}
+                            className="product-image"
+                            style={{
+                              width: '100%',
+                              height: 'calc(130px + ((100vw - 360px) * 0.35))',
+                              borderRadius: '10px 10px 0 0',
+                              objectFit: 'cover',
+                              display: 'block',
+                            }}
+                          />
+                          {discount && (
+                            <span className="discount-badge">{discount.percent}%</span>
+                          )}
+                          <div className="product-details">
+                            {discountedPrice ? (
+                              <>
+                                <span className="price discounted-price">{discountedPrice} so'm</span>
+                                <span className="price original-price">{originalPrice} so'm</span>
+                              </>
+                            ) : (
+                              <span className="price">{originalPrice} so'm</span>
+                            )}
+                            <h3 className="product-name">{p.product_name || "Noma'lum mahsulot"}</h3>
+                            <p className="weight">Og'irligi: {p.unit_description || "Noma'lum"}</p>
+                            <button className="add-to-cart">Savata</button>
+                          </div>
+                        </div>
+                      );
+                    })}
+                </div>
+              </div>
             </div>
           </div>
         </div>
       )}
-
 
       {/* Chegirma modal oynasi */}
       {showDiscountModal && (
@@ -1561,10 +1631,12 @@ function Home() {
             </button>
             <div
               className="discount-grid"
-              style={{ display: 'grid',
-                    gridTemplateColumns: 'repeat(3, 1fr)',
-                    gap: 16,
-                    placeItems: 'center'}}
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(3, 1fr)',
+                gap: 16,
+                placeItems: 'center',
+              }}
             >
               <div
                 className="discount-header"
@@ -1587,7 +1659,6 @@ function Home() {
                     "Kichkintoylar uchun eng yaxshisi",
                     "Yana 2 ta ▼"
                   ].map((text, index) => (
-
                     <button key={index} className="discount-button">{text}</button>
                   ))}
                 </div>
@@ -1643,4 +1714,3 @@ function Home() {
 }
 
 export default Home;
-

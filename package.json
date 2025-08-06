@@ -11,7 +11,12 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.8.2",
+    "axios": "^1.11.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
     "moment": "^2.30.1",
+    "mongoose": "^8.17.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
