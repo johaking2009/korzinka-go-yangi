@@ -1,0 +1,2887 @@
+[
+  {
+    "_id": "1",
+    "product_name": "Tovuq salati",
+    "subcategory": "Salatlar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "175 g",
+    "price": 30000,
+    "expiration": 7,
+    "additionals": ["Kukurka", "Pomidor"],
+    "discount_log": [{
+      "start_date": "2025-07-01",
+      "end_date": "2025-07-31",
+      "percent": 15,
+      "status": "active"
+    }],
+    "stock_log": [{
+      "stock": 100,
+      "mfg_date": "2025-07-01"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Mazali salat",
+    "product_ingredients": "Kukurka, pomidor, kurka go'shti",
+    "nutritional_value": {
+      "kkal": 200,
+      "fat": 10,
+      "protein": 15,
+      "uglevod": 20
+    },
+    "strg_conditions": "Sovuq joyda saqlash"
+  },
+  {
+    "_id": "2",
+    "product_name": "Befstroganov guruch bilan",
+    "subcategory": "Asosiy ovqatlar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "250 g",
+    "price": 35000,
+    "expiration": 10,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 50,
+      "mfg_date": "2025-07-02"
+    }],
+    "image_log": [{
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBUqrSxY6u8lgpxHthQhebvoF4hc38-t961w&s",
+      "isMain": true
+    }],
+    "product_description": "Go'shtli befstroganov guruch bilan",
+    "product_ingredients": "Go'sht, guruch, piyoz, qaymoq",
+    "nutritional_value": {
+      "kkal": 400,
+      "fat": 25,
+      "protein": 30,
+      "uglevod": 40
+    },
+    "strg_conditions": "0-4°C da saqlash"
+  },
+  {
+    "_id": "3",
+    "product_name": "Lososli sushi roll",
+    "subcategory": "Fast-food",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "150 g",
+    "price": 45000,
+    "expiration": 2,
+    "additionals": [],
+    "discount_log": [{
+      "start_date": "2025-07-01",
+      "end_date": "2025-07-31",
+      "percent": 10,
+      "status": "active"
+    }],
+    "stock_log": [{
+      "stock": 75,
+      "mfg_date": "2025-07-02"
+    }],
+    "image_log": [{
+      "image_url": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUTExMWFhUXFxoYFhYXGBYXFRgYGBgXGBcXGRcYHSggGh4lHRcVITEhJSktLi4uFx8zODMtNygtLisBCgoKDg0OGxAQGi8lHiArLS0vKy0vLS0tLS0tLS0tLSstKy0tLSstLS0tLS0tLS0tLSstLSstLS0tLS0rLTctLS0tLf/AABEIAOAA4AMBIgACEQEDEQH/xAAcAAEAAgMBAQEAAAAAAAAAAAAABQYDBAcCAQj/xAA/EAACAQIEAwYFAQYFAgcAAAABAgADEQQSITEFQVEGByJhcYETMpGhsUIjYnLB0fAUUpLh8RUzQ1NzoqOywv/EABoBAQACAwEAAAAAAAAAAAAAAAABAgMEBQb/xAAjEQACAgIDAAICAwAAAAAAAAAAAQIDBBESITEFQRQyE0Jh/9oADAMBAAIRAxEAPwDuEREAREQBERAEREAREQBERAEREAREQBERAERF4AiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAJ8ZgBcyO4hjrN8Nfmtcn/KDe3vpK/xPg64kr8apUKqwYoKjim9v0vTByst7G1uUjZKRZn4gtvD4vx9ZqnGVP8AawmliMUlMXJA8v5ASNfj6alVNup09gJhnkQh6zPXjTn4iSV2XxM+vW5A+hM+jE1iQVqegIBU+wsfvKtxDirVdL5Vv9Zr4bHVFbML6CwvtNJ/JQ5deG8vi58e32dEo8SFwr+EnY8iel+Rm/KRiQ2Jw7AMFd0YI+pCtYhW06GSfAuIVERVxB1CjMSQbG2pLdN50YTUltHOsrcHplkifAZ9lzEIiIAiIgCIiAIiIAiIgCIiAIiIAiIvAET5mExviUBsWUHoSAYBAYh1OJrLfx+A69Cq2mUX2I95VeM8UWjxP4j6IQaZPJflsT9B9TLRRxasBlIIYXBGo8jeVZdEJ2iwLNZ76bEDfytICuGPhylVHXc9TL61LMCrC4/MwY3BKyFSt9LDr5WnNyMJzbkmdXFzlBKMkUW55kDpzMyIM2yk+Z2/pJCl2fqAkkC3U7fSb+D4W2bx2KjkL2+k51eJZvtHTnl1JdMj+H42pTPLLfUf8bSdrUs4BI0K2IPMG+/LnA4VTF9CPObi1BaxOwnWxabK+pM42XfXY9xRh7P8bIq/4aoDsfhuSNSL3T2GolplHTL/AIqjb/zBb6GXibyOcxERJIEREAREQBERAEREARE+EwD7IrinH6VFiniqVQAfhUlL1LHQEgaKCQbFiBpNfHcRD51D2phfnpsc9wTnAyjSwA1Gt77aTTw/Dkw6n4SAc2O7Mf8AMzbufMkmQ3osltm/gONmtTDmk1G9/BUKFwL6XyMRqNbXn1azNz2lWfGkEgWsOVuV7TEeKHYhl/hP8poyzopnQh8fNrZYOLYenUASoWtcN4Xene2wJRgSOoOhmT/CJYDKLW6C3lKnVxYOoY+4mfA8aKkDNcX2O0xr5GPLTReXxk+O0zHxrstQaoHZq+ao5GjFkUhGIOVrhV8NtOZHW80MDxFuHOlDEt+xckUaw2VtzTccr6kHX+l9yBgLgXkF2q4HTxNA0arMqMR8pAa4NxrY8xtN/e1s5+tdExg8VmGoI6HqJ7qVLzivEONcR4KVosy16Da0ncsfCP0X3U6jTUaaeU/2U7cY3HN+ywaKo+ao1RsgPkMtyfeWKnS2M062NRb2zEi/yi+24vt9594fQfLaqwZjqcoyqNPlA5j1N5j4piKdBAQumwAsFufKUnNQXJmSEJTfFHmliXqLfKae+j/P7gaD2JmEUq2YWK25+E303Fy3P0kPR4+6GxOYef4khh+0KsNV1G9unWasM6mT9NqeBdH6NheEkVkrgnPTvlUklLkEXKgi58R5yZXjlRB+1pXtuaZv7hW/rNOhxGm2oa0zFs20242Rl4zUlVJeom8Fj6dUXRgeo2I9QdRNmVxWysCPrzm7wLjtPEroCjr89NvmU+2hF+Yl9mJoloiJJAiIgCIiAIiLwBPjCfbz5AKhwbKpqUgAppPkIAsLa5WA5A6+4Mk3Q8z7So4fiIXHtrZauYEWvchyF1vp+oe8tyVLjeVZdFZ4lTVWZl32y203kRUptsectfFeGrUU2AD7hvPoZVatCou9+mh0nEyqHGXnR6HCvjKOt9mplMyU6BvcXMkuF4OpVYDULzPkN7ecmn7PIf1sOuxvMFeFOxckZrc6ut8WzY4NXLpZtxpebGJwivbNfTz+on3DUFpgKvIa9feea2JAndpi4wSkeeumpTbiiuduuDUcThHp1LKFGZHJHgKjQ3Ow5el5D906IuCpWYPuWI5Em5Q+Y+8iu3nb3D5a2HQGq5DIbHwKSCNW5keUqPdf2vGEqfBqj9jUPibmp5E+W49/KZEYjvzYxQekqPF8Q1fY21NlP2loq10ancG+YaaSLo8Hzk5tBv536AzSzK5z6idDBshW25FXr4VgATzH0tyMw0qhU/3tzEsePwDI1j4tL9fLWQmJw2psvsNx7TjW1cGd2m1TRtBitiDcH8yQwvECvOReGonJYg73vbb26T3RpHf7CIOa04lJwhJPZZuHu9S5/SNPfykfjxVo1RiKJ8VK91uwWorAZkNvRTfkQJO8DCmipUWvv6jQz1jMMGRltYEMCOua9/zPQ0JqC2zzeQ4ub0ib4TxGniKKVqTBkdQwI8+XqNj5ibk592ApthKiYS65GpsQqggBqeW7Aedzc8zadBmwaoiJH4/iAVhTW2ci+vIXIv8AUH6QDedwBcmwkS/aKlmCKtRyb6im2UW6sbAfk8rzyyXPiJvMFcoguSAJDkl6WjFvpG7U4m5HhQA8sx/kP6zUxZr1Fy/EyHqgtf3JJkViOOKCAvPrNfC8ZKvlYkjYEjWarzK09bNuOFY1vRNYfB5bEuzG1szEk+fpNlNNifqZE1OPprYE2HoPrNM8ZcsPPYDX69Yll1rrYWFY/oje0/Z4Hx0iwcKxUX0YsQWF99T+ZE9nO2oosuGxt6bXslVxZSNBZzsCNs2xvOhPSDWJHp5Sv9puyNDG0mSqGVt0cWup/wAwHMdRNhPZrNa6JxsQuUMGB9Nb/SeDVVuQPrrPzJi6GKwVc0bvTqqbD4bMMwJ8JXKdQeU6VS7vMa+HZqmLc4m2ZELNkU6HKWJ3OouNBDRG9HUK3EqVJS1R0pqu5ZlVV9b7Sq4vvGwrNkwq1cTU2tRRit/4jYe4vI7sl3Won7XGgV6p1yt4kXTp+o7C56aCXFsDQwiAUqaJc2sqhQPYSJyUY7ZeCc5aRA8Mx/FK7+LDU8KnN6h+LUI6LTQrqerHTodpJNwNHe71atYWYOlTIaThxaxphQNOR3nj/rTg7+xtae6XGRcmwF97TUWbUbbwbfTVr9gOHtvhKQ/hUr9LGVTjPdbh/jUlo5qSsGznMzG4KZcobTUFufTSX1e0CbAH1NpupiUqWsQb8psQyK5+M1541ke2itcKT/ABMNXqZqQ0oVX8JGptTZhptax06W2vZTVVRflPOO4fTq0jTqKHVgQQRyM5h2hfEcJKMlQVsIzlfg1D40JubI29rDTkOmt5kZjX+nTXrIyEqC1xoNec1U4OpAzHXy3+srXDu83hrBb1Hpsd1em5I9SoIkuvbHANYrjaGvWoqn3zWt7zFKmMv2Rmje4/qyYo4JFXKQCNbk6zbo4ekFsoUD92QLdqcDexxlAc9a1MD63tMeM7d8Pokn49Nr2/7R+Kf/jBlo1xXiKStk/ss9OrYW6bSO4pXJRkViCR8w3E55xzvVF7YWlmFj4qlwL8iFBuR62lGxnH8TiGHxKrHXRRog9hv73mRIxbOx9jl+NxF6mbMKNIqWvoWY7C2nX6GdIlD7n8CEwjVLau+/koH8yftL5La0VYlf4lhT/ixVJ0NIKo81Zyx+jLLBKn2/xDItBk+YVCQfQD7XtfykMI3aqZyNSLG/0mlx4n4TAC5O3qNZr8C43TxIurZXHzIdCP6i/PykpVpZgLi+sxWR5xaRnqnwkmznrKb+c2McuoYcwD7/2JauIcIWoNFGbTXb8TQHAmZ7Noqi19NfScaeHZF8UtndrzqpLk3ogmqfQjT7H83+s94fE2IPQAe/8Ad5J8R4NkyhTcFgATuL+nKZ6XACrXzA+o/lMX41vLpGV5VPHe/Sb4ZVzU1J3O8zlp4pAKABPFWoAL6Tv1pqCTPOWtObaKrxrsrQr4/D16gJanqADoSpzJm8g1z76yzYmo1LxBC4/yi2bztffSUbtx2tp4PIws1YsCq31ygjMT0Fr+svXDsZ8anTqEBSVDWvexIvvzkplGbiOTyt67yJ7QAZQOd/5SWLSPxuEz+LMQbaWtaYsiLlBpGxjSUZpspmJUjX76zTNQ9ZLPWIJBsRz5Eelpq1MOp+Vh6HQzztkH/U9NXJa7NBqhmbDY1l2M9HDDmw9gTPLIF5HXbTf0lVCa7ReUq/sunZ2qXpZma5vMPaHhlOujUqiko4s1vP8ABG4M3ODYZadNbAgkAnN/SbFeelx1JVpS9PKZLi7Hx8Py1x/g74au9FwRY3Um3iQk5W001AnnDOLecvXfJl+NRWwzZXJI5glf5gzntMWmdLZrs22q33vCrzEwT2raWvLEGYMZmwqksAOZmss3uFLeqgJtdgL9L85IP0z3f4Q0sBQB5rm9m1X7WlimDA0BTppTXZFVR6KAB+JnlSBKF3qYzItFepY/gCX2cy73BepRH7p9rNp9dfpBKKMvEno1xURreK59918wf59Z0rgfaujX8KuBV/VTbQ38r/MPMe9pxzGPZyp/5B5zSxlQk3/Uu3XTaRosfo2nUJvfefKlXacU4B2+xwZaYtXvoFYeP/WLG3mbzpnDWr16d2tSYg3yEVMvoXWx9xIaGyZqUgSCTci9ugvpeYWrgMFvr0AmXAcOyWu7uerNc6+QsPtNhqIXWwkcUi3Js0qmdgctttB58pgfhdVlymrbqwUE+wJIHuDJN6ijcge81MTxRENiR7amUc4L1llCcvEc57Xd1NNqdXEjF1mqrTZz8QI+cqCbDKFtexAAlV7FdosZgPhPiKdY4O7WuPkJXLmW+uUAnQ6am07KeIK5F2sOQOg+898TwaVKQGVWBFrGxBvuJZTjLwiVco+o8YPtDSqolWkwdH2I+/oR08pLiopGm3lOOPi24Jic3w2bC1b3pi5NNgQcyX01vzPleXHDd4PD61wmJVDp/wBwGmb2/eFj03k9lU0bvFeCm5ZD7c/95iwHAcxu91H3J8r7SW4fxOk6lvi0zbnnW3rvNbG9rMFT0bFUQemdT+DNX8Sty5aN382xR47M68CpaGx0O1738jNzE4dGy5lF11XTb+9NPKVTifePgqSHJV+I9tBTUt9zZR9ZT8f3oV2NqFNVH+ap42PsDlH3mdVQXiNeV05dtnWqtWw1PvKtxvtthaNx8QVHAPhTxG/Qt8o+s5PxPtNi6wIqV3KndQcqnqCFtceUiA0yRRhcj32r43UxeJ+I9h4QqqNlW5Ntd9SdZFqdZ4xJvUMKJcqZ1aGMx5p6MAzctJZewXBTi8bSog2BbM56Imre5295WB57dJ0DuUxQXidJbaulRf8A25v/AMyQfowCfYiVIE5T3s1SuKpgjwmiLequxP5+86tOX99FIH/DMPnGf/T4dPzBK9OW44i/rsfTUfYzQxT2IB32+8kcVqdfbyIkRxAa+kksXnui4Wj1a1Q6lVAA52JNz9hOv4fCqtrACcn7ocdTWrUptYPUy5T1tmut/vOtnSVZBkZvMSH7RYopTuBcHS/S/OSONqIilz/v6So8UxVWqSNAvS80cu9Qjr7Z0MLH/knt+I0Biy27/mCy+bfYfaadTMuhFul57FRjoRp+PpOFzb9PQfxxXhtiseSgessHAKl0YHlqOdpWKQtcFW/03/nN3DVmU3Um48htNnGtdc9mrlUqyDSJHtbws4miaN0FN1IfMpZuWRk8QAIbXW+wn5141wt8LiHoOQSh+YbEEAqwB6ggz9O4ZviU84vexFrc+f1/nOX97/BhWorjaa2+D+zqXBUlSwUWFtbMfuZ6CL2tnnJx09HM8K4P6Vv1tNulhdSTcAdOsj8OwG39mbiVTzJ9JRp/RVaPNUDW3p/vPqaCGEMZkRDPgae77TwSJ9RpdEEdV+ZvWBJBeDYlyXTD1nU7MtKoynluBYzaodk8e3y4LEEf+k4/IkgiBPatLfwfuz4nXbKMMaXVq5+Gn4LH2E6B2e7jkR1fF4j4oGppU1KqT0Lk3I9AIByLhPBsRiaipRpPUYm3hUkD+JtlHqZ+g+7ju8Th4+NUIqYllsWA8KA7ol/u25tLrg8IlJFp00VEUWCqAFAHkJnkbIEREgCUDvhwDPhqdZdqTnP1yuAL+gIH1l/mDH4RatN6bi6upVh5EWMEo/MFX5iu4/BtI/Em4tzlj7TcHfD16lB/mX5SdnQ3ysPX8gyrYsFTeSSye7AYr4eKFTktrjr6ec75h66sAQQbi667jrPzv2Vsajj90H6G/wDfpOmdjMXTSoyPoTqpJsCTy6X/ADYyGEdBekHUhtjIw8CUnVjbppvJKg4A1P1mRmEwWUws/ZGau+dfUWVnFcEcaWDLf/jQz5g+zCEEtmvyF7Sw1K31j4wmBYVSezZefbx1s18DgUpIEGvU8z6zItEAaADppMdTFqNN54bHJa+YADfMQLeZmwoRXWjWdkn22ZBXF7cxoRbnvKX3vY74fDqg0vUKoL2vqwJsPQGYONdvMPRLGiwrMT8qtoPPNYjkJyftpx6ti3D1W0v4UB8Ki1rD+vnMiRibICnNtGmnh5npnlJ0VNnP5Qz6TExnkmToGQGfQZiBnpBeWB+ou6oj/peGsf0tf1zteW2UHuT+J/0xA4sBUqfD0tdLg38/EX18pfpUgREQBERAEREAREQCudseyNLH07N4aqg/DqjdT0I/Ut+U4P2y7KYrBtatTJS2lVATS92t4T62n6bnlkB0IuOkInZ+Vuxrr8VwpBOS4F+YO33lnqvqb21Xw89hpc+lhOl95GAprQplKaJ+01Kqq/oa23mJzTHi6qQLb5fPbT6XEfZK8JLA9uHQKrpnS1tDaoLeujfY+cnk7f4U/ry9QyuCPLa05PjnAbW63+8j62J13v5yXEbO2Yvt/gqa3+LnbkqK7G/U6WHuRITF96VAfJSqOf3iqD66n7Tk/wAYGeTI4jZc8b3k4trhFpIDtZWZgPUtb7Sr8T4rWrnNWqFzyB0UeijQe00yZ4LSUkNmRTNbiy/LMyGfcVhXqABFZ2AJIUFjYak2HIDeSQRiJbeZVMwqfOe1NyANfTeQDKTPstHZ/u84jiyCmHZEP/iVf2a26jN4m9gZ0ThPcQg1xOLZv3aKBfbM+b8CAcRzS993fd9Wx9RXdWp4UatUIKlxvlpk73/zDQfadv4B3ecOwljTwyM4/XV/aP8AVtvYCWlVttIIMWDwqUkWmihURQqqNgoFgB7TNEQBERAEREAREQBERAEREAovevVKUKTa5fiEH3RrX+hnMcUuamCOW07h2t4SMVhatH9RF0/jXVf6e84Hw+oQKiMDdbi3PTceogsiJ4n411GoMhWQdfaSvEsykm/PToZHvY685YgwKg15WHnr5aTHaZWmNzAPN58JnwET47QD6DLn3W4nJxLCsNy+Q+jqyH/7X9pSby1d3FdU4jhGc2X4yi56tcD7kQD9I1OzWDZi7YWgWOpY0kJPqbazaw3C6FPVKNNP4URfwJtxKkHy0+xEAREQBERAEREAREQBERAEREAREQBOP953Zs4eocXSHgqOC4H6XN7+zb+t+onYJhxeFSojJUUMjCzKwuCOhEEo/LvFao1sNDy5XkCatjOvd4Pdo6Ka2DBdBqaWpqL/AA82H39eXIa9Qi4I1H195YGN2mMmY3zH+s8M3K8AyObT5efFpsTbK1zysbn0EunAO6/iWKUOtFaSHUNXbJcfwgF/qIBTBJbs1gXxGKo0KYJd6i2tyAILN6KAT7TpPDe4ytmHx8VTVf1CkrM3oC4A9yPadV7Mdj8HgVth6KhrWao3iqt6udbeQ0kbIJ1BpPsRIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAkXxDs5g65vWwtCoer0kZvqReSkQCsL3fcMBuMFR3vbLdb/wAJ0+0lOH9n8LQULSw1GmoOay00GvXbfzknEAx/BW97C42Nhf6z2BPsQBERAEREAREQBERAEREAREQBERAEREA//9k=",
+      "isMain": true
+    }],
+    "product_description": "Lososli suushi roll",
+    "product_ingredients": "Losos, guruch, nori, avakado",
+    "nutritional_value": {
+      "kkal": 300,
+      "fat": 15,
+      "protein": 20,
+      "uglevod": 35
+    },
+    "strg_conditions": "0-4°C da saqlash"
+  },
+  {
+    "_id": "4",
+    "product_name": "Pepsi Max",
+    "subcategory": "Ichimliklar",
+    "category": "Nushki",
+    "unit": "litr",
+    "unit_description": "0.5L",
+    "price": 15000,
+    "expiration": 365,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 200,
+      "mfg_date": "2025-06-01"
+    }],
+    "image_log": [{
+      "image_url": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTRZnCsD3fqUxiRnMVCUPA6dxcW1kA0Bg-Ft_-p6lT3-wZArOZNJwyeJxpWZQ6wBxAppE3kOfrYkM46SvzELHsZ_yUUWk7gVHgkcM7Cg7kbWAoP5hKgZJoBPDqif50BCBFpRyvkIQ&usqp=CAc",
+      "isMain": true
+    }],
+    "product_description": "Gazli shuksiz ichimlik, Pepsi Max brendi",
+    "product_ingredients": "Suv, asal, karbonatlangan suv",
+    "nutritional_value": {
+      "kkal": 120,
+      "fat": 0,
+      "protein": 0,
+      "uglevod": 30
+    },
+    "strg_conditions": "5-20°C da saqlash"
+  },
+  {
+    "_id": "5",
+    "product_name": "O‘zbek palovi",
+    "subcategory": "Asosiy ovqatlar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "300 g",
+    "price": 40000,
+    "expiration": 3,
+    "additionals": [],
+    "discount_log": [{
+      "start_date": "2025-07-15",
+      "end_date": "2025-07-31",
+      "percent": 20,
+      "status": "active"
+    }],
+    "stock_log": [{
+      "stock": 120,
+      "mfg_date": "2025-07-02"
+    }],
+    "image_log": [{
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBUqrSxY6u8lgpxHthQhebvoF4hc38-t961w&s",
+      "isMain": true
+    }],
+    "product_description": "An'anaviy o'zbek plovi",
+    "product_ingredients": "Guruch, go'sht, sabzavot, zaytun yog'i",
+    "nutritional_value": {
+      "kkal": 450,
+      "fat": 20,
+      "protein": 25,
+      "uglevod": 60
+    },
+    "strg_conditions": "0-4°C da saqlash"
+  },
+  {
+    "_id": "6",
+    "product_name": "Yashil choy",
+    "subcategory": "Ichimliklar",
+    "category": "Nushki",
+    "unit": "gr",
+    "unit_description": "100 g",
+    "price": 12000,
+    "expiration": 180,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 150,
+      "mfg_date": "2025-01-01"
+    }],
+    "image_log": [{
+      "image_url": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTRZnCsD3fqUxiRnMVCUPA6dxcW1kA0Bg-Ft_-p6lT3-wZArOZNJwyeJxpWZQ6wBxAppE3kOfrYkM46SvzELHsZ_yUUWk7gVHgkcM7Cg7kbWAoP5hKgZJoBPDqif50BCBFpRyvkIQ&usqp=CAc",
+      "isMain": true
+    }],
+    "product_description": "Tabiiy yashil choy",
+    "product_ingredients": "Yashil choy barglari",
+    "nutritional_value": {
+      "kkal": 0,
+      "fat": 0,
+      "protein": 0,
+      "uglevod": 0
+    },
+    "strg_conditions": "20-25°C da quruq joyda saqlash"
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+  {
+    "_id": "7",
+    "product_name": "Sabzavot aralashmasi",
+    "subcategory": "Sabzavotlar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "250 g",
+    "price": 11000,
+    "expiration": 7,
+    "additionals": ["Pomidor", "Bodring"],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 80,
+      "mfg_date": "2025-07-10"
+    }],
+    "image_log": [{
+      "image_url": "https://www.toshvilstat.uz/images/yangiliklar2024/sabzavot_16052024.jpg",
+      "isMain": true
+    }],
+    "product_description": "Turli sabzavotlardan tayyorlangan aralashma",
+    "product_ingredients": "Pomidor, bodring, karam",
+    "nutritional_value": {
+      "kkal": 30,
+      "fat": 0,
+      "protein": 1,
+      "uglevod": 6
+    },
+    "strg_conditions": "5-10°C da saqlash"
+  },
+  {
+    "_id": "8",
+    "product_name": "Yashil piyoz",
+    "subcategory": "Sabzavotlar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "100 g",
+    "price": 4000,
+    "expiration": 5,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 150,
+      "mfg_date": "2025-07-15"
+    }],
+    "image_log": [{
+      "image_url": "https://www.toshvilstat.uz/images/yangiliklar2024/sabzavot_16052024.jpg",
+      "isMain": true
+    }],
+    "product_description": "Tazalangan yashil piyoz",
+    "product_ingredients": "Yashil piyoz",
+    "nutritional_value": {
+      "kkal": 20,
+      "fat": 0,
+      "protein": 1,
+      "uglevod": 4
+    },
+    "strg_conditions": "0-5°C da saqlash"
+  },
+  {
+    "_id": "9",
+    "product_name": "Qizil pomidor",
+    "subcategory": "Sabzavotlar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "200 g",
+    "price": 7000,
+    "expiration": 10,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 120,
+      "mfg_date": "2025-07-12"
+    }],
+    "image_log": [{
+      "image_url": "https://www.toshvilstat.uz/images/yangiliklar2024/sabzavot_16052024.jpg",
+      "isMain": true
+    }],
+    "product_description": "Yengil va suvli pomidor",
+    "product_ingredients": "Pomidor",
+    "nutritional_value": {
+      "kkal": 18,
+      "fat": 0,
+      "protein": 1,
+      "uglevod": 3
+    },
+    "strg_conditions": "5-10°C da saqlash"
+  },
+  {
+    "_id": "10",
+    "product_name": "Bodring",
+    "subcategory": "Sabzavotlar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "150 g",
+    "price": 5000,
+    "expiration": 6,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 90,
+      "mfg_date": "2025-07-14"
+    }],
+    "image_log": [{
+      "image_url": "https://www.toshvilstat.uz/images/yangiliklar2024/sabzavot_16052024.jpg",
+      "isMain": true
+    }],
+    "product_description": "Tazalangan bodring",
+    "product_ingredients": "Bodring",
+    "nutritional_value": {
+      "kkal": 15,
+      "fat": 0,
+      "protein": 1,
+      "uglevod": 3
+    },
+    "strg_conditions": "0-5°C da saqlash"
+  },
+  {
+    "_id": "11",
+    "product_name": "Karam",
+    "subcategory": "Sabzavotlar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "300 g",
+    "price": 6000,
+    "expiration": 8,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 100,
+      "mfg_date": "2025-07-11"
+    }],
+    "image_log": [{
+      "image_url": "https://www.toshvilstat.uz/images/yangiliklar2024/sabzavot_16052024.jpg",
+      "isMain": true
+    }],
+    "product_description": "Yengil va foydali karam",
+    "product_ingredients": "Karam",
+    "nutritional_value": {
+      "kkal": 25,
+      "fat": 0,
+      "protein": 1,
+      "uglevod": 5
+    },
+    "strg_conditions": "5-10°C da saqlash"
+  },
+  {
+    "_id": "12",
+    "product_name": "Sabzavot salati",
+    "subcategory": "Salatlar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "200 g",
+    "price": 12000,
+    "expiration": 3,
+    "additionals": ["Pomidor", "Karam"],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 70,
+      "mfg_date": "2025-07-20"
+    }],
+    "image_log": [{
+      "image_url": "https://wallhalla.com/thumbs/1",
+      "isMain": true
+    }],
+    "product_description": "Tazalangan sabzavotlardan tayyorlangan salat",
+    "product_ingredients": "Pomidor, karam, bodring",
+    "nutritional_value": {
+      "kkal": 40,
+      "fat": 0,
+      "protein": 1,
+      "uglevod": 8
+    },
+    "strg_conditions": "0-5°C da saqlash"
+  },
+  {
+    "_id": "13",
+    "product_name": "Uzun piyoz",
+    "subcategory": "Sabzavotlar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "120 g",
+    "price": 4500,
+    "expiration": 5,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 130,
+      "mfg_date": "2025-07-18"
+    }],
+    "image_log": [{
+      "image_url": "https://www.toshvilstat.uz/images/yangiliklar2024/sabzavot_16052024.jpg",
+      "isMain": true
+    }],
+    "product_description": "Tazalangan uzun piyoz",
+    "product_ingredients": "Uzun piyoz",
+    "nutritional_value": {
+      "kkal": 15,
+      "fat": 0,
+      "protein": 1,
+      "uglevod": 3
+    },
+    "strg_conditions": "0-5°C da saqlash"
+  },
+
+
+
+
+
+
+
+
+  {
+    "_id": "14",
+    "product_name": "Tovuq salati",
+    "subcategory": "Salatlar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "175 g",
+    "price": 30000,
+    "expiration": 7,
+    "additionals": ["Kukurka", "Pomidor"],
+    "discount_log": [{
+      "start_date": "2025-07-01",
+      "end_date": "2025-07-31",
+      "percent": 15,
+      "status": "active"
+    }],
+    "stock_log": [{
+      "stock": 100,
+      "mfg_date": "2025-07-01"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Mazali salat",
+    "product_ingredients": "Kukurka, pomidor, kurka go'shti",
+    "nutritional_value": {
+      "kkal": 200,
+      "fat": 10,
+      "protein": 15,
+      "uglevod": 20
+    },
+    "strg_conditions": "Sovuq joyda saqlash"
+  },
+  {
+    "_id": "15",
+    "product_name": "Tovuq salati",
+    "subcategory": "Salatlar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "175 g",
+    "price": 30000,
+    "expiration": 7,
+    "additionals": ["Kukurka", "Pomidor"],
+    "discount_log": [{
+      "start_date": "2025-07-01",
+      "end_date": "2025-07-31",
+      "percent": 15,
+      "status": "active"
+    }],
+    "stock_log": [{
+      "stock": 100,
+      "mfg_date": "2025-07-01"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Mazali salat",
+    "product_ingredients": "Kukurka, pomidor, kurka go'shti",
+    "nutritional_value": {
+      "kkal": 200,
+      "fat": 10,
+      "protein": 15,
+      "uglevod": 20
+    },
+    "strg_conditions": "Sovuq joyda saqlash"
+  },
+  {
+    "_id": "16",
+    "product_name": "Tovuq salati",
+    "subcategory": "Salatlar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "175 g",
+    "price": 30000,
+    "expiration": 7,
+    "additionals": ["Kukurka", "Pomidor"],
+    "discount_log": [{
+      "start_date": "2025-07-01",
+      "end_date": "2025-07-31",
+      "percent": 15,
+      "status": "active"
+    }],
+    "stock_log": [{
+      "stock": 100,
+      "mfg_date": "2025-07-01"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Mazali salat",
+    "product_ingredients": "Kukurka, pomidor, kurka go'shti",
+    "nutritional_value": {
+      "kkal": 200,
+      "fat": 10,
+      "protein": 15,
+      "uglevod": 20
+    },
+    "strg_conditions": "Sovuq joyda saqlash"
+  },
+  {
+    "_id": "17",
+    "product_name": "Tovuq salati",
+    "subcategory": "Salatlar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "175 g",
+    "price": 30000,
+    "expiration": 7,
+    "additionals": ["Kukurka", "Pomidor"],
+    "discount_log": [{
+      "start_date": "2025-07-01",
+      "end_date": "2025-07-31",
+      "percent": 15,
+      "status": "active"
+    }],
+    "stock_log": [{
+      "stock": 100,
+      "mfg_date": "2025-07-01"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Mazali salat",
+    "product_ingredients": "Kukurka, pomidor, kurka go'shti",
+    "nutritional_value": {
+      "kkal": 200,
+      "fat": 10,
+      "protein": 15,
+      "uglevod": 20
+    },
+    "strg_conditions": "Sovuq joyda saqlash"
+  },
+  {
+    "_id": "18",
+    "product_name": "Tovuq salati",
+    "subcategory": "Salatlar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "175 g",
+    "price": 30000,
+    "expiration": 7,
+    "additionals": ["Kukurka", "Pomidor"],
+    "discount_log": [{
+      "start_date": "2025-07-01",
+      "end_date": "2025-07-31",
+      "percent": 15,
+      "status": "active"
+    }],
+    "stock_log": [{
+      "stock": 100,
+      "mfg_date": "2025-07-01"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Mazali salat",
+    "product_ingredients": "Kukurka, pomidor, kurka go'shti",
+    "nutritional_value": {
+      "kkal": 200,
+      "fat": 10,
+      "protein": 15,
+      "uglevod": 20
+    },
+    "strg_conditions": "Sovuq joyda saqlash"
+  },
+  {
+    "_id": "19",
+    "product_name": "Tovuq go'shti",
+    "subcategory": "Salatlar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "175 g",
+    "price": 30000,
+    "expiration": 7,
+    "additionals": ["Kukurka", "Pomidor"],
+    "discount_log": [{
+      "start_date": "2025-07-01",
+      "end_date": "2025-07-31",
+      "percent": 15,
+      "status": "active"
+    }],
+    "stock_log": [{
+      "stock": 100,
+      "mfg_date": "2025-07-01"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Mazali salat",
+    "product_ingredients": "Kukurka, pomidor, kurka go'shti",
+    "nutritional_value": {
+      "kkal": 200,
+      "fat": 10,
+      "protein": 15,
+      "uglevod": 20
+    },
+    "strg_conditions": "Sovuq joyda saqlash"
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {
+    "_id": "20",
+    "product_name": "Tayyor lag'mon",
+    "subcategory": "Tayyor ovqatlar",
+    "category": "Ovqatlar",
+    "unit": "por",
+    "unit_description": "1 porsiya",
+    "price": 27000,
+    "expiration": 2,
+    "additionals": ["Go'sht", "Ko'kat"],
+    "discount_log": [{
+      "start_date": "2025-08-01",
+      "end_date": "2025-08-10",
+      "percent": 7,
+      "status": "active"
+    }],
+    "stock_log": [{
+      "stock": 25,
+      "mfg_date": "2025-07-30"
+    }],
+    "image_log": [{
+      "image_url": "https://wallhalla.com/thumbs/1",
+      "isMain": true
+    }],
+    "product_description": "Mazali va to'yimli uy lag'moni.",
+    "product_ingredients": "Un, go'sht, sabzi, piyoz, ko'kat",
+    "nutritional_value": {
+      "kkal": 320,
+      "fat": 8,
+      "protein": 12,
+      "uglevod": 50
+    },
+    "strg_conditions": "Sovuq joyda saqlash"
+  },
+  {
+    "_id": "21",
+    "product_name": "Qatiqli tvorog",
+    "subcategory": "Sut mahsulotlari",
+    "category": "Sut mahsulotlari",
+    "unit": "gr",
+    "unit_description": "200 g",
+    "price": 11000,
+    "expiration": 5,
+    "additionals": ["Qatiq"],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 40,
+      "mfg_date": "2025-07-29"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Yengil va foydali qatiqli tvorog.",
+    "product_ingredients": "Tvorog, qatiq, shakar",
+    "nutritional_value": {
+      "kkal": 90,
+      "fat": 3,
+      "protein": 7,
+      "uglevod": 8
+    },
+    "strg_conditions": "Sovuq joyda saqlash"
+  },
+  {
+    "_id": "22",
+    "product_name": "Smetanali yogurt",
+    "subcategory": "Sut mahsulotlari",
+    "category": "Sut mahsulotlari",
+    "unit": "gr",
+    "unit_description": "150 g",
+    "price": 9000,
+    "expiration": 7,
+    "additionals": ["Smetana"],
+    "discount_log": [{
+      "start_date": "2025-08-05",
+      "end_date": "2025-08-15",
+      "percent": 10,
+      "status": "active"
+    }],
+    "stock_log": [{
+      "stock": 30,
+      "mfg_date": "2025-07-28"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Tabiiy smetanali yogurt.",
+    "product_ingredients": "Sut, smetana, yogurt bakteriyalari",
+    "nutritional_value": {
+      "kkal": 70,
+      "fat": 2,
+      "protein": 4,
+      "uglevod": 9
+    },
+    "strg_conditions": "Sovuq joyda saqlash"
+  },
+  {
+    "_id": "23",
+    "product_name": "Qaymoqli pishloq",
+    "subcategory": "Sut mahsulotlari",
+    "category": "Sut mahsulotlari",
+    "unit": "gr",
+    "unit_description": "100 g",
+    "price": 15000,
+    "expiration": 10,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 20,
+      "mfg_date": "2025-07-27"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Qaymoqli, yumshoq va mazali pishloq.",
+    "product_ingredients": "Sut, qaymoq, tuz",
+    "nutritional_value": {
+      "kkal": 120,
+      "fat": 7,
+      "protein": 8,
+      "uglevod": 3
+    },
+    "strg_conditions": "Sovuq va quruq joyda saqlash"
+  },
+  {
+    "_id": "24",
+    "product_name": "Sutli kokteyl",
+    "subcategory": "Ichimliklar",
+    "category": "Sut mahsulotlari",
+    "unit": "ml",
+    "unit_description": "250 ml",
+    "price": 8000,
+    "expiration": 3,
+    "additionals": ["Shokolad"],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 60,
+      "mfg_date": "2025-07-30"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Shirin va mazali sutli kokteyl.",
+    "product_ingredients": "Sut, shokolad, shakar",
+    "nutritional_value": {
+      "kkal": 110,
+      "fat": 3,
+      "protein": 5,
+      "uglevod": 16
+    },
+    "strg_conditions": "Sovuq joyda saqlash"
+  },
+  {
+    "_id": "25",
+    "product_name": "Qaymoq",
+    "subcategory": "Sut mahsulotlari",
+    "category": "Sut mahsulotlari",
+    "unit": "gr",
+    "unit_description": "200 g",
+    "price": 10000,
+    "expiration": 8,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 35,
+      "mfg_date": "2025-07-29"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Tabiiy va foydali qaymoq.",
+    "product_ingredients": "Sut, qaymoq",
+    "nutritional_value": {
+      "kkal": 80,
+      "fat": 6,
+      "protein": 3,
+      "uglevod": 4
+    },
+    "strg_conditions": "Sovuq joyda saqlash"
+  },
+  {
+    "_id": "26",
+    "product_name": "Sutli desert",
+    "subcategory": "Shirinliklar",
+    "category": "Sut mahsulotlari",
+    "unit": "gr",
+    "unit_description": "120 g",
+    "price": 13000,
+    "expiration": 4,
+    "additionals": ["Yong‘oq"],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 18,
+      "mfg_date": "2025-07-28"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Yangi va shirin sutli desert.",
+    "product_ingredients": "Sut, yong‘oq, shakar",
+    "nutritional_value": {
+      "kkal": 140,
+      "fat": 5,
+      "protein": 4,
+      "uglevod": 20
+    },
+    "strg_conditions": "Sovuq va quruq joyda saqlash"
+  },
+
+
+
+
+
+
+
+  
+  {
+    "_id": "27",
+    "product_name": "Tovuq go'shti",
+    "subcategory": "Salatlar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "175 g",
+    "price": 30000,
+    "expiration": 7,
+    "additionals": ["Kukurka", "Pomidor"],
+    "discount_log": [{
+      "start_date": "2025-07-01",
+      "end_date": "2025-07-31",
+      "percent": 15,
+      "status": "active"
+    }],
+    "stock_log": [{
+      "stock": 100,
+      "mfg_date": "2025-07-01"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Mazali salat",
+    "product_ingredients": "Kukurka, pomidor, kurka go'shti",
+    "nutritional_value": {
+      "kkal": 200,
+      "fat": 10,
+      "protein": 15,
+      "uglevod": 20
+    },
+    "strg_conditions": "Sovuq joyda saqlash"
+  },
+
+  {
+    "_id": "28",
+    "product_name": "Tovuq go'shti",
+    "subcategory": "Salatlar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "175 g",
+    "price": 30000,
+    "expiration": 7,
+    "additionals": ["Kukurka", "Pomidor"],
+    "discount_log": [{
+      "start_date": "2025-07-01",
+      "end_date": "2025-07-31",
+      "percent": 15,
+      "status": "active"
+    }],
+    "stock_log": [{
+      "stock": 100,
+      "mfg_date": "2025-07-01"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Mazali salat",
+    "product_ingredients": "Kukurka, pomidor, kurka go'shti",
+    "nutritional_value": {
+      "kkal": 200,
+      "fat": 10,
+      "protein": 15,
+      "uglevod": 20
+    },
+    "strg_conditions": "Sovuq joyda saqlash"
+  },
+
+  {
+    "_id": "29",
+    "product_name": "Tovuq go'shti",
+    "subcategory": "Salatlar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "175 g",
+    "price": 30000,
+    "expiration": 7,
+    "additionals": ["Kukurka", "Pomidor"],
+    "discount_log": [{
+      "start_date": "2025-07-01",
+      "end_date": "2025-07-31",
+      "percent": 15,
+      "status": "active"
+    }],
+    "stock_log": [{
+      "stock": 100,
+      "mfg_date": "2025-07-01"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Mazali salat",
+    "product_ingredients": "Kukurka, pomidor, kurka go'shti",
+    "nutritional_value": {
+      "kkal": 200,
+      "fat": 10,
+      "protein": 15,
+      "uglevod": 20
+    },
+    "strg_conditions": "Sovuq joyda saqlash"
+  },
+
+  {
+    "_id": "30",
+    "product_name": "Tovuq go'shti",
+    "subcategory": "Salatlar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "175 g",
+    "price": 30000,
+    "expiration": 7,
+    "additionals": ["Kukurka", "Pomidor"],
+    "discount_log": [{
+      "start_date": "2025-07-01",
+      "end_date": "2025-07-31",
+      "percent": 15,
+      "status": "active"
+    }],
+    "stock_log": [{
+      "stock": 100,
+      "mfg_date": "2025-07-01"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Mazali salat",
+    "product_ingredients": "Kukurka, pomidor, kurka go'shti",
+    "nutritional_value": {
+      "kkal": 200,
+      "fat": 10,
+      "protein": 15,
+      "uglevod": 20
+    },
+    "strg_conditions": "Sovuq joyda saqlash"
+  },
+
+  {
+    "_id": "31",
+    "product_name": "Tovuq go'shti",
+    "subcategory": "Salatlar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "175 g",
+    "price": 30000,
+    "expiration": 7,
+    "additionals": ["Kukurka", "Pomidor"],
+    "discount_log": [{
+      "start_date": "2025-07-01",
+      "end_date": "2025-07-31",
+      "percent": 15,
+      "status": "active"
+    }],
+    "stock_log": [{
+      "stock": 100,
+      "mfg_date": "2025-07-01"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Mazali salat",
+    "product_ingredients": "Kukurka, pomidor, kurka go'shti",
+    "nutritional_value": {
+      "kkal": 200,
+      "fat": 10,
+      "protein": 15,
+      "uglevod": 20
+    },
+    "strg_conditions": "Sovuq joyda saqlash"
+  },
+
+
+
+
+
+
+
+
+  {
+    "_id": "32",
+    "product_name": "Qulupnay",
+    "subcategory": "Mevalar",
+    "category": "Nushki",
+    "unit": "gr",
+    "unit_description": "250 g",
+    "price": 18000,
+    "expiration": 5,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 60,
+      "mfg_date": "2025-07-25"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Yengil va shirin qulupnay",
+    "product_ingredients": "Qulupnay",
+    "nutritional_value": {
+      "kkal": 32,
+      "fat": 0,
+      "protein": 1,
+      "uglevod": 7
+    },
+    "strg_conditions": "0-5°C da saqlash"
+  },
+  {
+    "_id": "33",
+    "product_name": "Olma",
+    "subcategory": "Mevalar",
+    "category": "Nushki",
+    "unit": "gr",
+    "unit_description": "300 g",
+    "price": 10000,
+    "expiration": 20,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 90,
+      "mfg_date": "2025-07-20"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Tazalangan organik olma",
+    "product_ingredients": "Olma",
+    "nutritional_value": {
+      "kkal": 52,
+      "fat": 0,
+      "protein": 0,
+      "uglevod": 14
+    },
+    "strg_conditions": "5-10°C da saqlash"
+  },
+  {
+    "_id": "34",
+    "product_name": "Anjir",
+    "subcategory": "Mevalar",
+    "category": "Nushki",
+    "unit": "gr",
+    "unit_description": "200 g",
+    "price": 22000,
+    "expiration": 10,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 50,
+      "mfg_date": "2025-07-22"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Shirin va foydali anjir",
+    "product_ingredients": "Anjir",
+    "nutritional_value": {
+      "kkal": 74,
+      "fat": 0,
+      "protein": 1,
+      "uglevod": 19
+    },
+    "strg_conditions": "0-5°C da saqlash"
+  },
+  {
+    "_id": "35",
+    "product_name": "Uzum",
+    "subcategory": "Mevalar",
+    "category": "Nushki",
+    "unit": "gr",
+    "unit_description": "400 g",
+    "price": 15000,
+    "expiration": 7,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 70,
+      "mfg_date": "2025-07-25"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Tazalangan uzum klasteri",
+    "product_ingredients": "Uzum",
+    "nutritional_value": {
+      "kkal": 69,
+      "fat": 0,
+      "protein": 1,
+      "uglevod": 18
+    },
+    "strg_conditions": "0-5°C da saqlash"
+  },
+  {
+    "_id": "36",
+    "product_name": "Shaftoli",
+    "subcategory": "Mevalar",
+    "category": "Nushki",
+    "unit": "gr",
+    "unit_description": "250 g",
+    "price": 13000,
+    "expiration": 5,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 80,
+      "mfg_date": "2025-07-24"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Yengil va shirin shaftoli",
+    "product_ingredients": "Shaftoli",
+    "nutritional_value": {
+      "kkal": 39,
+      "fat": 0,
+      "protein": 1,
+      "uglevod": 10
+    },
+    "strg_conditions": "0-5°C da saqlash"
+  },
+  {
+    "_id": "37",
+    "product_name": "Nok",
+    "subcategory": "Mevalar",
+    "category": "Nushki",
+    "unit": "gr",
+    "unit_description": "300 g",
+    "price": 9000,
+    "expiration": 15,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 100,
+      "mfg_date": "2025-07-20"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Tazalangan nok mevasi",
+    "product_ingredients": "Nok",
+    "nutritional_value": {
+      "kkal": 57,
+      "fat": 0,
+      "protein": 0,
+      "uglevod": 15
+    },
+    "strg_conditions": "5-10°C da saqlash"
+  },
+  {
+    "_id": "38",
+    "product_name": "Qulupnay kompot",
+    "subcategory": "Ichimliklar",
+    "category": "Nushki",
+    "unit": "ml",
+    "unit_description": "500 ml",
+    "price": 8000,
+    "expiration": 30,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 60,
+      "mfg_date": "2025-07-15"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Tabiiy qulupnay kompot",
+    "product_ingredients": "Qulupnay, shakar, suv",
+    "nutritional_value": {
+      "kkal": 45,
+      "fat": 0,
+      "protein": 0,
+      "uglevod": 11
+    },
+    "strg_conditions": "5-10°C da saqlash"
+  },
+  {
+    "_id": "39",
+    "product_name": "Olma sharbati",
+    "subcategory": "Ichimliklar",
+    "category": "Nushki",
+    "unit": "ml",
+    "unit_description": "330 ml",
+    "price": 7000,
+    "expiration": 20,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 90,
+      "mfg_date": "2025-07-18"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Tabiiy olma sharbati",
+    "product_ingredients": "Olma, suv",
+    "nutritional_value": {
+      "kkal": 40,
+      "fat": 0,
+      "protein": 0,
+      "uglevod": 10
+    },
+    "strg_conditions": "5-10°C da saqlash"
+  },
+  {
+    "_id": "40",
+    "product_name": "Uzum sharbat",
+    "subcategory": "Ichimliklar",
+    "category": "Nushki",
+    "unit": "ml",
+    "unit_description": "400 ml",
+    "price": 9000,
+    "expiration": 25,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 70,
+      "mfg_date": "2025-07-20"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Tabiiy uzum sharbati",
+    "product_ingredients": "Uzum, suv",
+    "nutritional_value": {
+      "kkal": 50,
+      "fat": 0,
+      "protein": 0,
+      "uglevod": 12
+    },
+    "strg_conditions": "5-10°C da saqlash"
+  },
+  {
+    "_id": "41",
+    "product_name": "Anjir kompot",
+    "subcategory": "Ichimliklar",
+    "category": "Nushki",
+    "unit": "ml",
+    "unit_description": "500 ml",
+    "price": 10000,
+    "expiration": 30,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 50,
+      "mfg_date": "2025-07-22"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Tabiiy anjir kompot",
+    "product_ingredients": "Anjir, shakar, suv",
+    "nutritional_value": {
+      "kkal": 55,
+      "fat": 0,
+      "protein": 0,
+      "uglevod": 13
+    },
+    "strg_conditions": "5-10°C da saqlash"
+  },
+
+
+
+
+
+
+
+  {
+    "_id": "42",
+    "product_name": "Tovuq go'shti",
+    "subcategory": "Salatlar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "175 g",
+    "price": 30000,
+    "expiration": 7,
+    "additionals": ["Kukurka", "Pomidor"],
+    "discount_log": [{
+      "start_date": "2025-07-01",
+      "end_date": "2025-07-31",
+      "percent": 15,
+      "status": "active"
+    }],
+    "stock_log": [{
+      "stock": 100,
+      "mfg_date": "2025-07-01"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Mazali salat",
+    "product_ingredients": "Kukurka, pomidor, kurka go'shti",
+    "nutritional_value": {
+      "kkal": 200,
+      "fat": 10,
+      "protein": 15,
+      "uglevod": 20
+    },
+    "strg_conditions": "Sovuq joyda saqlash"
+  },
+  {
+    "_id": "43",
+    "product_name": "Tovuq go'shti",
+    "subcategory": "Salatlar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "175 g",
+    "price": 30000,
+    "expiration": 7,
+    "additionals": ["Kukurka", "Pomidor"],
+    "discount_log": [{
+      "start_date": "2025-07-01",
+      "end_date": "2025-07-31",
+      "percent": 15,
+      "status": "active"
+    }],
+    "stock_log": [{
+      "stock": 100,
+      "mfg_date": "2025-07-01"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Mazali salat",
+    "product_ingredients": "Kukurka, pomidor, kurka go'shti",
+    "nutritional_value": {
+      "kkal": 200,
+      "fat": 10,
+      "protein": 15,
+      "uglevod": 20
+    },
+    "strg_conditions": "Sovuq joyda saqlash"
+  },
+{
+    "_id": "44",
+    "product_name": "Tovuq go'shti",
+    "subcategory": "Salatlar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "175 g",
+    "price": 30000,
+    "expiration": 7,
+    "additionals": ["Kukurka", "Pomidor"],
+    "discount_log": [{
+      "start_date": "2025-07-01",
+      "end_date": "2025-07-31",
+      "percent": 15,
+      "status": "active"
+    }],
+    "stock_log": [{
+      "stock": 100,
+      "mfg_date": "2025-07-01"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Mazali salat",
+    "product_ingredients": "Kukurka, pomidor, kurka go'shti",
+    "nutritional_value": {
+      "kkal": 200,
+      "fat": 10,
+      "protein": 15,
+      "uglevod": 20
+    },
+    "strg_conditions": "Sovuq joyda saqlash"
+  },
+{
+    "_id": "45",
+    "product_name": "Tovuq go'shti",
+    "subcategory": "Salatlar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "175 g",
+    "price": 30000,
+    "expiration": 7,
+    "additionals": ["Kukurka", "Pomidor"],
+    "discount_log": [{
+      "start_date": "2025-07-01",
+      "end_date": "2025-07-31",
+      "percent": 15,
+      "status": "active"
+    }],
+    "stock_log": [{
+      "stock": 100,
+      "mfg_date": "2025-07-01"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Mazali salat",
+    "product_ingredients": "Kukurka, pomidor, kurka go'shti",
+    "nutritional_value": {
+      "kkal": 200,
+      "fat": 10,
+      "protein": 15,
+      "uglevod": 20
+    },
+    "strg_conditions": "Sovuq joyda saqlash"
+  },
+{
+    "_id": "46",
+    "product_name": "Tovuq go'shti",
+    "subcategory": "Salatlar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "175 g",
+    "price": 30000,
+    "expiration": 7,
+    "additionals": ["Kukurka", "Pomidor"],
+    "discount_log": [{
+      "start_date": "2025-07-01",
+      "end_date": "2025-07-31",
+      "percent": 15,
+      "status": "active"
+    }],
+    "stock_log": [{
+      "stock": 100,
+      "mfg_date": "2025-07-01"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Mazali salat",
+    "product_ingredients": "Kukurka, pomidor, kurka go'shti",
+    "nutritional_value": {
+      "kkal": 200,
+      "fat": 10,
+      "protein": 15,
+      "uglevod": 20
+    },
+    "strg_conditions": "Sovuq joyda saqlash"
+  },
+{
+    "_id": "47",
+    "product_name": "Tovuq go'shti",
+    "subcategory": "Salatlar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "175 g",
+    "price": 30000,
+    "expiration": 7,
+    "additionals": ["Kukurka", "Pomidor"],
+    "discount_log": [{
+      "start_date": "2025-07-01",
+      "end_date": "2025-07-31",
+      "percent": 15,
+      "status": "active"
+    }],
+    "stock_log": [{
+      "stock": 100,
+      "mfg_date": "2025-07-01"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Mazali salat",
+    "product_ingredients": "Kukurka, pomidor, kurka go'shti",
+    "nutritional_value": {
+      "kkal": 200,
+      "fat": 10,
+      "protein": 15,
+      "uglevod": 20
+    },
+    "strg_conditions": "Sovuq joyda saqlash"
+  },
+
+
+
+
+
+  {
+  "_id": "48",
+    "product_name": "Sabzavot pishiriq",
+    "subcategory": "Garnirlar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "180 g",
+    "price": 13000,
+    "expiration": 3,
+    "additionals": ["Karam", "Pomidor"],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 60,
+      "mfg_date": "2025-07-28"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Tazalangan sabzavotlardan pishirilgan taom",
+    "product_ingredients": "Karam, pomidor, tuz",
+    "nutritional_value": {
+      "kkal": 45,
+      "fat": 0,
+      "protein": 2,
+      "uglevod": 9
+    },
+    "strg_conditions": "0-5°C da saqlash"
+  },
+  {
+    "_id": "49",
+    "product_name": "Meva salati",
+    "subcategory": "Shirinliklar",
+    "category": "Desertlar",
+    "unit": "gr",
+    "unit_description": "150 g",
+    "price": 12000,
+    "expiration": 2,
+    "additionals": ["Olma", "Qulupnay"],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 40,
+      "mfg_date": "2025-07-29"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Tazalangan mevalardan tayyorlangan salat",
+    "product_ingredients": "Olma, qulupnay, shakar",
+    "nutritional_value": {
+      "kkal": 60,
+      "fat": 0,
+      "protein": 0,
+      "uglevod": 15
+    },
+    "strg_conditions": "0-5°C da saqlash"
+  },
+  {
+    "_id": "50",
+    "product_name": "Qaymoqli desert",
+    "subcategory": "Shirinliklar",
+    "category": "Desertlar",
+    "unit": "gr",
+    "unit_description": "200 g",
+    "price": 16000,
+    "expiration": 3,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 30,
+      "mfg_date": "2025-07-30"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Yengil qaymoqli shirinlik",
+    "product_ingredients": "Qaymoq, shakar",
+    "nutritional_value": {
+      "kkal": 90,
+      "fat": 5,
+      "protein": 2,
+      "uglevod": 10
+    },
+    "strg_conditions": "0-5°C da saqlash"
+  },
+  {
+    "_id": "51",
+    "product_name": "Pishloqli non",
+    "subcategory": "Non mahsulotlari",
+    "category": "Ovqatlar",
+    "unit": "dona",
+    "unit_description": "1 dona",
+    "price": 11000,
+    "expiration": 5,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 50,
+      "mfg_date": "2025-07-28"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Pishloq bilan boyitilgan non",
+    "product_ingredients": "Un, pishloq, suv",
+    "nutritional_value": {
+      "kkal": 150,
+      "fat": 5,
+      "protein": 6,
+      "uglevod": 20
+    },
+    "strg_conditions": "5-10°C da saqlash"
+  },
+  {
+    "_id": "52",
+    "product_name": "Lavash",
+    "subcategory": "Non mahsulotlari",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "200 g",
+    "price": 5000,
+    "expiration": 3,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 100,
+      "mfg_date": "2025-07-29"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Yupqa va mo'l-ko'l lavash",
+    "product_ingredients": "Un, suv, tuz",
+    "nutritional_value": {
+      "kkal": 120,
+      "fat": 1,
+      "protein": 4,
+      "uglevod": 25
+    },
+    "strg_conditions": "5-10°C da saqlash"
+  },
+  {
+    "_id": "53",
+    "product_name": "Tandir non",
+    "subcategory": "Non mahsulotlari",
+    "category": "Ovqatlar",
+    "unit": "dona",
+    "unit_description": "1 dona",
+    "price": 7000,
+    "expiration": 4,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 80,
+      "mfg_date": "2025-07-27"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "An'anaviy tandir noni",
+    "product_ingredients": "Un, suv, tuz",
+    "nutritional_value": {
+      "kkal": 130,
+      "fat": 1,
+      "protein": 4,
+      "uglevod": 27
+    },
+    "strg_conditions": "5-10°C da saqlash"
+  },
+  {
+    "_id": "54",
+    "product_name": "Qora non",
+    "subcategory": "Non mahsulotlari",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "250 g",
+    "price": 6000,
+    "expiration": 5,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 90,
+      "mfg_date": "2025-07-26"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Qora un bilan tayyorlangan non",
+    "product_ingredients": "Qora un, suv, tuz",
+    "nutritional_value": {
+      "kkal": 140,
+      "fat": 2,
+      "protein": 5,
+      "uglevod": 28
+    },
+    "strg_conditions": "5-10°C da saqlash"
+  },
+  {
+    "_id": "55",
+    "product_name": "Chiziq non",
+    "subcategory": "Non mahsulotlari",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "300 g",
+    "price": 8000,
+    "expiration": 4,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 70,
+      "mfg_date": "2025-07-28"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Uzun va yupqa chiziq non",
+    "product_ingredients": "Un, suv, tuz",
+    "nutritional_value": {
+      "kkal": 125,
+      "fat": 1,
+      "protein": 4,
+      "uglevod": 26
+    },
+    "strg_conditions": "5-10°C da saqlash"
+  },
+  {
+    "_id": "56",
+    "product_name": "Sutli non",
+    "subcategory": "Non mahsulotlari",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "200 g",
+    "price": 9000,
+    "expiration": 3,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 60,
+      "mfg_date": "2025-07-29"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Sut bilan tayyorlangan yumshoq non",
+    "product_ingredients": "Un, sut, shakar",
+    "nutritional_value": {
+      "kkal": 160,
+      "fat": 3,
+      "protein": 5,
+      "uglevod": 29
+    },
+    "strg_conditions": "5-10°C da saqlash"
+  },
+  {
+    "_id": "57",
+    "product_name": "Meva kompot miks",
+    "subcategory": "Ichimliklar",
+    "category": "Nushki",
+    "unit": "ml",
+    "unit_description": "600 ml",
+    "price": 10000,
+    "expiration": 30,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 50,
+      "mfg_date": "2025-07-25"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Turli mevalardan tayyorlangan kompot",
+    "product_ingredients": "Olma, uzum, shakar, suv",
+    "nutritional_value": {
+      "kkal": 50,
+      "fat": 0,
+      "protein": 0,
+      "uglevod": 12
+    },
+    "strg_conditions": "5-10°C da saqlash"
+  },
+  {
+    "_id": "58",
+    "product_name": "Yog‘li non",
+    "subcategory": "Non mahsulotlari",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "250 g",
+    "price": 10000,
+    "expiration": 4,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 70,
+      "mfg_date": "2025-07-27"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Yog‘ bilan tayyorlangan mo‘l non",
+    "product_ingredients": "Un, yog‘, suv",
+    "nutritional_value": {
+      "kkal": 180,
+      "fat": 5,
+      "protein": 5,
+      "uglevod": 30
+    },
+    "strg_conditions": "5-10°C da saqlash"
+  },
+  {
+    "_id": "59",
+    "product_name": "Sabzavotli pishiriq",
+    "subcategory": "Garnirlar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "180 g",
+    "price": 13000,
+    "expiration": 3,
+    "additionals": ["Karam", "Piyoz"],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 60,
+      "mfg_date": "2025-07-28"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Sabzavotlardan tayyorlangan pishiriq",
+    "product_ingredients": "Karam, piyoz, tuz",
+    "nutritional_value": {
+      "kkal": 50,
+      "fat": 0,
+      "protein": 2,
+      "uglevod": 10
+    },
+    "strg_conditions": "0-5°C da saqlash"
+  },
+  {
+    "_id": "60",
+    "product_name": "Qatiqli ichimlik",
+    "subcategory": "Ichimliklar",
+    "category": "Sut mahsulotlari",
+    "unit": "ml",
+    "unit_description": "250 ml",
+    "price": 7000,
+    "expiration": 5,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 80,
+      "mfg_date": "2025-07-30"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Yengil qatiqli ichimlik",
+    "product_ingredients": "Qatiq, suv",
+    "nutritional_value": {
+      "kkal": 40,
+      "fat": 2,
+      "protein": 3,
+      "uglevod": 4
+    },
+    "strg_conditions": "0-5°C da saqlash"
+  },
+  {
+    "_id": "61",
+    "product_name": "Meva pyure",
+    "subcategory": "Shirinliklar",
+    "category": "Desertlar",
+    "unit": "gr",
+    "unit_description": "150 g",
+    "price": 8000,
+    "expiration": 2,
+    "additionals": ["Olma"],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 50,
+      "mfg_date": "2025-07-31"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Tazalangan mevalardan tayyorlangan pyure",
+    "product_ingredients": "Olma, shakar",
+    "nutritional_value": {
+      "kkal": 70,
+      "fat": 0,
+      "protein": 0,
+      "uglevod": 17
+    },
+    "strg_conditions": "0-5°C da saqlash"
+  },
+  {
+    "_id": "62",
+    "product_name": "Qaymoqli pishloq",
+    "subcategory": "Sut mahsulotlari",
+    "category": "Sut mahsulotlari",
+    "unit": "gr",
+    "unit_description": "100 g",
+    "price": 12000,
+    "expiration": 10,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 40,
+      "mfg_date": "2025-07-25"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Yumshoq qaymoqli pishloq",
+    "product_ingredients": "Sut, qaymoq, tuz",
+    "nutritional_value": {
+      "kkal": 120,
+      "fat": 7,
+      "protein": 8,
+      "uglevod": 3
+    },
+    "strg_conditions": "0-5°C da saqlash"
+  },
+  {
+    "_id": "63",
+    "product_name": "Sutli shirinlik",
+    "subcategory": "Shirinliklar",
+    "category": "Desertlar",
+    "unit": "gr",
+    "unit_description": "120 g",
+    "price": 9000,
+    "expiration": 4,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 30,
+      "mfg_date": "2025-07-29"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Yengil sutli shirinlik",
+    "product_ingredients": "Sut, shakar",
+    "nutritional_value": {
+      "kkal": 80,
+      "fat": 2,
+      "protein": 3,
+      "uglevod": 14
+    },
+    "strg_conditions": "0-5°C da saqlash"
+  },
+  {
+    "_id": "64",
+    "product_name": "Baliq konservi",
+    "subcategory": "Konservalar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "200 g",
+    "price": 18000,
+    "expiration": 90,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 40,
+      "mfg_date": "2025-06-01"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Tabiiy baliq konservi",
+    "product_ingredients": "Baliq, suv, tuz",
+    "nutritional_value": {
+      "kkal": 150,
+      "fat": 8,
+      "protein": 20,
+      "uglevod": 0
+    },
+    "strg_conditions": "5-20°C da saqlash"
+  },
+  {
+    "_id": "65",
+    "product_name": "Go‘sht konservi",
+    "subcategory": "Konservalar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "250 g",
+    "price": 20000,
+    "expiration": 120,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 50,
+      "mfg_date": "2025-06-05"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Tabiiy go‘sht konservi",
+    "product_ingredients": "Go‘sht, suv, tuz",
+    "nutritional_value": {
+      "kkal": 180,
+      "fat": 10,
+      "protein": 25,
+      "uglevod": 0
+    },
+    "strg_conditions": "5-20°C da saqlash"
+  },
+  {
+    "_id": "66",
+    "product_name": "Sabzavot konservi",
+    "subcategory": "Konservalar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "300 g",
+    "price": 15000,
+    "expiration": 180,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 60,
+      "mfg_date": "2025-06-10"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Turli sabzavotlardan tayyorlangan konservi",
+    "product_ingredients": "Pomidor, karam, tuz",
+    "nutritional_value": {
+      "kkal": 40,
+      "fat": 0,
+      "protein": 2,
+      "uglevod": 8
+    },
+    "strg_conditions": "5-20°C da saqlash"
+  },
+  {
+    "_id": "67",
+    "product_name": "Meva konservi",
+    "subcategory": "Konservalar",
+    "category": "Nushki",
+    "unit": "gr",
+    "unit_description": "250 g",
+    "price": 13000,
+    "expiration": 150,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 40,
+      "mfg_date": "2025-06-15"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Turli mevalardan tayyorlangan konservi",
+    "product_ingredients": "Olma, uzum, shakar",
+    "nutritional_value": {
+      "kkal": 70,
+      "fat": 0,
+      "protein": 0,
+      "uglevod": 17
+    },
+    "strg_conditions": "5-20°C da saqlash"
+  },
+  {
+    "_id": "68",
+    "product_name": "Qaymoqli krem",
+    "subcategory": "Shirinliklar",
+    "category": "Desertlar",
+    "unit": "gr",
+    "unit_description": "150 g",
+    "price": 11000,
+    "expiration": 5,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 30,
+      "mfg_date": "2025-07-30"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Yumshoq qaymoqli krem",
+    "product_ingredients": "Qaymoq, shakar",
+    "nutritional_value": {
+      "kkal": 120,
+      "fat": 8,
+      "protein": 2,
+      "uglevod": 10
+    },
+    "strg_conditions": "0-5°C da saqlash"
+  },
+  {
+    "_id": "69",
+    "product_name": "Sutli puding",
+    "subcategory": "Shirinliklar",
+    "category": "Desertlar",
+    "unit": "gr",
+    "unit_description": "120 g",
+    "price": 10000,
+    "expiration": 4,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 40,
+      "mfg_date": "2025-07-29"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Yengil sutli puding",
+    "product_ingredients": "Sut, shakar, tuz",
+    "nutritional_value": {
+      "kkal": 90,
+      "fat": 3,
+      "protein": 3,
+      "uglevod": 14
+    },
+    "strg_conditions": "0-5°C da saqlash"
+  },
+  {
+    "_id": "70",
+    "product_name": "Qatiqli pishiriq",
+    "subcategory": "Sut mahsulotlari",
+    "category": "Sut mahsulotlari",
+    "unit": "gr",
+    "unit_description": "100 g",
+    "price": 9000,
+    "expiration": 5,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 50,
+      "mfg_date": "2025-07-28"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Qatiq bilan tayyorlangan pishiriq",
+    "product_ingredients": "Qatiq, un, shakar",
+    "nutritional_value": {
+      "kkal": 80,
+      "fat": 2,
+      "protein": 4,
+      "uglevod": 12
+    },
+    "strg_conditions": "0-5°C da saqlash"
+  },
+  {
+    "_id": "71",
+    "product_name": "Meva salatasi",
+    "subcategory": "Shirinliklar",
+    "category": "Desertlar",
+    "unit": "gr",
+    "unit_description": "200 g",
+    "price": 11000,
+    "expiration": 2,
+    "additionals": ["Olma", "Uzum"],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 30,
+      "mfg_date": "2025-07-31"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Tazalangan mevalardan tayyorlangan salat",
+    "product_ingredients": "Olma, uzum, shakar",
+    "nutritional_value": {
+      "kkal": 70,
+      "fat": 0,
+      "protein": 0,
+      "uglevod": 17
+    },
+    "strg_conditions": "0-5°C da saqlash"
+  },
+  {
+    "_id": "72",
+    "product_name": "Qaymoqli non",
+    "subcategory": "Non mahsulotlari",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "150 g",
+    "price": 8000,
+    "expiration": 3,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 60,
+      "mfg_date": "2025-07-30"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Qaymoq bilan tayyorlangan non",
+    "product_ingredients": "Un, qaymoq, suv",
+    "nutritional_value": {
+      "kkal": 170,
+      "fat": 6,
+      "protein": 5,
+      "uglevod": 25
+    },
+    "strg_conditions": "5-10°C da saqlash"
+  },
+  {
+    "_id": "73",
+    "product_name": "Sutli krem",
+    "subcategory": "Shirinliklar",
+    "category": "Desertlar",
+    "unit": "gr",
+    "unit_description": "100 g",
+    "price": 7000,
+    "expiration": 4,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 40,
+      "mfg_date": "2025-07-29"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Yumshoq sutli krem",
+    "product_ingredients": "Sut, shakar",
+    "nutritional_value": {
+      "kkal": 90,
+      "fat": 3,
+      "protein": 2,
+      "uglevod": 13
+    },
+    "strg_conditions": "0-5°C da saqlash"
+  },
+  {
+    "_id": "74",
+    "product_name": "Qizil meva sharbat",
+    "subcategory": "Ichimliklar",
+    "category": "Nushki",
+    "unit": "ml",
+    "unit_description": "300 ml",
+    "price": 6000,
+    "expiration": 20,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 70,
+      "mfg_date": "2025-07-25"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Qizil mevalardan tayyorlangan sharbat",
+    "product_ingredients": "Qulupnay, suv",
+    "nutritional_value": {
+      "kkal": 45,
+      "fat": 0,
+      "protein": 0,
+      "uglevod": 11
+    },
+    "strg_conditions": "5-10°C da saqlash"
+  },
+  {
+    "_id": "75",
+    "product_name": "Yog‘li pishiriq",
+    "subcategory": "Garnirlar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "180 g",
+    "price": 13000,
+    "expiration": 3,
+    "additionals": ["Karam"],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 50,
+      "mfg_date": "2025-07-30"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Yog‘ bilan tayyorlangan pishiriq",
+    "product_ingredients": "Karam, yog‘, tuz",
+    "nutritional_value": {
+      "kkal": 70,
+      "fat": 3,
+      "protein": 2,
+      "uglevod": 10
+    },
+    "strg_conditions": "0-5°C da saqlash"
+  },
+  {
+    "_id": "76",
+    "product_name": "Sutli kokteyl",
+    "subcategory": "Ichimliklar",
+    "category": "Sut mahsulotlari",
+    "unit": "ml",
+    "unit_description": "250 ml",
+    "price": 7000,
+    "expiration": 2,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 60,
+      "mfg_date": "2025-07-31"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Yengil sutli kokteyl",
+    "product_ingredients": "Sut, shakar",
+    "nutritional_value": {
+      "kkal": 80,
+      "fat": 3,
+      "protein": 4,
+      "uglevod": 10
+    },
+    "strg_conditions": "0-5°C da saqlash"
+  },
+  {
+    "_id": "77",
+    "product_name": "Qaymoqli puding",
+    "subcategory": "Shirinliklar",
+    "category": "Desertlar",
+    "unit": "gr",
+    "unit_description": "120 g",
+    "price": 9000,
+    "expiration": 4,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 40,
+      "mfg_date": "2025-07-30"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Yumshoq qaymoqli puding",
+    "product_ingredients": "Qaymoq, shakar, tuz",
+    "nutritional_value": {
+      "kkal": 110,
+      "fat": 6,
+      "protein": 2,
+      "uglevod": 12
+    },
+    "strg_conditions": "0-5°C da saqlash"
+  },
+  {
+    "_id": "78",
+    "product_name": "Meva miks",
+    "subcategory": "Shirinliklar",
+    "category": "Desertlar",
+    "unit": "gr",
+    "unit_description": "200 g",
+    "price": 14000,
+    "expiration": 3,
+    "additionals": ["Olma", "Qulupnay"],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 30,
+      "mfg_date": "2025-07-31"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Turli mevalardan tayyorlangan miks",
+    "product_ingredients": "Olma, qulupnay, shakar",
+    "nutritional_value": {
+      "kkal": 65,
+      "fat": 0,
+      "protein": 0,
+      "uglevod": 16
+    },
+    "strg_conditions": "0-5°C da saqlash"
+  },
+  {
+    "_id": "79",
+    "product_name": "Sabzavot pyure",
+    "subcategory": "Garnirlar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "150 g",
+    "price": 8000,
+    "expiration": 2,
+    "additionals": ["Karam"],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 50,
+      "mfg_date": "2025-07-31"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Yengil sabzavot pyuresi",
+    "product_ingredients": "Karam, tuz, suv",
+    "nutritional_value": {
+      "kkal": 35,
+      "fat": 0,
+      "protein": 1,
+      "uglevod": 8
+    },
+    "strg_conditions": "0-5°C da saqlash"
+  },
+  {
+    "_id": "80",
+    "product_name": "Qatiqli krem",
+    "subcategory": "Sut mahsulotlari",
+    "category": "Sut mahsulotlari",
+    "unit": "gr",
+    "unit_description": "120 g",
+    "price": 10000,
+    "expiration": 5,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 40,
+      "mfg_date": "2025-07-30"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Yumshoq qatiqli krem",
+    "product_ingredients": "Qatiq, shakar",
+    "nutritional_value": {
+      "kkal": 70,
+      "fat": 2,
+      "protein": 3,
+      "uglevod": 10
+    },
+    "strg_conditions": "0-5°C da saqlash"
+  },
+  {
+    "_id": "81",
+    "product_name": "Baliq shorva",
+    "subcategory": "Shorvalar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "250 g",
+    "price": 17000,
+    "expiration": 2,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 30,
+      "mfg_date": "2025-07-31"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Tazalangan baliq shorvasi",
+    "product_ingredients": "Baliq, suv, tuz",
+    "nutritional_value": {
+      "kkal": 90,
+      "fat": 4,
+      "protein": 15,
+      "uglevod": 2
+    },
+    "strg_conditions": "0-5°C da saqlash"
+  },
+  {
+    "_id": "82",
+    "product_name": "Go‘shtli shorva",
+    "subcategory": "Shorvalar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "300 g",
+    "price": 20000,
+    "expiration": 2,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 25,
+      "mfg_date": "2025-07-31"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Tazalangan go‘shtli shorva",
+    "product_ingredients": "Go‘sht, suv, tuz",
+    "nutritional_value": {
+      "kkal": 120,
+      "fat": 6,
+      "protein": 18,
+      "uglevod": 3
+    },
+    "strg_conditions": "0-5°C da saqlash"
+  },
+  {
+    "_id": "83",
+    "product_name": "Sabzavotli shorva",
+    "subcategory": "Shorvalar",
+    "category": "Ovqatlar",
+    "unit": "gr",
+    "unit_description": "200 g",
+    "price": 13000,
+    "expiration": 3,
+    "additionals": ["Karam"],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 40,
+      "mfg_date": "2025-07-30"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Sabzavotlardan tayyorlangan shorva",
+    "product_ingredients": "Karam, suv, tuz",
+    "nutritional_value": {
+      "kkal": 30,
+      "fat": 0,
+      "protein": 1,
+      "uglevod": 6
+    },
+    "strg_conditions": "0-5°C da saqlash"
+  },
+  {
+    "_id": "84",
+    "product_name": "Meva sharbati",
+    "subcategory": "Ichimliklar",
+    "category": "Nushki",
+    "unit": "ml",
+    "unit_description": "400 ml",
+    "price": 8000,
+    "expiration": 20,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 60,
+      "mfg_date": "2025-07-25"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Turli mevalardan tayyorlangan sharbat",
+    "product_ingredients": "Olma, suv",
+    "nutritional_value": {
+      "kkal": 40,
+      "fat": 0,
+      "protein": 0,
+      "uglevod": 10
+    },
+    "strg_conditions": "5-10°C da saqlash"
+  },
+  {
+    "_id": "85",
+    "product_name": "Qaymoqli shirinlik",
+    "subcategory": "Shirinliklar",
+    "category": "Desertlar",
+    "unit": "gr",
+    "unit_description": "150 g",
+    "price": 11000,
+    "expiration": 4,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 30,
+      "mfg_date": "2025-07-30"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Yumshoq qaymoqli shirinlik",
+    "product_ingredients": "Qaymoq, shakar",
+    "nutritional_value": {
+      "kkal": 100,
+      "fat": 6,
+      "protein": 2,
+      "uglevod": 11
+    },
+    "strg_conditions": "0-5°C da saqlash"
+  },
+  {
+    "_id": "86",
+    "product_name": "Sutli pishiriq",
+    "subcategory": "Sut mahsulotlari",
+    "category": "Sut mahsulotlari",
+    "unit": "gr",
+    "unit_description": "100 g",
+    "price": 9000,
+    "expiration": 5,
+    "additionals": [],
+    "discount_log": [],
+    "stock_log": [{
+      "stock": 40,
+      "mfg_date": "2025-07-29"
+    }],
+    "image_log": [{
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }],
+    "product_description": "Yengil sutli pishiriq",
+    "product_ingredients": "Sut, shakar, un",
+    "nutritional_value": {
+      "kkal": 85,
+      "fat": 2,
+      "protein": 3,
+      "uglevod": 14
+    },
+    "strg_conditions": "0-5°C da saqlash"
+  },
+  
+
+
+
+{
+  "_id": "87",
+  "product_name": "Qaynatilgan kartoshka",
+  "subcategory": "Garnirlar",
+  "category": "Ovqatlar",
+  "unit": "gr",
+  "unit_description": "200 g",
+  "price": 9000,
+  "expiration": 3,
+  "additionals": ["Smetana"],
+  "discount_log": [
+    {
+      "start_date": "2025-08-01",
+      "end_date": "2025-08-10",
+      "percent": 5,
+      "status": "active"
+    }
+  ],
+  "stock_log": [
+    {
+      "stock": 60,
+      "mfg_date": "2025-07-30"
+    }
+  ],
+  "image_log": [
+    {
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }
+  ],
+  "product_description": "Yumshoq va mazali qaynatilgan kartoshka.",
+  "product_ingredients": "Kartoshka, tuz, smetana",
+  "nutritional_value": {
+    "kkal": 80,
+    "fat": 0,
+    "protein": 2,
+    "uglevod": 18
+  },
+  "strg_conditions": "Sovuq joyda saqlash"
+},
+{
+  "_id": "88",
+  "product_name": "Qovurilgan baliq",
+  "subcategory": "Baliq ovqatlar",
+  "category": "Ovqatlar",
+  "unit": "gr",
+  "unit_description": "150 g",
+  "price": 22000,
+  "expiration": 2,
+  "additionals": ["Limon"],
+  "discount_log": [],
+  "stock_log": [
+    {
+      "stock": 25,
+      "mfg_date": "2025-07-29"
+    }
+  ],
+  "image_log": [
+    {
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }
+  ],
+  "product_description": "Qovurilgan baliq limon bilan.",
+  "product_ingredients": "Baliq, o‘simlik yog‘i, limon",
+  "nutritional_value": {
+    "kkal": 150,
+    "fat": 7,
+    "protein": 18,
+    "uglevod": 2
+  },
+  "strg_conditions": "0-4°C da saqlash"
+},
+{
+  "_id": "89",
+  "product_name": "Tvorogli pishiriq",
+  "subcategory": "Shirinliklar",
+  "category": "Desertlar",
+  "unit": "dona",
+  "unit_description": "1 dona",
+  "price": 7000,
+  "expiration": 5,
+  "additionals": ["Shakar upasi"],
+  "discount_log": [],
+  "stock_log": [
+    {
+      "stock": 40,
+      "mfg_date": "2025-07-28"
+    }
+  ],
+  "image_log": [
+    {
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }
+  ],
+  "product_description": "Yengil va foydali tvorogli shirinlik.",
+  "product_ingredients": "Tvorog, tuxum, un, shakar",
+  "nutritional_value": {
+    "kkal": 120,
+    "fat": 4,
+    "protein": 6,
+    "uglevod": 16
+  },
+  "strg_conditions": "Sovuq va quruq joyda saqlash"
+},
+{
+  "_id": "90",
+  "product_name": "Qaynatilgan tuxum",
+  "subcategory": "Nonushta",
+  "category": "Ovqatlar",
+  "unit": "dona",
+  "unit_description": "2 dona",
+  "price": 6000,
+  "expiration": 7,
+  "additionals": [],
+  "discount_log": [],
+  "stock_log": [
+    {
+      "stock": 100,
+      "mfg_date": "2025-07-30"
+    }
+  ],
+  "image_log": [
+    {
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }
+  ],
+  "product_description": "Qaynatilgan tovuq tuxumi.",
+  "product_ingredients": "Tuxum, tuz",
+  "nutritional_value": {
+    "kkal": 70,
+    "fat": 5,
+    "protein": 6,
+    "uglevod": 1
+  },
+  "strg_conditions": "Sovuq joyda saqlash"
+},
+{
+  "_id": "91",
+  "product_name": "Qatiqli salat",
+  "subcategory": "Salatlar",
+  "category": "Ovqatlar",
+  "unit": "gr",
+  "unit_description": "120 g",
+  "price": 11000,
+  "expiration": 3,
+  "additionals": ["Qatiq"],
+  "discount_log": [
+    {
+      "start_date": "2025-08-05",
+      "end_date": "2025-08-15",
+      "percent": 10,
+      "status": "active"
+    }
+  ],
+  "stock_log": [
+    {
+      "stock": 35,
+      "mfg_date": "2025-07-30"
+    }
+  ],
+  "image_log": [
+    {
+      "image_url": "https://img1.russianfood.com/dycontent/images_upl/655/big_654066.jpg",
+      "isMain": true
+    }
+  ],
+  "product_description": "Yengil va foydali qatiqli salat.",
+  "product_ingredients": "Bodring, pomidor, qatiq, ko‘katlar",
+  "nutritional_value": {
+    "kkal": 60,
+    "fat": 2,
+    "protein": 3,
+    "uglevod": 8
+  },
+  "strg_conditions": "Sovuq joyda saqlash"
+},
+{
+  "_id": "92",
+  "product_name": "Mevali desert",
+  "subcategory": "Shirinliklar",
+  "category": "Desertlar",
+  "unit": "gr",
+  "unit_description": "150 g",
+  "price": 14000,
+  "expiration": 4,
+  "additionals": ["Yong‘oq"],
+  "discount_log": [],
+  "stock_log": [
+    {
+      "stock": 20,
+      "mfg_date": "2025-07-30"
+    }
+  ],
+  "image_log": [
+    {
+      "image_url": "https://wallhalla.com/thumbs/1",
+      "isMain": true
+    }
+  ],
+  "product_description": "Yangi mevalardan tayyorlangan desert.",
+  "product_ingredients": "Olma, banan, yong‘oq, asal",
+  "nutritional_value": {
+    "kkal": 110,
+    "fat": 3,
+    "protein": 2,
+    "uglevod": 20
+  },
+  "strg_conditions": "Sovuq va quruq joyda saqlash"
+}
+]
