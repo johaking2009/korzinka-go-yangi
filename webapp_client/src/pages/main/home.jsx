@@ -147,6 +147,13 @@ function Home() {
     setChillaScrolledToEnd(el.scrollLeft + el.offsetWidth >= el.scrollWidth - 2);
   };
 
+  useEffect(() => {
+    fetch('http://localhost:8080/api/v1/basic/product/public')
+      .then(res => res.json())
+      .then(data => setProductsState(data))
+      .catch(err => console.error('Mahsulotlarni olishda xatolik:', err));
+  }, []);
+
   return (
     <div className="home">
       {/* Sarlavha va menyular */}
@@ -389,7 +396,7 @@ function Home() {
                       <span className="price original-price">{originalPrice} so'm</span>
                     </>
                   ) : (
-                    <span className="price">{originalPrice} so'm</span>
+                    <span className="nnprice">{originalPrice} so'm</span>
                   )}
                   <h3 className="product-name">{product.product_name || "Noma'lum mahsulot"}</h3>
                   <p className="weight">Og'irligi: {product.unit_description || "Noma'lum"}</p>

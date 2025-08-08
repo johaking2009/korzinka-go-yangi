@@ -1206,7 +1206,7 @@ justify-content: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px; /* Elementlar orasidagi masofani kamaytirish */
+  gap: 5px; 
   width: 100%;
 }
 
@@ -1217,7 +1217,7 @@ justify-content: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0; /* Elementlar orasidagi masofani olib tashlash */
+  gap: 0; 
   width: 100%;
 
   
